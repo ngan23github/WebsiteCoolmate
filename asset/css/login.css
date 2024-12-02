@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+*{
+    font-family: "Roboto";
+    font-size: 18px;
+}
+body{
+    background-color: aqua;
+}
+.group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .image{
+    background-image: url(./../img/dang-nhap.jpg);
+    background-size: cover;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+} */
+.login-form{
+    border: 1px solid #ccc;
+    max-width: (20%,100%,40%); 
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 2%;
+    line-height: 2.0;
+}
+.forget-form{
+    display: block;
+    margin: 10%;
+    width: (20%, 100%, 20%);
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 2%;
+    line-height: 2.0;
+}
+.form-group{
+    width: 100%;
+    position: relative;
+    margin-top:20px;
+}
+.sub-form-group{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.sub1{
+    width: 50%;
+    text-align: left;
+}
+.sub2{
+    width: 50%;
+    text-align: right;
+}
+.form-input{
+    width: 100%;
+    height: 45px;
+    margin-top: 5px;
+    padding: 4px 8px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px;
+}
+.show-btn{
+    position: absolute;
+    right: 15px;
+    top: 75%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+.container #pass:valid ~ .show-btn{
+    display: block;
+}
+.container .show-btn i.hide-btn::before{
+    content: "\f070";
+}
+.submit-button{
+    width: 130px;
+    height: 45px;
+    background-color: #bc0516;
+    color: white;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.submit-button:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.forget-submit{
+    width: 180px;
+    height: 45px;
+    background-color: #bc0516;
+    color: white;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.login-fail{
+    color: #f33a58;
+}
+.modalSuccess {
+    /* lớp phủ mờ */
+    display: none;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal_inner {
+    max-width: (20%, 100%, 50%);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 20px;
+    animation: modalShow 0.5s linear;
+}
+
+.modal_header {
+    width: 100%;
+    height: 150px;
+    background: #e6b217;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+}
+.tick-icon{
+    background-color: #e6b217;
+    width: 130px;
+    height: 130px;
+}
+.modal_body p {
+    text-align: center;
+    font-size: 25px;
+    margin: 10px 0;
+    color: rgb(58, 56, 56);
+    font-family: 'Quicksand';
+    font-weight: bold;
+    padding: 10px;
+}
+.modal_footer {
+    width: auto;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_success {
+    color: #fff;
+    background: #e6b217;
+    width: 250px;
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn_success a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "Quicksand";
+    font-size: 20px;
+    padding: 0;
+    font-weight: bold;
+}
+.btn_success:hover {
+    background-color: #11be45;
+}
+
+.modalSuccess.active {
+    display: block;
+}
+@keyframes modalShow {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}

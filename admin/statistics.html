@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="./css/statistics.css">
+</head>
+<body>
+    <div class="container">
+        <!-- side bar -->
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="./index.html">
+                        <span class="icon"></span>
+                        <span class="title"><h1>COOLMATE</h1></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./index.html">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="title">Tổng Quan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./users.html">
+                        <span class="icon"><i class="fas fa-users"></i></span>
+                        <span class="title">Khách Hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./products.html">
+                        <span class="icon"><i class="fas fa-gifts"></i></span>
+                        <span class="title">Sản Phẩm</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./orders.html">
+                        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="title">Đơn Hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                        <span class="title">Thống Kê</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./login.html">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">Đăng Xuất</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <!-- nav bar -->
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Tìm Kiếm">
+                        <i class="fas fa-search"></i>
+                    </label>
+                </div>
+                <div class="user">
+                    <a href="#"><img src="./img/user.jpg" class="user-pic"></a>
+                </div>
+            </div>
+
+            <!-- Statistic -->
+            <div class="statistics-container">
+                <div class="statistic">
+                    <div class="statistic-header">
+                        <div class="header">
+                            <h2>Thống Kê Tình Hình Kinh Doanh</h2>
+                        </div>
+                        <div class="filter-container">
+                            <div class="filter">
+                                <p>Lọc theo:</p>
+                                <select name="" id="statistic-option">
+                                    <option value="Tất cả">Tất cả</option>
+                                    <option value="Khách hàng">Khách hàng</option>
+                                    <option value="Mặt hàng">Mặt hàng</option>
+                                </select>
+                            </div>
+                            <div class="search-box">
+                                Từ ngày: <input type="date" id="start-date">
+                                Đến ngày: <input type="date" id="end-date">
+                                <button id="search-btn">Tìm Kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="statistic-body">
+                        <!-- Customers -->
+                        <div class="customers">
+                            <div class="customer-header">
+                                <h4>Thống kê khách hàng chi tiết</h4>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Tên Khách Hàng</td>
+                                        <td>Mã Đơn Hàng</td>
+                                        <td>Ngày Đặt Hàng</td>
+                                        <td>Tổng Đơn Hàng</td>
+                                        <td>Chi Tiết</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="customer-list">
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Products -->
+                        <div class="products">
+                            <!-- Chart -->
+                            <div class="chart-container">
+                                <div class="chart-header">
+                                    <h2>BIỂU ĐỒ THỐNG KÊ THEO MÃ SẢN PHẨM</h2>
+                                </div>
+                                <div class="chart-body">
+                                    <div class="chart-serie" style="--i:23.11%;
+                                        --color:#9142df">
+                                        <h3 class="chart-title">23.11%</h3>
+                                    </div>
+                                    <div class="chart-serie" style="--i:17.92%;
+                                        --color:#9142df">
+                                        <h3 class="chart-title">17.92%</h3>
+                                    </div>
+                                    <div class="chart-serie" style="--i:16.98%;
+                                        --color:#9142df">
+                                        <h3 class="chart-title">16.98%</h3>
+                                    </div>
+                                    <div class="chart-serie" style="--i:14.15%;
+                                        --color:#9142df">
+                                        <h3 class="chart-title">14.15%</h3>
+                                    </div>
+                                    <div class="chart-serie" style="--i:9.43%;
+                                        --color:#9142df">
+                                        <h3 class="chart-title">9.43%</h3>
+                                    </div>
+                                    <div class="chart-serie" style="--i:7.55%;
+                                        --color:#9142df">
+                                        <h3 class="chart-title">7.55%</h3>
+                                    </div>
+                                    <div class="chart-serie" style="--i:4.72%;
+                                        --color:#9142df">
+                                        <h3 class="chart-title">4.72%</h3>
+                                    </div>
+                                    <div class="chart-serie" style="--i:3.3%;
+                                        --color:#9142df">
+                                        <h3 class="chart-title">3.3%</h3>
+                                    </div>
+                                    <div class="chart-serie" style="--i:2.83%;
+                                        --color:#9142df">
+                                        <h3 class="chart-title">2.83%</h3>
+                                    </div>
+                                </div>
+                                <ul class="list-bars-name">
+                                    <li><p>237891</p></li>
+                                    <li><p>827348</p></li>
+                                    <li><p>628435</p></li>
+                                    <li><p>283499</p></li>
+                                    <li><p>172392</p></li>
+                                    <li><p>672831</p></li>
+                                    <li><p>789456</p></li>
+                                    <li><p>492748</p></li>
+                                    <li><p>823874</p></li>
+                                </ul>
+                            </div>
+
+                            <!-- Products table -->
+                            <div class="product-header">
+                                <h4>Thống kê mặt hàng chi tiết</h4>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Mã Sản Phẩm</td>
+                                        <td>Tên Sản Phẩm</td>
+                                        <td>Hình Ảnh</td>
+                                        <td>Số Lượng bán ra</td>
+                                        <td>Tổng doanh thu</td>
+                                    </tr>
+                                    <img src="" alt="">
+                                </thead>
+                                <tbody class="product-list">
+
+                                </tbody>
+                                <tfoot class="total-price">
+
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin info -->
+            <div class="sub-menu-wrap">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="./img/user.jpg" alt="">
+                        <div>
+                            <h2>AdminSuper</h2>
+                            <p>Admin Coolmate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Popup -->
+    <div class="order-popup">
+        <div class="bg-shadow"></div>
+        <div class="order-details">
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <div class="order-header">
+                <img class="logo-image" src="./img/logo.png" alt="">
+                <div  class="order-id">
+                    <p>Đơn hàng</p>
+                    <p>#728347</p>
+                </div>
+            </div>
+            <div class="order-body">
+                <div class="user-info">
+                    <div>
+                        <p>Gửi đến:</p>
+                        <p>Nguyễn Văn A</p>
+                        <p>0956958693</p>
+                        <p>365 Hoàng Văn Thụ, Quận 8, TPHCM</p>
+                    </div>
+                    <div>
+                        <p>Gửi từ:</p>
+                        <p>CoolMate Team</p>
+                        <p>0398755742</p>
+                        <p>165 Trần Trọng Cung, Quận 7, TPHCM</p>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Tên Sản Phẩm</td>
+                                <td>Đơn Giá</td>
+                                <td>Số Lượng</td>
+                                <td>Tổng(VND)</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Áo Thun</td>
+                                <td>200000</td>
+                                <td>2</td>
+                                <td>400000</td>
+                            </tr>
+                            <tr>
+                                <td>Áo Sơ Mi</td>
+                                <td>150000</td>
+                                <td>1</td>
+                                <td>150000</td>
+                            </tr>
+                            <tr>
+                                <td>Áo Polo</td>
+                                <td>200000</td>
+                                <td>2</td>
+                                <td>400000</td>
+                            </tr>
+                            <tr>
+                                <td>Áo Sơ Mi</td>
+                                <td>300000</td>
+                                <td>1</td>
+                                <td>300000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="price">
+                    <div class="summary">
+                        <div class="sum-title">
+                            <p>Giá sản phẩm:</p>
+                            <p>Phí vận chuyển:</p>
+                            <p>Tổng hóa đơn:</p>
+                        </div>
+                        <div class="total-price">
+                            <p>1250000</p>
+                            <p>30000</p>
+                            <p>1280000</p>
+                        </div>
+                    </div>
+                </div>
+            <div class="order-foot">
+                <div class="note">
+                    <p><span>Ghi chú: </span>Giao nhanh lên nhé. Em đang cần gấp!!!!!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/statistics.js"></script>
+</body>
+</html>

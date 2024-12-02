@@ -1,0 +1,698 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+.container{
+    position: relative;
+    width: 100%;
+}
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: #003147;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navigation.active{
+    width: 60px;
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+.navigation ul li:hover{
+    background: #03a9f4;
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 20px;
+}
+.navigation ul li:nth-child(1):hover{
+    background: transparent;
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.navigation ul li a .icon .fas{
+    color: #fff;
+    font-size: 24px;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    Left: 300px;
+    min-height: 100vh;
+    background: #f5f5f5;
+    transition: 0.5s;
+}
+.main.active{
+    width: calc(100% - 60px);
+    left: 60px;
+}
+.main .topbar{
+    display: flex;
+    width: 100%;
+    background: #fff;
+    height: 60px;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.toggle .fa-bars{
+    line-height: 60px;
+    font-size: 24px;
+    text-align: center;
+}
+.toggle::before{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #111;
+}
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+.search label{
+    position: relative;
+    width: 100%;
+}
+.search label input{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    outline: none;
+    border: 1px solid rgb(0, 0, 0, 0.2);
+}
+.search label .fas{
+     position: absolute;
+     left: 15px;
+     top: 4px;
+}
+.user{
+    position: relative;
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Sub Menu */
+.sub-menu-wrap{
+    position: absolute;
+    top: 6%;
+    right: 0%;
+    width: 280px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 150px;
+}
+.sub-menu{
+    background: #003147;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #fff;
+    margin: 10px 0;
+}
+@media (max-width: 992px){
+    .navigation{
+        left: -300px;
+    }
+    .navigation.active{
+        left: 0;
+        width: 300px;
+    }
+    .main{
+        width: 100%;
+        left: 0;
+    }
+    .main.active{
+        width: calc(100% - 300px);
+        left: 300px;
+    }
+    .cardBox{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (max-width: 768px){
+    .details{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .cardHeader h2{
+        font-weight: 600;
+        font-size: 18px;
+    }
+}
+@media (max-width: 480px){
+    .cardBox{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .details .recentOrders{
+        overflow-x: auto;
+    }
+    .details .recentOrders table{
+        width: 600px;
+    }
+    .navigation{
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+    .navigation.active{
+        width: 100%;
+        left: 0;
+    }
+    .toggle.active{
+        position: fixed;
+        z-index: 10000;
+        right: 0;
+        left: initial;
+    }
+    .toggle.active .fa-bars::before{
+        color: #fff;
+    }
+    .main,
+    .main.active{
+        width: 100%;
+        left: 0;
+    }
+}
+.user-table{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+.user-table .inside-table{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+}
+.user-table .inside-table .userHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.user-table .inside-table .userHeader .add-product{
+    position: relative;
+    font-size: 18px;
+    padding: 5px 10px;
+    background: #03a9f4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+.user-table .inside-table .userHeader h2{
+    font-size: 30px;
+    font-weight: 600;
+}
+.user-table .inside-table table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.user-table .inside-table table tr{
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+}
+.user-table .inside-table table tr td{
+    padding: 9px 5px;
+}
+.user-table .inside-table table thead td{
+    font-weight: 600;
+}
+.user-table .inside-table table tbody tr:last-child{
+    border-bottom: none;
+}
+.user-table .inside-table table tbody td:nth-child(4),
+.user-table .inside-table table thead td:nth-child(4),
+.user-table .inside-table table tbody td:nth-child(5),
+.user-table .inside-table table thead td:nth-child(5){
+    text-align: center;
+}
+.tools{
+    display: flex;
+    gap: 15px;
+}
+.tools .edit-btn{
+    font-size: 24px;
+    color: #03a9f4;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+}
+.tools .delete-btn{
+    font-size: 24px;
+    color: #f00;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+}
+/* Pagination */
+.listPage{
+    padding: 10px;
+    text-align: center;
+    list-style: none;
+}
+.listPage li{
+    background-color: #ffffffBD;
+    padding: 10px 15px;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.listPage .active{
+    background-color: #B192EF;
+    color: #fff;
+}
+.delete-popup{
+    position: relative;
+    display: none;
+}
+.delete-popup.active{
+    display: block;
+}
+.delete-popup .bg-shadow{
+    position: fixed;
+    top: 0;
+    background: rgb(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+.delete-popup .popup{
+    position: relative;
+    background: #fff;
+    max-width: 30%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    animation: modalShow 0.5s linear;
+}
+.delete-popup .popup .popup-head{
+    padding: 20px;
+    padding-bottom: 0;
+    font-size: 24px;
+    font-weight: 600;
+    position: relative;
+}
+.delete-popup .popup .popup-head .popup-close-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    border: 0;
+    cursor: pointer;
+}
+.delete-popup .popup .popup-head .popup-close-btn:hover{
+    opacity: 0.6;
+}
+.delete-popup .popup .popup-body{
+    padding: 20px;
+    font-size: 18px;
+    line-height: 20px;
+}
+.delete-popup .popup .popup-foot{
+    display: flex;
+}
+.delete-popup .popup .popup-foot .popup-btn{
+    width: 50%;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+.delete-popup .popup .popup-foot .popup-cancel-btn{
+    background: #f00;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+}
+.delete-popup .popup .popup-foot .popup-cancel-btn:hover{
+    opacity: 0.7;
+}
+.delete-popup .popup .popup-foot .popup-confirm-btn{
+    background: #00c06d;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+}
+.delete-popup .popup .popup-foot .popup-confirm-btn:hover{
+    opacity: 0.7;
+}
+@keyframes modalShow {
+    from {
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, 100%);
+        opacity: 1;
+    }
+}
+.add-product-popup{
+    position: relative;
+    display: none;
+}
+.add-product-popup.active{
+    display: block;
+}
+.add-product-popup .bg-shadow{
+    position: fixed;
+    top: 0;
+    background: rgb(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+.add-product-popup .a-p-popup{
+    position: relative;
+    background: #fff;
+    max-width: 700px;
+    width: 100%;
+    left: 50%;
+    padding: 25px;
+    transform: translate(-50%, 10%);
+    border-radius: 8px;
+    animation: modalShow_addButton 0.5s linear;
+}
+.add-product-popup .a-p-popup .a-p-popup-head{
+    padding-bottom: 0;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    text-align: center;
+}
+.add-product-popup .a-p-popup .a-p-popup-close-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    border: 0;
+    cursor: pointer;
+}
+.add-product-popup .a-p-popup .form-add-product{
+    margin-top: 30px;
+}
+.container-img{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.img-area{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(128, 128, 128, 0.163);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #707070;
+}
+.img-area .upload{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 10;
+    height: 125px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: rgb(0, 0, 0, 0.3);
+}
+.img-area .upload i{
+    color: #fff;
+    font-size: 60px;
+}
+.img-area:hover .upload{
+    display: flex;
+}
+.img-area img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* z-index: 100; */
+}
+.add-product-popup .a-p-popup .form-add-product .input-box{
+    width: 100%;
+    margin-top: 20px;
+}
+.add-product-popup .a-p-popup .form-add-product .input-box label{
+    color: #333;
+    font-weight: 600;
+}
+.add-product-popup .a-p-popup .form-add-product .input-box input{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+.add-product-popup .a-p-popup .form-add-product .a-p-group-btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    column-gap: 20px;
+}
+.add-product-popup .a-p-popup .form-add-product .add-p-button button{
+    height: 55px;
+    width: 100px;
+    background: #03a9f4;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.add-product-popup .a-p-popup .form-add-product .add-p-button button:hover{
+    background-color: #037bf4;
+}
+.add-product-popup .a-p-popup .form-add-product .a-p-cancel-button button{
+    height: 55px;
+    width: 100px;
+    background: rgb(255, 0, 0);
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.add-product-popup .a-p-popup .form-add-product .a-p-cancel-button button:hover{
+    background-color: rgba(255, 0, 0, 0.571);
+}
+@keyframes modalShow_addButton {
+    from {
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, 10%);
+        opacity: 1;
+    }
+}
+/* .box-product-img{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 10px;
+} */
+.product-img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+.edit-popup{
+    position: relative;
+    display: none;
+}
+.edit-popup.active{
+    display: block;
+}
+.edit-popup .bg-shadow{
+    position: fixed;
+    top: 0;
+    background: rgb(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+.edit-popup .e-popup{
+    position: relative;
+    background: #fff;
+    max-width: 700px;
+    width: 100%;
+    left: 50%;
+    padding: 25px;
+    transform: translate(-50%, 10%);
+    border-radius: 8px;
+    animation: modalShow_addButton 0.5s linear;
+}
+.edit-popup .e-popup .e-popup-head{
+    padding-bottom: 0;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    text-align: center;
+}
+.edit-popup .e-popup .e-popup-close-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    border: 0;
+    cursor: pointer;
+}
+.edit-popup .e-popup .form-edit-product{
+    margin-top: 30px;
+}
+.edit-popup .e-popup .form-edit-product .input-box{
+    width: 100%;
+    margin-top: 20px;
+}
+.edit-popup .e-popup .form-edit-product .input-box label{
+    color: #333;
+    font-weight: 600;
+}
+.edit-popup .e-popup .form-edit-product .input-box input{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+.edit-popup .e-popup .form-edit-product .e-group-btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    column-gap: 20px;
+}
+.edit-popup .e-popup .form-edit-product .e-button button{
+    height: 55px;
+    width: 100px;
+    background: #03a9f4;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.edit-popup .e-popup .form-edit-product .e-button button:hover{
+    background-color: #037bf4;
+}
+.edit-popup .e-popup .form-edit-product .e-cancel-button button{
+    height: 55px;
+    width: 100px;
+    background: rgb(255, 0, 0);
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.edit-popup .e-popup .form-edit-product .e-cancel-button button:hover{
+    background-color: rgba(255, 0, 0, 0.571);
+}

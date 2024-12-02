@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="./css/products.css">   
+</head>
+<body>
+    <div class="container">
+        <!-- side bar -->
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="./index.html">
+                        <span class="icon"></span>
+                        <span class="title"><h1>COOLMATE</h1></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./index.html">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="title">Tổng Quan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./users.html">
+                        <span class="icon"><i class="fas fa-users"></i></span>
+                        <span class="title">Khách Hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-gifts"></i></span>
+                        <span class="title">Sản Phẩm</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./orders.html">
+                        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="title">Đơn Hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./statistics.html">
+                        <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                        <span class="title">Thống Kê</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./login.html">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">Đăng Xuất</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <!-- nav bar -->
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Tìm Kiếm">
+                        <i class="fas fa-search"></i>
+                    </label>
+                </div>
+                <div class="user">
+                    <a href="#"><img src="./img/user.jpg" class="user-pic"></a>
+                </div>
+            </div>
+
+            <!-- Products table -->
+            <div class="user-table">
+                <div class="inside-table">
+                    <div class="userHeader">
+                        <h2>Danh Sách Sản Phẩm</h2>
+                        <div>
+                            <button class="add-product">Thêm Sản Phẩm</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Mã Sản Phẩm</td>
+                                <td>Tên Sản Phẩm</td>
+                                <td>Hình Ảnh</td>
+                                <td>Số Lượng</td>
+                                <td>Đơn giá(VND)</td>
+                                <td>Chức Năng</td>
+                            </tr>
+                        </thead>
+                        <tbody class="products-list">
+
+                        </tbody>
+                    </table>
+
+                    <ul class="listPage">
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Admin info -->
+            <div class="sub-menu-wrap">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="./img/user.jpg" alt="">
+                        <div>
+                            <h2>AdminSuper</h2>
+                            <p>Admin Coolmate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add product -->
+    <div class="add-product-popup">
+        <div class="bg-shadow"></div>
+        <div class="a-p-popup">
+            <button class="a-p-popup-close-btn"><i class="fas fa-times"></i></button>
+            <div class="a-p-popup-head">
+                <p>Thêm Sản Phẩm Mới</p>
+            </div>
+            <form action="#" class="form-add-product">
+                <div class="container-img">
+                    <div class="img-area">
+                        <label for="imgInput" class="upload">
+                            <input type="file" id="imgInput" hidden>
+                            <i class="fas fa-plus-circle"></i>
+                        </label>
+                        <img src="./img/upload.jpg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label>Mã Sản Phẩm</label>
+                    <input id="product-id" type="text" placeholder="Nhập mã sản phẩm" required>
+                </div>
+                <div class="input-box">
+                    <label>Tên Sản Phẩm</label>
+                    <input id="product-name" type="text" placeholder="Nhập tên sản phẩm" required>
+                </div>
+                <div class="input-box">
+                    <label>Số Lượng</label>
+                    <input id="product-count" type="text" placeholder="Nhập chất liệu" required>
+                </div>
+                <div class="input-box">
+                    <label>Đơn Giá</label>
+                    <input id="product-price" type="text" placeholder="Nhập giá sản phẩm" required>
+                </div>
+                <div class="a-p-group-btn">
+                    <div class="a-p-cancel-button">
+                        <button>Hủy</button>
+                    </div>
+                    <div class="add-p-button">
+                        <button>Thêm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit product -->
+    <div class="edit-popup">
+        <div class="bg-shadow"></div>
+        <div class="e-popup">
+            <button class="e-popup-close-btn"><i class="fas fa-times"></i></button>
+            <div class="e-popup-head">
+                <p>Sửa Thông Tin Sản Phẩm</p>
+            </div>
+            <form action="#" class="form-edit-product">
+                <div class="container-img">
+                    <div class="img-area">
+                        <label for="edit-imgInput" class="upload">
+                            <input type="file" id="edit-imgInput" hidden>
+                            <i class="fas fa-plus-circle"></i>
+                        </label>
+                        <img src="./img/upload.jpg" alt="" class="edit-img">
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label>Mã Sản Phẩm</label>
+                    <input id="edit-product-id" type="text" placeholder="Nhập mã sản phẩm" required>
+                </div>
+                <div class="input-box">
+                    <label>Tên Sản Phẩm</label>
+                    <input id="edit-product-name" type="text" placeholder="Nhập tên sản phẩm" required>
+                </div>
+                <div class="input-box">
+                    <label>Số Lượng</label>
+                    <input id="edit-product-count" type="text" placeholder="Nhập chất liệu" required>
+                </div>
+                <div class="input-box">
+                    <label>Đơn Giá</label>
+                    <input id="edit-product-price" type="text" placeholder="Nhập giá sản phẩm" required>
+                </div>
+                <div class="e-group-btn">
+                    <div class="e-cancel-button">
+                        <button>Hủy</button>
+                    </div>
+                    <div class="e-button">
+                        <button>Cập Nhật</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Delete product -->
+    <div class="delete-popup">
+        <div class="bg-shadow"></div>
+        <div class="popup">
+            <div class="popup-head">
+                <p>Bạn có chắc chắn muốn xóa sản phẩm?</p>
+                <button class="popup-close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="popup-body">
+                <p>Nếu xóa sản phẩm, bạn sẽ không thể tiếp tục sử dụng sản phẩm đã xóa.</p>
+            </div>
+            <div class="popup-foot">
+                <button class="popup-btn popup-cancel-btn">Hủy</button>
+                <button class="popup-btn popup-confirm-btn">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/products.js"></script>
+</body>
+</html>

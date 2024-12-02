@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form id="form" action="">
+            <h1>ĐĂNG NHẬP</h1>
+            <div class="input-box user-box">
+                <input id="login-name" type="text" autocomplete="off" placeholder="Nhập tên đăng nhập" required>
+                <i id="user-icon" class="fas fa-user"></i>
+                <span class="invalid-user">Vui lòng nhập tên đăng nhập</span>
+            </div>
+            <div class="input-box pass-box">
+                <input id="login-pass" type="password" placeholder="Nhập mật khẩu" required>
+                <i id="pass-icon" class="fas fa-lock"></i>
+                <span class="invalid-pass">Vui lòng nhập mật khẩu</span>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Ghi nhớ mật khẩu</label>
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+            <button type="submit" class="btn">Đăng Nhập</button>
+        </form>
+    </div>
+
+    <script src="./js/login.js"></script>
+</body>
+</html>

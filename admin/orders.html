@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="./css/orders.css">
+</head>
+<body>
+    <div class="container">
+        <!-- side bar -->
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="./index.html">
+                        <span class="icon"></span>
+                        <span class="title"><h1>COOLMATE</h1></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./index.html">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="title">Tổng Quan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./users.html">
+                        <span class="icon"><i class="fas fa-users"></i></span>
+                        <span class="title">Khách Hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./products.html">
+                        <span class="icon"><i class="fas fa-gifts"></i></span>
+                        <span class="title">Sản Phẩm</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="title">Đơn Hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./statistics.html">
+                        <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                        <span class="title">Thống Kê</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./login.html">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">Đăng Xuất</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <!-- nav bar -->
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Tìm Kiếm">
+                        <i class="fas fa-search"></i>
+                    </label>
+                </div>
+                <div class="user">
+                    <a href="#"><img src="./img/user.jpg" class="user-pic"></a>
+                </div>
+            </div>
+
+            <!-- Orders table -->
+            <div class="user-table">
+                <div class="inside-table">
+                    <div class="userHeader">
+                        <h2>Danh Sách Đơn Hàng</h2>
+                        <div class="search-box">
+                            Từ ngày: <input type="date" id="start-date">
+                            Đến ngày: <input type="date" id="end-date">
+                            <button id="search-btn">Tìm Kiếm</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Mã Đơn Hàng</td>
+                                <td>Tên Khách Hàng</td>
+                                <td>Tổng Đơn Hàng</td>
+                                <td>Ngày Đặt Hàng</td>
+                                <td>Quận<span class="unSort"><i class="fas fa-arrow-circle-up"></i></span></td>
+                                <td class="select-status">
+                                    <select name="" id="deliver-status">
+                                        <option value="Tình trạng">Tình trạng</option>
+                                        <option value="Chưa xử lý">Chưa xử lý</option>
+                                        <option value="Đang giao hàng">Đang giao hàng</option>
+                                        <option value="Thành công">Thành công</option>
+                                        <option value="Đã hủy">Đã hủy</option>
+                                    </select>
+                                </td>
+                                <td>Chi Tiết</td>
+                            </tr>
+                        </thead>
+                        <tbody class="order-table">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Admin info -->
+            <div class="sub-menu-wrap">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="./img/user.jpg" alt="">
+                        <div>
+                            <h2>adminSuper</h2>
+                            <p>Admin Coolmate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Order popup -->
+    <div class="order-popup">
+        <div class="bg-shadow"></div>
+        <div class="order-details">
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <div class="order-header">
+                <img class="logo-image" src="./img/logo.png" alt="">
+                <div  class="order-id">
+                    <p>Đơn hàng</p>
+                    <p>#912873</p>
+                </div>
+            </div>
+            <div class="order-body">
+                <div class="user-info">
+                    <div>
+                        <p>Gửi đến:</p>
+                        <p>Nguyễn Văn A</p>
+                        <p>0956958693</p>
+                        <p>365 Hoàng Văn Thụ, Quận 8, TPHCM</p>
+                    </div>
+                    <div>
+                        <p>Gửi từ:</p>
+                        <p>CoolMate Team</p>
+                        <p>0398755742</p>
+                        <p>165 Trần Trọng Cung, Quận 7, TPHCM</p>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Tên Sản Phẩm</td>
+                                <td>Đơn Giá</td>
+                                <td>Số Lượng</td>
+                                <td>Tổng(VND)</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Áo Thun</td>
+                                <td>200000</td>
+                                <td>2</td>
+                                <td>400000</td>
+                            </tr>
+                            <tr>
+                                <td>Áo Sơ Mi</td>
+                                <td>150000</td>
+                                <td>1</td>
+                                <td>150000</td>
+                            </tr>
+                            <tr>
+                                <td>Áo Polo</td>
+                                <td>200000</td>
+                                <td>2</td>
+                                <td>400000</td>
+                            </tr>
+                            <tr>
+                                <td>Áo Sơ Mi</td>
+                                <td>300000</td>
+                                <td>1</td>
+                                <td>300000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="price">
+                    <div class="summary">
+                        <div class="sum-title">
+                            <p>Giá sản phẩm:</p>
+                            <p>Phí vận chuyển:</p>
+                            <p>Tổng hóa đơn:</p>
+                        </div>
+                        <div class="total-price">
+                            <p>1250000</p>
+                            <p>30000</p>
+                            <p>1280000</p>
+                        </div>
+                    </div>
+                </div>
+            <div class="order-foot">
+                <div class="note">
+                    <p><span>Ghi chú: </span>Giao nhanh lên nhé. Em đang cần gấp!!!!!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/orders.js"></script>
+</body>
+</html>

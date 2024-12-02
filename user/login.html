@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../asset/css/Signup.css">
+    <link rel="stylesheet" href="../asset/css/login.css">
+    <script>
+      src="https://kit.fontawesome.com/b05105b352.js"
+      crossorigin="anonymous"
+    </script>
+    <title>Tài khoản</title>
+  </head>
+  <body>
+    <!-- <header>
+      <div class="logo">
+        <img src="img/logo.png" alt="logo" />
+      </div>
+
+      <div class="menu">
+        <li class="list-item">
+          <a href="">NỮ</a>
+          <ul class="sub-menu">
+            <li class="sub-list-item"><a href="">Hàng mới về</a></li>
+            <li class="sub-list-item"><a href="">Colection</a></li>
+            <li class="sub-list-item">
+              <a href="">Áo</a>
+              <ul>
+                <li><a href="">Áo sơ mi</a></li>
+                <li><a href="">Áo thun</a></li>
+                <li><a href="">Áo vest</a></li>
+                <li><a href="">Áo khoác</a></li>
+                <li><a href="">Áo len</a></li>
+              </ul>
+            </li>
+            <li class="sub-list-item">
+              <a href="">Quần</a>
+              <ul>
+                <li><a href="">Quần Jean</a></li>
+                <li><a href="">Quần dài</a></li>
+                <li><a href="">Quần lửng</a></li>
+              </ul>
+            </li>
+            <li class="sub-list-item">
+              <a href="">Váy</a>
+              <ul>
+                <li><a href="">Váy dài</a></li>
+                <li><a href="">Váy ngắn</a></li>
+                <li><a href="">Váy suông</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="list-item"><a href="">NAM</a></li>
+        <li class="list-item"><a href="">TRẺ EM</a></li>
+        <li class="list-item"><a href="" style="color: red">FLASH SALE</a></li>
+        <li class="list-item"><a href="">BỘ SƯU TẬP</a></li>
+        <li class="list-item"><a href="">TIN TỨC</a></li>
+        <li class="list-item"><a href="">THÔNG TIN</a></li>
+      </div>
+
+      <div class="others">
+        <li>
+          <input placeholder="Tìm Kiếm" type="text" /><i
+            class="fa fa-search"
+          ></i>
+        </li>
+        <li><i class="fa fa-paw"></i></li>
+        <li><i class="fa fa-user"></i></li>
+        <li><i class="fa fa-shopping-bag"></i></li>
+      </div>
+    </header> -->
+    <!-----------------Đăng nhập------------------->
+      <div class="group image">
+
+        <div class="login-form container">
+            <div class="">
+                <h3 class="sign-up-header">ĐĂNG NHẬP</h3>
+                <p>Trở thành thành viên của 360 Boutique <a href="./signup.html"><span style="color: blue;">Đăng ký ngay</span></a></p>
+                <form action="" method="post" class="form" id="login">
+                    <div class="form-group input-box">
+                        <label for="user">
+                          <b>Tên đăng nhập <span style="color: red;">&#42</span></b>
+                        </label>
+                        <input class="form-input form-control" name="user" id="user" type="text" placeholder="Nhập tên đăng nhập của bạn" required>
+                        <span class="invalid-message"></span>
+                    </div>
+                    <div class="form-group input-box">
+                        <label for="pass">
+                            <b>Mật khẩu <span style="color: red;">&#42</span></b>
+                        </label>
+                        <input class="form-input form-control" name="pass" id="pass" type="password" placeholder="Nhập mật khẩu" required>
+                        <span class="show-btn"><i class="fas fa-eye"></i></span>
+                        <span class="invalid-message"></span><br>
+                    </div>
+                    <div class="sub-form-group">
+                      <div class="sub1">
+                        <input type="checkbox" name="" id="remember">
+                        <label for="remember"><b>Ghi nhớ mật khẩu</b></label>
+                      </div>
+                    </div>
+                    <button type="submit" class="submit-button form-group">ĐĂNG NHẬP</button>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="modalSuccess"></div>
+      
+
+    <!-- <section class="app-container">
+        <p>Tải ứng dụng</p>
+        <div class="app-google">
+            <img src="img/appstore.png" alt="" />
+            <img src="img/googleplay.png" alt="" />
+        </div>
+        <p>Nhận bản tin của chúng tôi</p>
+        <input type="text" placeholder="Nhập địa chỉ email của bạn..." />
+    </section>
+
+    <div class="footer-top">
+        <li>
+            <a href=""><img src="img/Logo-thong-bao-mau-xanh.png" alt="" /></a>
+        </li>
+        <li><a href="">Liên hệ</a></li>
+        <li><a href="">Tuyển dụng</a></li>
+        <li><a href="">Giới thiệu</a></li>
+        <li>
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </li>
+    </div>
+    <div class="footer-center">
+        <p>
+            SGU 273 An Dương Vương, Phường 3, Quận 5, Tp Hồ Chí Minh<br />
+            Hotline: <b>0973 285 886 </b> <br />
+            Email: 360boutique.vn@gmail.com <br />
+            GPKD: <b>0107756568 </b>
+        </p>
+        <img src="./img/dau_tick (2).png" alt="">
+    </div> -->
+
+    <script src="../asset/js/validator.js"></script>
+    <script>
+      let userList = JSON.parse(localStorage.getItem('userList'));
+      console.log(userList);
+      const showUp = [{
+        // Đăng nhập thành công
+        image: './img/dau_tick (2).png',
+        announce: 'Tài khoản của bạn đã đăng nhập thành công',
+        new_page: './index.html',
+        mess: 'Bắt đầu ngay thôi nào'
+      },{
+        // Đăng nhập thất bại
+        image: './img/dau_X.PNG',
+        announce: 'Bạn đã nhập sai tên đăng nhập hoặc mật khẩu',
+        new_page: '',
+        mess: 'Vui lòng nhập lại'
+      }];
+      Validator_login({
+          form: '#login',
+          rules: [
+              Validator_login.isRequired('#user', 'Vui lòng nhập tên đăng nhập'),
+              Validator_login.isRequired('#pass', 'Vui lòng nhập mật khẩu')
+          ],
+          onSubmit: function (data) {
+              console.log (data);
+              let check = false;
+              for(let i=0; i<userList.length; i++){
+                if(userList[i].name === data.user && userList[i].password === data.pass){
+                  check = true;
+                }
+              }
+              if(check){
+                announcement(showUp[0]);
+              }else{
+                announcement(showUp[1]);
+              }
+              document.querySelector('.form-input').value = '';
+          }
+      });
+    </script>
+  </body>
+</html>

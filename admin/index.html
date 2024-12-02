@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- side bar -->
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"></span>
+                        <span class="title"><h1>COOLMATE</h1></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="title">Tổng Quan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./users.html">
+                        <span class="icon"><i class="fas fa-users"></i></span>
+                        <span class="title">Khách Hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./products.html">
+                        <span class="icon"><i class="fas fa-gifts"></i></span>
+                        <span class="title">Sản Phẩm</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./orders.html">
+                        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="title">Đơn Hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./statistics.html">
+                        <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                        <span class="title">Thống Kê</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./login.html">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">Đăng Xuất</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <!-- nav bar -->
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Tìm Kiếm">
+                        <i class="fas fa-search"></i>
+                    </label>
+                </div>
+                <div class="user">
+                    <a href="#"><img src="./img/user.jpg" class="user-pic"></a>
+                </div>
+            </div>
+            
+            <!-- Statistics box -->
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">12,643</div>
+                        <div class="cardName">Lượt Truy Cập</div>
+                    </div>
+                    <div class="iconBox">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">689</div>
+                        <div class="cardName">Khách Hàng</div>
+                    </div>
+                    <div class="iconBox">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">875</div>
+                        <div class="cardName">Đơn Đặt Hàng</div>
+                    </div>
+                    <div class="iconBox">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">390.075.000</div>
+                        <div class="cardName">Doanh Thu</div>
+                    </div>
+                    <div class="iconBox">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin info -->
+            <div class="sub-menu-wrap">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="./img/user.jpg" alt="">
+                        <div>
+                            <h2>adminSuper</h2>
+                            <p>Admin Coolmate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overall table -->
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Đơn Hàng Gần Đây</h2>
+                        <a href="./orders.html" class="btn">Xem Tất Cả</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Mã Đơn Hàng</td>
+                                <td>Tổng(VND)</td>
+                                <td>Tình Trạng Đơn Hàng</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>912873</td>
+                                <td>1280000</td>
+                                <td><span class="status delivered">Thành công</span></td>
+                            </tr>
+                            <tr>
+                                <td>882948</td>
+                                <td>1000000</td>
+                                <td><span class="status pending">Chưa xử lý</span></td>
+                            </tr>
+                            <tr>
+                                <td>234738</td>
+                                <td>450000</td>
+                                <td><span class="status return">Đã hủy</span></td>
+                            </tr>
+                            <tr>
+                                <td>723791</td>
+                                <td>600000</td>
+                                <td><span class="status inprogress">Đang giao hàng</span></td>
+                            </tr>
+                            <tr>
+                                <td>123929</td>
+                                <td>200000</td>
+                                <td><span class="status delivered">Thành công</span></td>
+                            </tr>
+                            <tr>
+                                <td>643823</td>
+                                <td>500000</td>
+                                <td><span class="status pending">Chưa xử lý</span></td>
+                            </tr>
+                            <tr>
+                                <td>239493</td>
+                                <td>350000</td>
+                                <td><span class="status return">Đã hủy</span></td>
+                            </tr>
+                            <tr>
+                                <td>873827</td>
+                                <td>700000</td>
+                                <td><span class="status inprogress">Đang giao hàng</span></td>
+                            </tr>
+                            <tr>
+                                <td>299310</td>
+                                <td>300000</td>
+                                <td><span class="status delivered">Thành công</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="recentCustomers">
+                    <div class="cardHeader">
+                        <h2>Khách Hàng Gần Đây</h2>
+                    </div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td width="60px"><div class="imgBx"><img src="./img/logo-an-danh.jpg" alt=""></div></td>
+                                <td><h4>bob_smith</h4></td>
+                            </tr>
+                            <tr>
+                                <td width="60px"><div class="imgBx"><img src="./img/logo-an-danh.jpg" alt=""></div></td>
+                                <td><h4>david_lee</h4></td>
+                            </tr>
+                            <tr>
+                                <td width="60px"><div class="imgBx"><img src="./img/logo-an-danh.jpg" alt=""></div></td>
+                                <td><h4>grace_martin</h4></td>
+                            </tr>
+                            <tr>
+                                <td width="60px"><div class="imgBx"><img src="./img/logo-an-danh.jpg" alt=""></div></td>
+                                <td><h4>alice_wang</h4></td>
+                            </tr>
+                            <tr>
+                                <td width="60px"><div class="imgBx"><img src="./img/logo-an-danh.jpg" alt=""></div></td>
+                                <td><h4>henry_wilson</h4></td>
+                            </tr>
+                            <tr>
+                                <td width="60px"><div class="imgBx"><img src="./img/logo-an-danh.jpg" alt=""></div></td>
+                                <td><h4>hello89hihi</h4></td>
+                            </tr>
+                            <tr>
+                                <td width="60px"><div class="imgBx"><img src="./img/logo-an-danh.jpg" alt=""></div></td>
+                                <td><h4>frank_harris</h4></td>
+                            </tr>
+                            <tr>
+                                <td width="60px"><div class="imgBx"><img src="./img/logo-an-danh.jpg" alt=""></div></td>
+                                <td><h4>carol_jones</h4></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
