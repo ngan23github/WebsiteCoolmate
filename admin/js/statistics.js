@@ -50,8 +50,8 @@ let products = [{
     productPrice: 400000
 },{
     productId: '672831',
-    productName: 'Áo thun Marvel',
-    productImage: './img/2484.ULSMV.TSZ705__CLASSICVENOM_1_DEN.png',
+    productName: 'Áo thun Stitch',
+    productImage: './img/stitchbeach2.jpg',
     productAmount: 80,
     productPrice: 220000
 },{

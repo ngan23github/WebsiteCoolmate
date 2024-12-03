@@ -28,8 +28,8 @@ userPic.addEventListener('click', ()=>{
 let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) :
 [{
     productId: 'SP672831',
-    productName: 'Áo thun Marvel',
-    productImage: './img/2484.ULSMV.TSZ705__CLASSICVENOM_1_DEN.png',
+    productName: 'Áo thun Stitch',
+    productImage: './img/stitchbeach2.jpg',
     productCount: '384',
     productPrice: '220000',
     productStatus: 'true'

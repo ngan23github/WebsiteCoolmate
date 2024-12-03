@@ -1,7 +1,7 @@
 // Login info
 const admin = {
     user: 'adminSuper',
-    pass: '123456789'
+    pass: '999999999'
 };
 
 // Check if isLoginned
