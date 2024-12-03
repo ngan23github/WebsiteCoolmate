@@ -301,6 +301,15 @@ body{
 .user-table .inside-table table thead td:nth-child(5){
     text-align: center;
 }
+.user-table .inside-table table tbody tr:hover{
+    background: rgb(0, 0, 0, 0.1);
+}
+.user-table .inside-table table tbody tr:hover .edit-btn{
+    background: rgba(0, 0, 0, 0.001);
+}
+.user-table .inside-table table tbody tr:hover .delete-btn{
+    background: rgb(0, 0, 0, 0.001);
+}
 .tools{
     display: flex;
     gap: 15px;
@@ -355,7 +364,7 @@ body{
     background: #fff;
     max-width: 30%;
     left: 50%;
-    transform: translate(-50%, 100%);
+    transform: translate(-50%, 80%);
     animation: modalShow 0.5s linear;
 }
 .delete-popup .popup .popup-head{
@@ -416,7 +425,7 @@ body{
     }
 
     to {
-        transform: translate(-50%, 100%);
+        transform: translate(-50%, 80%);
         opacity: 1;
     }
 }

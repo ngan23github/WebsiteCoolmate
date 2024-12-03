@@ -340,6 +340,9 @@ body{
 .products table tbody td:nth-child(5){
     text-align: center;
 }
+.products table tbody tr:hover{
+    background: rgb(0, 0, 0, 0.1);
+}
 .products table tfoot tr{
     border-bottom: none;
 }
@@ -384,6 +387,12 @@ body{
 .customers table thead td:nth-child(4),
 .customers table tbody td:nth-child(4){
     text-align: center;
+}
+.customers table tbody tr:hover{
+    background: rgb(0, 0, 0, 0.1);
+}
+.customers table tbody tr:hover .detail{
+    background: rgb(0, 0, 0, 0.001);
 }
 .detail{
     font-size: 24px;

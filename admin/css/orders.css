@@ -339,6 +339,12 @@ body{
 .user-table .inside-table table thead span i.reverse::before{
     content: "\f0ab";
 }
+.user-table .inside-table table tbody tr:hover{
+    background: rgb(0, 0, 0, 0.1);
+}
+.user-table .inside-table table tbody tr:hover .detail{
+    background: rgba(0, 0, 0, 0.001);
+}
 .detail{
     font-size: 24px;
     color: #03a9f4;
