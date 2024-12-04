@@ -357,7 +357,7 @@
     <script src="./asset/js/validator.js"></script>
     <script>  renderProducts();
         load();
-
+        Search();
     </script>
 
     <script>
@@ -447,12 +447,6 @@
             closeModal.addEventListener('click', () => {
                 modal.style.display = 'none';
             });
-
-            // Đóng modal khi click vào nút "Đóng"
-            closeButton.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
-
             // Chuyển hướng đến trang đăng nhập khi click vào nút "Đăng Nhập"
             loginButton.addEventListener('click', () => {
                 window.location.href = './login.html';
@@ -466,25 +460,25 @@
             });
         });
 
-        console.log(document.querySelector('.show-signup').style);
+
         user = JSON.parse(localStorage.getItem('user'));
+        console.log("user nè");
+        console.log(user);
         if (user != null) {
             document.querySelector('.show-signup').style.display = 'none';
             document.querySelector('.ac').style.display = '';
             setcart();
         }
-        const logoutButton = document.getElementById("logout");
+        // const logoutButton = document.getElementById("logout");
+        // console.log(logoutButton);
+        // logoutButton.addEventListener('click', function () {
+        //     console.log("đăng xuất");
+        //     localStorage.setItem('user', JSON.stringify(null));
 
-        logoutButton.addEventListener('click', function () {
-            // Xóa thông tin người dùng trong localStorage
-            localStorage.setItem('user', JSON.stringify(null));
-            // // Hiển thị lại form đăng ký
-            // document.querySelector('.show-signup').style.display = '';
-            // // Ẩn thông tin tài khoản
-            document.querySelector('.ac').style.display = 'none';
-            document.querySelector('.header-account').style.display = "";
-            console.log(document.querySelector('.header-account').style);
-        });
+        //     document.querySelector('.ac').style.display = 'none';
+        //     document.querySelector('.header-account').style.display = "";
+        //     console.log(document.querySelector('.header-account').style);
+        // });
 
         Validator({
             form: '#form-1',
@@ -511,7 +505,7 @@
                 document.querySelector('.r-js').style.display = 'none';
                 console.log("Đăng ký thành công");
                 localStorage.setItem('userList', JSON.stringify(userList));
-                console.log(JSON.parse(localStorage.getItem('userList')));
+                console.log(JSON.parse(localStorage.getItefm('userList')));
                 document.querySelector('.s-js').style.display = 'flex';
 
             }

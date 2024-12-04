@@ -391,13 +391,8 @@ function load() {
 
   console.log("đg load");
   clickproduct();
-  chonsize();
-  Themslsp();
-  GiamSLSP();
   setcart();
   clickSearch();
-  addcart();
-  PhanTrang();
   clickaccount();
   // let url = new URL(window.location.href);
   // console.log(`url hiện tại: ${url}`)
@@ -608,14 +603,30 @@ function clickaccount() {
 
   document.getElementById("logout").addEventListener("click", function (e) {
     // e.preventDefault();
-    // Xóa thông tin người dùng (nếu sử dụng localStorage/sessionStorage)
     localStorage.removeItem("user");
     // Chuyển hướng đến trang đăng nhập
-    document.querySelector(".header-account").style.display = "none";
+    document.querySelector(".ac").style.display = "none";
     document.querySelector(".show-signup").style.display = "";
-    setcart();
-
   });
 
 
+}
+
+//tìm kiếm sp
+function Search() {
+  document.querySelector(".sb-button").addEventListener(("click"), function () {
+    console.log("click tìm kiếm nè");
+    pathname = window.location.pathname;
+    const currentUrl = window.location.href;
+    if (pathname.includes('user')) {
+      window.location.assign('./Search.html');
+    }
+    else if (currentUrl.includes('Search.html')) {
+      console.log("có nè");
+      window.location.reload();
+    }
+    else {
+      window.location.assign('./user/Search.html');
+    }
+  })
 }

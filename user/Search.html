@@ -31,7 +31,7 @@
                     <div class="d-none d-md-flex justify-content-center">
                         <ul class="nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Trang chủ</a>
+                                <a class="nav-link" href="./../index.html">Trang chủ</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Sản phẩm</a>
@@ -150,76 +150,7 @@
         </div>
     </header>
 
-    <!-- CSS -->
-    <style>
 
-    </style>
-
-
-
-    <!-- Slideshow Section -->
-    <section>
-        <div id="slideshowExample" class="carousel slide" data-bs-ride="carousel">
-            <!-- Indicators -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#slideshowExample" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#slideshowExample" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#slideshowExample" data-bs-slide-to="2"></button>
-            </div>
-
-            <!-- Slides -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./../asset/image/LDP_Ban_hang_-_Desktop_BG.webp" class="d-block w-100" alt="Slide 1">
-                    <div class="carousel-caption">
-
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./../asset/image/baner2.jpeg" class="d-block w-100" alt="Slide 2">
-                    <div class="carousel-caption">
-
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./../asset/image/baner3.jpeg" class="d-block w-100" alt="Slide 3">
-                    <div class="carousel-caption">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#slideshowExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#slideshowExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </section>
-
-    <section>
-        <div class="container mt-5">
-            <!-- Row chứa các nút -->
-            <div class="row g-3 gap-3">
-                <div class="col">
-                    <button class="btn btn-dark active border btn-dm w-100" id="btn-all" data-type="all">Tất cả</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-light border w-100 btn-dm" id="btn-tshirt" data-type="aothun">Áo
-                        thun</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-light border w-100 btn-dm" id="btn-polo" data-type="polo">Áo polo</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-light border w-100 btn-dm" id="btn-shirt" data-type="shirt">Áo sơ mi</button>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Hiện các  thông báo -->
 
     <div class="body-signup r-js" style="display: none;">
@@ -336,7 +267,17 @@
 
 
 
+    <div class="search-results-section" style="margin-top: 120px;">
+        <div class="container">
+            <div class="search-header text-center my-4">
+                <h2 class="search-title">Kết quả tìm kiếm cho: "<span id="search-keyword">Áo cotton</span>"</h2>
+            </div>
+            <div id="search-list" class="row">
+                <!-- Kết quả tìm kiếm sẽ được thêm động tại đây -->
+            </div>
 
+        </div>
+    </div>
     <!-- Hiện sản phẩm -->
     <div class="container mt-5">
         <div class="row" id="product-list">
@@ -353,10 +294,10 @@
 
     <script src="./../vendor/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <script src="./../asset/js/dssp.js"></script>
-    <script src="./../asset/js/show-product.js"></script>
+    <!-- <script src="./../asset/js/show-product.js"></script> -->
     <script src="./../asset/js/script.js"></script>
     <script src="./../asset/js/validator.js"></script>
-    <script>  renderProducts();
+    <script>
         load();
 
     </script>
@@ -402,25 +343,25 @@
 
         }
         clickSearch();
-        document.querySelectorAll('.btn-dm').forEach(button => {
-            button.addEventListener('click', function () {
-                // Xóa active và nền đen cho tất cả các nút
-                document.querySelectorAll('.btn-dm').forEach(btn => {
-                    btn.classList.remove('active', 'btn-dark');
-                    btn.classList.add('btn-light');
-                });
+        // document.querySelectorAll('.btn-dm').forEach(button => {
+        //     button.addEventListener('click', function () {
+        //         // Xóa active và nền đen cho tất cả các nút
+        //         document.querySelectorAll('.btn-dm').forEach(btn => {
+        //             btn.classList.remove('active', 'btn-dark');
+        //             btn.classList.add('btn-light');
+        //         });
 
-                // Thêm active và nền đen cho nút được click
-                this.classList.add('active', 'btn-dark');
-                this.classList.remove('btn-light');
+        //         // Thêm active và nền đen cho nút được click
+        //         this.classList.add('active', 'btn-dark');
+        //         this.classList.remove('btn-light');
 
-                // Gọi renderProducts với loại được chọn
-                const selectedType = this.getAttribute('data-type');
-                currentPage = 1;
-                renderProducts(selectedType);
+        //         // Gọi renderProducts với loại được chọn
+        //         const selectedType = this.getAttribute('data-type');
+        //         currentPage = 1;
+        //         renderProducts(selectedType);
 
-            });
-        });
+        //     });
+        // });
 
     </script>
     <script>
@@ -574,7 +515,186 @@
 
 
     </script>
+    <script>
+        let currentPage = 1; // Trang hiện tại
+        const productsPerPage = 9; // Số sản phẩm mỗi trang
+        // Hienthi();
+        // Hàm để render sản phẩm
+        function Hienthi(activeType = 'all') {
+            const pathname = window.location.pathname;
+            const isUserPath = pathname.includes('user'); // Kiểm tra đường dẫn
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = ''; // Xóa nội dung cũ
 
+            // Lọc sản phẩm theo loại
+            const filteredProducts = activeType === 'all'
+                ? Searchs
+                : Searchs.filter(product => product.type.includes(activeType));
+            console.log("test search");
+            console.log(Searchs);
+            // Tính toán giới hạn sản phẩm hiển thị
+            const startIndex = (currentPage - 1) * productsPerPage;
+            const endIndex = startIndex + productsPerPage;
+            const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+            console.log(paginatedProducts);
+            // Hiển thị sản phẩm
+            paginatedProducts.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('col-xl-4', 'col-lg-4', 'col-md-6', 'col-sm-6');
+                const imagePath = isUserPath
+                    ? `./../${product.img[0]}`
+                    : product.img[0];
+
+                productElement.innerHTML = `
+            <div class="card img-1 product-item" data-id="${product.id}">
+                <img src="${imagePath}" class="card-img-top" alt="${product.title}">
+                <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+                    <div class="mb-3">
+                        <strong>Size:</strong>
+                        <div class="btn-group" role="group" aria-label="Size">
+                            ${Object.keys(product.size).map(size => `
+                                <button 
+                                    type="button" 
+                                    class="btn btn-outline-light btn-sm size-btn" 
+                                    data-size="${size}">
+                                    ${size}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3" style="color: white;">
+                        <strong>Số lượng:</strong>
+                        <div class="input-group" style="width: 100px;">
+                            <button class="btn btn-outline-light decrease-btn">-</button>
+                            <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10" />
+                            <button class="btn btn-outline-light increase-btn">+</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-warning w-100 py-2">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${product.title}</h5>
+                    <p class="card-text">${product.price.toLocaleString()} VND</p>
+                </div>
+            </div>
+        `;
+
+                productList.appendChild(productElement);
+            });
+
+            attachProductEvents(); // Gắn sự kiện sau khi render
+            render(filteredProducts.length, activeType); // Render phân trang
+        }
+
+        // Hàm gắn sự kiện
+        function attachProductEvents() {
+            document.querySelectorAll(".card-img-top").forEach((imgElement) => {
+                imgElement.addEventListener('click', () => {
+                    const pathname = window.location.pathname;
+                    const productId = imgElement.closest(".product-item").dataset.id;
+
+                    if (pathname.includes('user')) {
+                        window.location.href = `ProductDetail.html?id=${productId}`;
+                    } else {
+                        window.location.href = `user/ProductDetail.html?id=${productId}`;
+                    }
+                });
+            });
+
+            // Xử lý tăng/giảm số lượng
+            document.querySelectorAll(".quantity-input").forEach(input => {
+                const parent = input.closest('.input-group');
+                const decreaseBtn = parent.querySelector('.decrease-btn');
+                const increaseBtn = parent.querySelector('.increase-btn');
+
+                decreaseBtn.addEventListener("click", () => {
+                    let currentValue = parseInt(input.value, 10) || 1;
+                    if (currentValue > 1) {
+                        input.value = currentValue - 1;
+                    }
+                });
+
+                increaseBtn.addEventListener("click", () => {
+                    let currentValue = parseInt(input.value, 10) || 1;
+                    if (currentValue < 10) {
+                        input.value = currentValue + 1;
+                    }
+                });
+
+                input.addEventListener("input", () => {
+                    let currentValue = parseInt(input.value, 10) || 1;
+                    if (currentValue < 1) input.value = 1;
+                    if (currentValue > 10) input.value = 10;
+                });
+            });
+
+            // Xử lý chọn size
+            document.querySelectorAll(".size-btn").forEach(sizeButton => {
+                sizeButton.addEventListener("click", () => {
+                    const allSizes = sizeButton.parentElement.querySelectorAll(".size-btn");
+                    allSizes.forEach(btn => btn.classList.remove("active"));
+                    sizeButton.classList.add("active");
+                });
+            });
+        }
+
+        // Hàm render phân trang
+        function render(totalProducts, activeType) {
+            const paginationContainer = document.querySelector(".pagination");
+            paginationContainer.innerHTML = ""; // Xóa các trang cũ
+
+            const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+            // Nút "Trang trước"
+            if (currentPage > 1) {
+                const prevButton = document.createElement("li");
+                prevButton.classList.add("page-item");
+                prevButton.innerHTML = `<a class="page-link" href="#">Trang trước</a>`;
+                prevButton.addEventListener("click", () => {
+                    currentPage--;
+                    Hienthi(activeType);
+                });
+                paginationContainer.appendChild(prevButton);
+            }
+
+            // Các nút số trang
+            for (let i = 1; i <= totalPages; i++) {
+                const pageItem = document.createElement("li");
+                pageItem.classList.add("page-item");
+                if (i === currentPage) {
+                    pageItem.classList.add("active");
+                }
+                pageItem.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+                pageItem.addEventListener("click", () => {
+
+                    currentPage = i;
+                    Hienthi(activeType);
+                });
+                paginationContainer.appendChild(pageItem);
+            }
+
+            // Nút "Trang sau"
+            if (currentPage < totalPages) {
+                const nextButton = document.createElement("li");
+                nextButton.classList.add("page-item");
+                nextButton.innerHTML = `<a class="page-link" href="#">Trang sau</a>`;
+                nextButton.addEventListener("click", () => {
+                    console.log("click rồi");
+                    currentPage++;
+                    Hienthi(activeType);
+                    console.log(`type: ${activeType}`);
+                });
+                paginationContainer.appendChild(nextButton);
+            }
+        }
+
+        // Gọi hàm render sản phẩm khi trang web tải
+        document.addEventListener("DOMContentLoaded", () => {
+            Hienthi();
+        });
+
+    </script>
 </body>
+<script>Searchs()</script>
 
 </html>

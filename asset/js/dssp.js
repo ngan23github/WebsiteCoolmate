@@ -1,7 +1,7 @@
 products = [
     {
         id: 1,
-        title: 'Áo thun Relaxed Fit 84RISING Classic Venom',
+        title: 'Áo thun Cotton Relaxed Fit 84RISING Classic Venom',
         material: '100% cotton',
         type: 'aothun',
         size: {
@@ -161,7 +161,7 @@ products = [
     },
     {
         id: 4,
-        title: 'Áo Thun Nam The Future Is Yours',
+        title: 'Áo Thun Cotton Nam The Future Is Yours',
         material: 'Cotton',
         type: 'aothun',
         size: {
@@ -1207,7 +1207,7 @@ products = [
     },
     {
         id: 27,
-        title: 'Áo sơ mi dài tay cổ tàu Premium Poplin',
+        title: 'Áo sơ mi dài tay cổ tàu Cotton Premium Poplin',
         material: '100% Cotton',
         type: 'shirt',
         size: {
@@ -2020,4 +2020,467 @@ products = [
         ],
         price: 289000
     }
+]
+
+Searchs = [
+    {
+        id: 1,
+        title: 'Áo thun Cotton Relaxed Fit 84RISING Classic Venom',
+        material: '100% cotton',
+        type: 'aothun',
+        size: {
+
+            S: {
+                height: '1m55 - 1m59',
+                weight: '48kg - 54kg',
+                SL: 10
+            },
+
+
+
+            M: {
+                height: '1m6 - 1m65',
+                weight: '55kg - 61kg',
+                SL: 50
+            },
+
+
+
+            L: {
+                height: '1m66 - 1m72',
+                weight: '62kg - 68kg',
+                SL: 50
+            },
+            XL: {
+                height: '1m72 - 1m77',
+                weight: '69kg - 75kg',
+                SL: 50
+            },
+
+        },
+        img: [
+            'asset/image/product/WEB1/AoThun/7/2484.ULSMV.TSZ705__CLASSICVENOM_1_DEN.png',
+            'asset/image/product/WEB1/AoThun/7/2484.ULSMV.TSZ705__0045_Layer-25_DEN.png',
+            'asset/image/product/WEB1/AoThun/7/2484.ULSMV.TSZ705__CLASSICVENOM-27_DEN_89.png',
+            'asset/image/product/WEB1/AoThun/7/2484.ULSMV.TSZ705__CLASSICVENOM-28_DEN.png'
+        ],
+        introduce: [
+            'Chất liệu 100% Cotton',
+            'Định lượng vải 240gsm mềm mại thấm hút mồ hôi',
+            'Bo cổ dày dặn, vải không xù sau nhiều lần giặt, giữ form tốt hơn',
+            'Đường may 3 kim tỉ mỉ, hoàn thiện tốt',
+            'Hình in chuyển nhiệt sắc nét',
+            'Dáng Relaxed Fit, vừa vặn đứng form, Unisex',
+            'Mẫu nam: 1m81-70kg, mặc áo size L',
+            'Tự hào sản xuất tại Việt Nam'
+
+        ],
+        price: 390000
+    },
+    {
+        id: 2,
+        title: 'Áo thun Stitch Summer Beach',
+        material: '100% cotton',
+        type: 'aothun',
+        size: {
+
+            S: {
+                height: '1m55 - 1m59',
+                weight: '48kg - 54kg',
+                SL: 50
+            },
+
+
+
+            M: {
+                height: '1m6 - 1m65',
+                weight: '55kg - 61kg',
+                SL: 50
+            },
+
+
+
+            L: {
+                height: '1m66 - 1m72',
+                weight: '62kg - 68kg',
+                SL: 50
+            },
+            XL: {
+                height: '1m72 - 1m77',
+                weight: '69kg - 75kg',
+                SL: 50
+            },
+
+        },
+        img: [
+            'asset/image/product/WEB1/AoThun/8/stitchbeach2.jpg',
+            'asset/image/product/WEB1/AoThun/8/stitchbeach5.webp',
+            'asset/image/product/WEB1/AoThun/8/beachtsittrang1.webp',
+            'asset/image/product/WEB1/AoThun/8/beachtsittrang2.webp'
+        ],
+        introduce: [
+            'Chất liệu 100% Cotton',
+            'Định lượng vải 220gsm dày dặn',
+            'Vải được xử lí hoàn thiện giúp bề mặt vải ít xù lông, mềm mịn và bền màu hơn',
+            'Độ dày vải vừa phải, thoáng mát',
+            'Phù hợp mặc hàng ngày',
+            'Hình in PET bền bỉ, không lo bong tróc dù giặt sấy',
+            'Sản xuất tại Nhà máy Tessellation (TGV), Việt Nam.'
+
+
+        ],
+        price: 249000
+    },
+    {
+        id: 4,
+        title: 'Áo Thun Cotton Nam The Future Is Yours',
+        material: 'Cotton',
+        type: 'aothun',
+        size: {
+            S: {
+                height: '1m55 - 1m59',
+                weight: '48kg - 54kg',
+                SL: 50
+            },
+            M: {
+                height: '1m6 - 1m65',
+                weight: '55kg - 61kg',
+                SL: 50
+            },
+            L: {
+                height: '1m66 - 1m72',
+                weight: '62kg - 68kg',
+                SL: 50
+            },
+            XL: {
+                height: '1m72 - 1m77',
+                weight: '69kg - 75kg',
+                SL: 50
+            },
+        },
+        img: [
+            'asset/image/product/WEB1/AoThun/1/Oversize_Clean_Vietnam.jpg',
+            'asset/image/product/WEB1/AoThun/1/tfiys2x.webp',
+            'asset/image/product/WEB1/AoThun/1/DSC08259_copy.webp',
+            'asset/image/product/WEB1/AoThun/1/DSC08266_copy.webp'
+        ],
+        introduce: [
+            'Đây là sản phẩm thuộc Clean Vietnam Collection',
+            'Chất liệu: 80% Cotton - 20% Recycle Polyester, co giãn 4 chiều',
+            'Phù hợp với: đi làm, đi chơi, mặc ở nhà',
+            'Kiểu dáng oversize dáng rộng',
+            'Tự hào sản xuất tại Việt Nam'
+        ],
+        price: 329000
+    },
+    {
+        id: 9,
+        title: 'Áo Thun Nam Cotton 220GSM',
+        material: '100% cotton',
+        type: 'aothun',
+        size: {
+
+            S: {
+                height: '1m55 - 1m59',
+                weight: '48kg - 54kg',
+                SL: 50
+            },
+
+
+
+            M: {
+                height: '1m6 - 1m65',
+                weight: '55kg - 61kg',
+                SL: 50
+            },
+
+
+
+            L: {
+                height: '1m66 - 1m72',
+                weight: '62kg - 68kg',
+                SL: 50
+            },
+            XL: {
+                height: '1m72 - 1m77',
+                weight: '69kg - 75kg',
+                SL: 50
+            },
+
+        },
+        img: [
+            'asset/image/product/WEB1/AoThun/6/AT.220.xd.6.jpg',
+            'asset/image/product/WEB1/AoThun/6/AT.220.den14.webp',
+            'asset/image/product/WEB1/AoThun/6/AT.220.den16.webp',
+            'asset/image/product/WEB1/AoThun/6/AT.220.den1.webp'
+        ],
+        introduce: [
+            'Chất liệu 100% Cotton',
+            'Định lượng vải 220gsm dày dặn',
+            'Vải được xử lí hoàn thiện giúp bề mặt vải ít xù lông, mềm mịn và bền màu hơn',
+            'Độ dày vải vừa phải, thoải mái, thoáng mát',
+            'Phù hợp mặc hàng ngày',
+            'Người mẫu: 186cm - 77kg, mặc áo 2XL',
+            'Sản xuất tại Nhà máy Tessellation (TGV), Việt Nam'
+        ],
+        price: 179000
+    },
+    {
+        id: 16,
+        title: 'Áo sơ mi dài tay Essentials Cotton',
+        material: '100% Cotton',
+        type: 'shirt',
+        size: {
+            S: {
+                height: '1m55 - 1m59',
+                weight: '48kg - 54kg',
+                SL: 50
+            },
+            M: {
+                height: '1m6 - 1m65',
+                weight: '55kg - 61kg',
+                SL: 50
+            },
+            L: {
+                height: '1m66 - 1m72',
+                weight: '62kg - 68kg',
+                SL: 50
+            },
+            XL: {
+                height: '1m72 - 1m77',
+                weight: '69kg - 75kg',
+                SL: 50
+            }
+        },
+        img: [
+            'asset/image/product/WEB1/Somi/1/Xanh_than_5.webp',
+            'asset/image/product/WEB1/Somi/1/24CMCW.QD004__Navy_4.webp',
+            'asset/image/product/WEB1/Somi/1/Xanh_than_1.webp',
+            'asset/image/product/WEB1/Somi/1/Xanh_than_4.webp'
+        ],
+        introduce: [
+            'Chất liệu 100% Cotton mềm mại',
+            'Thoáng mát, thấm hút mồ hôi tốt',
+            'Vải có độ bền cao, không bị xù lông sau nhiều lần giặt',
+            'Phù hợp với: đi làm, đi chơi',
+            'Kiểu dáng: Regular loose dễ dàng phối đồ, tạo layer',
+            'Người mẫu: 181 cm - 81 kg, mặc áo size 2XL',
+            'Tự hào sản xuất tại Việt Nam'
+        ],
+        price: 399000
+    },
+    {
+        id: 17,
+        title: 'Áo sơ mi Flannel 100% Cotton',
+        material: '100% Cotton',
+        type: 'shirt',
+        size: {
+            S: {
+                height: '1m55 - 1m59',
+                weight: '48kg - 54kg',
+                SL: 50
+            },
+            M: {
+                height: '1m6 - 1m65',
+                weight: '55kg - 61kg',
+                SL: 50
+            },
+            L: {
+                height: '1m66 - 1m72',
+                weight: '62kg - 68kg',
+                SL: 50
+            },
+            XL: {
+                height: '1m72 - 1m77',
+                weight: '69kg - 75kg',
+                SL: 50
+            }
+        },
+        img: [
+            'asset/image/product/WEB1/Somi/2/Ao_so_mi_Flannel_100_Cotton_do.webp',
+            'asset/image/product/WEB1/Somi/2/24CMCW.SM011_-_Do_10.webp',
+            'asset/image/product/WEB1/Somi/2/24CMCW.SM011_-_Do_14.webp',
+            'asset/image/product/WEB1/Somi/2/24CMCW.SM011_-_Do_16.webp'
+        ],
+        introduce: [
+            'Chất liệu 100% Cotton',
+            'Form dáng: Regular',
+            'Kiểu dệt: Flannel',
+            'Vải flannel 100% cotton được chải nhẹ để tạo độ mềm mại và ấm áp, mang lại cảm giác dễ chịu khi mặc',
+            'Flannel cotton thường được sử dụng trong mùa thu đông vì có khả năng giữ nhiệt hiệu quả',
+            'Người mẫu: 1m77 - 69kg, mặc áo XL',
+            'Tự hào sản xuất tại Việt Nam'
+        ],
+        price: 590000
+    },
+    {
+        id: 24,
+        title: 'Áo sơ mi Overshirt 100% Cotton',
+        material: '100% Cotton',
+        type: 'shirt',
+        size: {
+            S: {
+                height: '1m55 - 1m59',
+                weight: '48kg - 54kg',
+                SL: 50
+            },
+            M: {
+                height: '1m6 - 1m65',
+                weight: '55kg - 61kg',
+                SL: 50
+            },
+            L: {
+                height: '1m66 - 1m72',
+                weight: '62kg - 68kg',
+                SL: 50
+            },
+            XL: {
+                height: '1m72 - 1m77',
+                weight: '69kg - 75kg',
+                SL: 50
+            }
+        },
+        img: [
+            'asset/image/product/WEB1/Somi/9/24CMCW.SM013_-_Den.webp',
+            'asset/image/product/WEB1/Somi/9/24CMCW.SM012---Den-11_99.jpg',
+            'asset/image/product/WEB1/Somi/9/24CMCW.SM012_-_Den_17.webp',
+            'asset/image/product/WEB1/Somi/9/24CMCW.SM012_-_Den_19.jpg'
+        ],
+        introduce: [
+            'Chất liệu 100% Cotton',
+            'Thoáng mát, thấm hút mồ hôi tốt',
+            'Cấu trúc dệt Twill tạo nên độ bền cao cho vải, giúp áo giữ được form dáng',
+            'Form dáng: Oversize',
+            'Người mẫu: 1m77 - 69kg, mặc áo XL',
+            'Tự hào sản xuất tại Việt Nam'
+        ],
+        price: 590000
+    },
+    {
+        id: 27,
+        title: 'Áo sơ mi dài tay cổ tàu Cotton Premium Poplin',
+        material: '100% Cotton',
+        type: 'shirt',
+        size: {
+            S: {
+                height: '1m55 - 1m59',
+                weight: '48kg - 54kg',
+                SL: 50
+            },
+            M: {
+                height: '1m6 - 1m65',
+                weight: '55kg - 61kg',
+                SL: 50
+            },
+            L: {
+                height: '1m66 - 1m72',
+                weight: '62kg - 68kg',
+                SL: 50
+            },
+            XL: {
+                height: '1m72 - 1m77',
+                weight: '69kg - 75kg',
+                SL: 50
+            }
+        },
+        img: [
+            'asset/image/product/WEB1/Somi/12/24CMCW.SM008_-BE.webp',
+            'asset/image/product/WEB1/Somi/12/24CMCW.SM008_-_Be_1.webp',
+            'asset/image/product/WEB1/Somi/12/24CMCW.SM008_-_Be_4.webp',
+            'asset/image/product/WEB1/Somi/12/24CMCW.SM008_-_Be_8.webp'
+        ],
+        introduce: [
+            'Chất liệu 100% Cotton mềm mại, chống nhăn, kiểu dệt Poplin tạo ra các lỗ nhỏ thoáng khí',
+            'Form dáng: Regular',
+            'Vải có độ bền cao, không bị xù lông sau nhiều lần giặt',
+            'Người mẫu: 1m77 - 74kg; mặc áo size XL',
+            'Tự hào sản xuất tại Việt Nam'
+        ],
+        price: 449000
+    },
+    {
+        id: 38,
+        title: 'Áo Polo Nam Pique Cotton',
+        material: '100% Cotton',
+        type: 'polo',
+        size: {
+            S: {
+                height: '1m55 - 1m59',
+                weight: '48kg - 54kg',
+                SL: 50
+            },
+            M: {
+                height: '1m6 - 1m65',
+                weight: '55kg - 61kg',
+                SL: 50
+            },
+            L: {
+                height: '1m66 - 1m72',
+                weight: '62kg - 68kg',
+                SL: 50
+            },
+            XL: {
+                height: '1m72 - 1m77',
+                weight: '69kg - 75kg',
+                SL: 50
+            }
+        },
+        img: [
+            'asset/image/product/WEB1/Polo/8/APL100-thumb-6.webp',
+            'asset/image/product/WEB1/Polo/8/poloapl220.11.jpg',
+            'asset/image/product/WEB1/Polo/8/poloapl220.12.webp',
+            'asset/image/product/WEB1/Polo/8/poloapl220.14.webp'
+        ],
+        introduce: [
+            'Chất liệu 100% Cotton',
+            'Xử lí hoàn thiện giúp bề mặt vải ít xù lông, mềm mịn và bền màu hơn',
+            'Kiểu dệt Pique giúp áo thoáng mát',
+            'Độ dày vải vừa phải giúp áo tôn dáng',
+            'Phù hợp với đi làm, đi chơi',
+            'Người mẫu: 186cm - 77kg, mặc áo 2XL',
+            'Tự hào sản xuất tại Việt Nam'
+        ],
+        price: 299000
+    },
+    {
+        id: 43,
+        title: 'Áo Polo Nam Pique Cotton USA',
+        material: '97% Cotton USA + 3% Spandex',
+        type: 'polo',
+        size: {
+            S: {
+                height: '1m55 - 1m59',
+                weight: '48kg - 54kg',
+                SL: 50
+            },
+            M: {
+                height: '1m6 - 1m65',
+                weight: '55kg - 61kg',
+                SL: 50
+            },
+            L: {
+                height: '1m66 - 1m72',
+                weight: '62kg - 68kg',
+                SL: 50
+            },
+            XL: {
+                height: '1m72 - 1m77',
+                weight: '69kg - 75kg',
+                SL: 50
+            }
+        },
+        img: [
+            'asset/image/product/WEB1/Polo/13/USA_REU_7.webp',
+            'asset/image/product/WEB1/Polo/13/USA_REU_1.webp',
+            'asset/image/product/WEB1/Polo/13/USA_REU_4.webp',
+            'asset/image/product/WEB1/Polo/13/USA_REU_5.webp'
+        ],
+        introduce: [
+            'Chất liệu 97% Cotton USA + 3% Spandex, co giãn 4 chiều',
+            'Phù hợp với: đi làm, đi chơi',
+            'Người mẫu: 182 cm - 70kg, mặc áo size 2XL',
+            'Tự hào sản xuất tại Việt Nam'
+        ],
+        price: 399000
+    },
 ]
