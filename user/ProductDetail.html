@@ -622,16 +622,24 @@
       });
     }
     // quantity product
-    if (document.querySelector(".quantity-input") != null) {
-      document.querySelector(".ri-add-line").addEventListener("click", () => {
-        document.querySelector(".quantity-input").value++;
+    const quantityInput = document.querySelector(".quantity-input");
+    const addButton = document.querySelector(".ri-add-line");
+    const subtractButton = document.querySelector(".ri-subtract-fill");
+
+    if (quantityInput && addButton && subtractButton) {
+      addButton.addEventListener("click", () => {
+        let currentValue = parseInt(quantityInput.value) || 0; // Chuyển đổi giá trị sang số
+        quantityInput.value = currentValue + 1;
       });
-      document.querySelector(".ri-subtract-fill").addEventListener("click", () => {
-        if (document.querySelector(".quantity-input").value > 1) {
-          document.querySelector(".quantity-input").value--;
+
+      subtractButton.addEventListener("click", () => {
+        let currentValue = parseInt(quantityInput.value) || 0;
+        if (currentValue > 1) {
+          quantityInput.value = currentValue - 1;
         }
       });
     }
+
   </script>
 
 
