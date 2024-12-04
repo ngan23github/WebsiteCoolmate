@@ -1,7 +1,7 @@
 // Check if Loginned
 let isLogin = JSON.parse(localStorage.getItem('isLogin'));
 if(isLogin == false){
-    window.location.href = "login.html";
+    window.location.href = "./login.html";
 }
 
 // Menu Bar
@@ -79,6 +79,10 @@ let products = [{
     productAmount: 190,
     productPrice: 250000
 }];
+
+function vnd(value){
+    return value.toLocaleString("vi-VN");
+}
 // Product table
 renderProduct();
 function renderProduct(){
@@ -95,7 +99,7 @@ function renderProduct(){
             <td>${productName}</td>
             <td><img class="product-img" src="${productImage}" alt=""></td>
             <td>${productAmount}</td>
-            <td>${sum}</td>
+            <td>${vnd(sum)}</td>
         </tr>`;
         totalPrice += sum;
         // <td><button class="product-detail"><i class="fas fa-eye"></i></button></td>
@@ -105,7 +109,7 @@ function renderProduct(){
     total += 
     `<tr>
         <td colspan="4">Tổng doanh thu trên các mặt hàng:</td>
-        <td>${totalPrice}</td>
+        <td>${vnd(totalPrice)}</td>
     </tr>`;
     document.querySelector('.total-price').innerHTML = total;
     let min = products[0].productAmount;
@@ -209,7 +213,7 @@ function renderCustomer(){
             <td>${orderUsername}</td>
             <td>${orderId}</td>
             <td>${orderDate}</td>
-            <td>${orderTotal}</td>
+            <td>${vnd(orderTotal)}</td>
             <td><button class="detail"><i class="fas fa-eye"></i></button></td>
         </tr>`;
     }
@@ -251,17 +255,4 @@ function filterByDateRange(){
             rows[i].style.display = 'none';
         }
     }
-    // rows.forEach((row) => {
-    //     const orderCell = row.querySelector('td:nth-child(3)');
-    //     const orderDate = new Date(orderCell.textContent);
-    //     if(orderCell !== null){
-    //         const orderDate = new Date(orderCell.textContent);
-    //         orderDate.setHours(0,0,0,0);
-    //     }
-    //     if(orderDate >= startDate && orderDate <= endDate){
-    //             row.style.display = '';
-    //     }else{
-    //         row.style.display = 'none';
-    //     }
-    // });
 }

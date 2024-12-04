@@ -367,18 +367,21 @@ html {
   height: 100%; /* Chiếm toàn bộ chiều cao màn hình */
   background-color: rgba(0, 0, 0, 0.2); /* Nền màu đen mờ */
   position: fixed; /* Giữ cố định trên màn hình */
-  top: 0;
+  top: 50px;
   left: 0;
   z-index: 1000; /* Đảm bảo phần này nằm trên các phần tử khác */
   display: flex;
   justify-content: center; /* Canh giữa theo chiều ngang */
   align-items: center; /* Canh giữa theo chiều dọc */
-  padding-top: 60px; /* Chừa khoảng trống cho header nếu cần */
+  /* padding-top: 60px; Chừa khoảng trống cho header nếu cần */
 }
 
 /* Wrapper cho form đăng ký */
 .form-wrapper {
-  width: 45%;
+  width: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   background-color: white;
   padding: 10px; /* Khoảng cách giữa form và các góc */
@@ -390,10 +393,10 @@ html {
 /* Định dạng cho form đăng ký (bbd-signup) */
 .body-signup .bbd-signup {
   background-color: white; /* Nền trắng cho form */
-  padding: 20px 10px 20px; /* Khoảng cách trong form */
+  padding: 10px 20px; /* Khoảng cách trong form */
   border-radius: 10px; /* Bo tròn các góc form */
-  max-width: 500px; /* Chiều rộng tối đa của form */
-  width: 90%; /* Đảm bảo form không quá rộng */
+  /* max-width: 500px; Chiều rộng tối đa của form */
+  width: 100%; /* Đảm bảo form không quá rộng */
   position: relative; /* Để nút đóng có thể đặt absolute trong form */
   /* max-height: 80vh; Đảm bảo form không quá cao */
   z-index: 1010;
@@ -420,18 +423,18 @@ html {
 /* Phần header của form đăng ký */
 .sign-up-header {
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /* Cấu trúc form đăng ký */
-.sign-up-form {
-  padding: 7px 0 30px 0;
-}
+/* .sign-up-form {
+  padding: 0px 0 30px 0;
+} */
 
 .sign-up-form .input-box {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
@@ -456,17 +459,24 @@ html {
   width: 100%;
   height: 45px;
 }
-
+.sign-up-form .btn-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .sign-up-form .sign-up-button {
   border: none;
+  outline: none;
   background-color: #bc0517;
   color: white;
-  width: 110px;
-  height: 40px;
-  border-radius: 5px;
+  width: 50%;
+  height: 50px;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 40px;
   transform: all 0.5s;
   font-size: 15px;
-  margin-top: 5px;
+  margin: 15px 0 0 0;
 }
 
 /* Hiệu ứng hover cho nút đăng ký */
@@ -488,13 +498,6 @@ html {
   color: #f33a58;
   font-size: 14px;
   margin-top: 5px;
-}
-
-/* Phần footer của form đăng ký */
-.sign-up-form p {
-  text-align: center;
-  font-size: 16px;
-  margin-top: 15px;
 }
 
 /* CSS cho nút đóng trong form */
@@ -520,15 +523,30 @@ html {
 .close-btn i {
   font-size: 22px;
 }
+.icon-box i{
+  position: absolute;
+  right: 27px;
+  top: 57%;
+  font-size: 24px;
+}
+.sub1{
+  margin: 15px 0 0 0;
+}
 .submit-button {
-  width: 130px;
-  height: 45px;
   background-color: #bc0516;
   color: white;
-  font-size: 15px;
+  border: none;
+  outline: none;
   border: 1px solid #ccc;
-  border-radius: 8px;
   cursor: pointer;
+  width: 50%;
+  height: 50px;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 40px;
+  transform: all 0.5s;
+  font-size: 15px;
+  margin: 15px 0 0 0;
 }
 .submit-button:hover {
   background-color: white;
@@ -541,15 +559,6 @@ html {
 }
 .register-js:hover {
   cursor: pointer;
-}
-.show-btn {
-  position: absolute;
-  right: 15px;
-
-  /* transform: translateY(-50%); */
-  font-size: 20px;
-  cursor: pointer;
-  /* display: none; */
 }
 /* Sản phẩm */
 

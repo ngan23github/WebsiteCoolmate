@@ -69,7 +69,7 @@ function formSubmit(){
         pass.value='';
     }
     if(user.value === admin.user && pass.value === admin.pass){
-        window.location.href = "index.html";
+        window.location.href = "./index.html";
         user.value='';
         pass.value='';
         isLogin = true;

@@ -345,26 +345,30 @@ body{
     background-color: #B192EF;
     color: #fff;
 }
+/* Delete Popup */
 .delete-popup{
-    position: relative;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
     display: none;
 }
 .delete-popup.active{
     display: block;
 }
-.delete-popup .bg-shadow{
-    position: fixed;
-    top: 0;
-    background: rgb(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-}
 .delete-popup .popup{
     position: relative;
     background: #fff;
     max-width: 30%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 80%);
+    transform: translate(-50%, -50%);
     animation: modalShow 0.5s linear;
 }
 .delete-popup .popup .popup-head{
@@ -420,15 +424,16 @@ body{
 }
 @keyframes modalShow {
     from {
-        transform: translate(-50%, -50%);
+        top: 0;
         opacity: 0;
     }
 
     to {
-        transform: translate(-50%, 80%);
+        top: 50%;
         opacity: 1;
     }
 }
+/* Add Popup */
 .add-product-popup{
     position: relative;
     display: none;
