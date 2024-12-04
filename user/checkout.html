@@ -15,6 +15,17 @@
 
     <script type="module" src="./../asset/js/script.js"></script>
 </head>
+<style>
+    #add-credit:hover {
+        color: white !important;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .modal-overlay {
+        display: none;
+    }
+</style>
 
 <body>
     <!-- ---------------HEADER---------- -->
@@ -23,7 +34,7 @@
             <div class="row p-3 align-items-center">
                 <!-- Logo -->
                 <div class="col-1  ms-1">
-                    <img src="./vendor/image/logo-coolmate-new.svg" alt="">
+                    <img src="./../vendor/image/logo-coolmate-new.svg" alt="">
                 </div>
 
                 <!-- Sản phẩm -->
@@ -250,6 +261,59 @@
             </div>
         </div>
     </div>
+    <!-- Thẻ mới -->
+    <button id="add-credit" class="btn btn-outline-primary btn-sm text-primary border-2">+ Thêm thẻ mới</button>
+
+    <!-- Modal -->
+    <div class="modal js-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thêm Thẻ Tín Dụng/Ghi Nợ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-icon text-center mb-4">
+                        <img src="./../asset/image/checkout/masterCard.svg" alt="MasterCard" class="mx-2" width="40">
+                        <img src="./../asset/image/checkout/visa.png" alt="Visa" class="mx-2" width="40">
+                        <img src="./../asset/image/checkout/jcb.svg" alt="JCB" class="mx-2" width="40">
+                    </div>
+                    <form class="add-card-form">
+                        <div class="mb-3">
+                            <label for="input-creditID" class="form-label">Số thẻ</label>
+                            <input type="text" class="form-control" id="input-creditID"
+                                placeholder="VD: 4123 4567 8901 2345">
+                            <span class="form-error text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="input-credit-user" class="form-label">Tên in trên thẻ</label>
+                            <input type="text" class="form-control" id="input-credit-user"
+                                placeholder="VD: NGUYEN VAN A">
+                            <span class="form-error text-danger"></span>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="EXP__date" class="form-label">Ngày hết hạn</label>
+                                <input type="text" class="form-control" id="EXP__date" placeholder="MM/YY">
+                                <span class="form-error text-danger"></span>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                <label for="input-cvv" class="form-label">Mã bảo mật</label>
+                                <input type="number" class="form-control" id="input-cvv" placeholder="VD: 123"
+                                    maxlength="3">
+                                <span class="form-error text-danger"></span>
+                            </div> -->
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="credit-btn">Xác nhận</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ---------------PRODUCT DETAIL---------- -->
 
     <section class="container my-5">
@@ -301,9 +365,14 @@
                         </div>
 
                         <!-- Thêm thẻ tín dụng -->
-                        <div class="mt-3" id="credit-info" style="display: none;">
-                            <button id="add-credit" class="btn btn-primary btn-sm">+ Thêm thẻ mới</button>
+                        <div class="mt-3" id="credit-info">
+                            <button id="add-credit"
+                                class="btn btn-outline-primary btn-sm text-primary border-2 add-creadit-js">
+                                + Thêm thẻ mới
+                            </button>
                         </div>
+
+
                     </div>
                 </div>
 
@@ -322,7 +391,7 @@
                         <!-- Tên người nhận -->
                         <div class="mb-3">
                             <label for="name" class="form-label">Tên người nhận</label>
-                            <input type="text" class="form-control" id="name" value="Nhi" readonly>
+                            <input type="text" class="form-control" id="name-user" value="Nhi" readonly>
                         </div>
 
                         <!-- Số điện thoại -->
@@ -365,17 +434,31 @@
     <!-- ---------------FOOTER---------- -->
 
 </body>
-<script src="./../asset/js/product.js"></script>
-<script src="./../asset/js/show-product.js"></script>
+<script src="./../vendor/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script src="./../vendor/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 <script src="./../asset/js/script.js"></script>
 <script src="./../asset/js/validator.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-    show_product('hot', 'product-hot-js', './../', 3);
-    showProductDetail();
-    console.log("Đang đăng nhập tài khoản");
-    console.log(JSON.parse(localStorage.getItem('userList')));
-    load();
-    // addToCart();
+    document.addEventListener('DOMContentLoaded', function () {
+        const modalElement = document.querySelector('.js-modal'); // Lấy modal
+        const addCreditButton = document.querySelector('.add-creadit-js'); // Lấy nút "Thêm thẻ mới"
+
+        // Kiểm tra xem các phần tử có tồn tại hay không
+        if (modalElement && addCreditButton) {
+            const modal = new bootstrap.Modal(modalElement, {
+                backdrop: false  // Loại bỏ backdrop
+            });
+            addCreditButton.addEventListener('click', function () {
+                console.log("Đã click vào nút Thêm thẻ mới");
+
+                modal.show();
+            });
+        } else {
+            console.error('Không tìm thấy phần tử cần thiết!');
+        }
+    });
 </script>
 <script>
     const logoutButton = document.getElementById("logout");
@@ -528,104 +611,9 @@
 
 
 </script>
-<script>// Lấy các phần tử cần thiết
-    // Lấy các phần tử cần thiết
-    const selectAllCheckbox = document.getElementById('select-all');
-    const productCheckboxes = document.querySelectorAll('.product-checkbox');
-    const totalAmountElement = document.querySelector('.total-amount');
 
-    // Hàm tính tổng tiền
-    function calculateTotal() {
-        let total = 0;
-
-        productCheckboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-                const row = checkbox.closest('tr'); // Lấy dòng chứa sản phẩm
-                const price = parseFloat(row.children[4].getAttribute('data-value')); // Giá sản phẩm
-                const quantity = parseInt(row.querySelector('.cart-quantity').value, 10); // Số lượng
-                total += price * quantity;
-            }
-        });
-
-        totalAmountElement.setAttribute('data-value', total); // Cập nhật data-value của tổng tiền
-        totalAmountElement.textContent = total.toLocaleString('vi-VN') + ' đ'; // Hiển thị tổng tiền
-    }
-
-    // Hàm cập nhật thành tiền từng sản phẩm
-    function updateRowTotal(row) {
-        const price = parseFloat(row.children[4].getAttribute('data-value')); // Giá sản phẩm
-        const quantity = parseInt(row.querySelector('.cart-quantity').value, 10); // Số lượng
-        const rowTotal = price * quantity;
-        row.children[6].setAttribute('data-value', rowTotal); // Cập nhật data-value thành tiền
-        row.children[6].textContent = rowTotal.toLocaleString('vi-VN') + ' đ'; // Hiển thị thành tiền
-    }
-
-    // Sự kiện tick tất cả
-    selectAllCheckbox.addEventListener('change', (e) => {
-        const isChecked = e.target.checked;
-        productCheckboxes.forEach((checkbox) => {
-            checkbox.checked = isChecked;
-        });
-        calculateTotal();
-    });
-
-    // Sự kiện tick từng sản phẩm
-    productCheckboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', calculateTotal);
-    });
-
-    // Xử lý tăng/giảm số lượng
-    document.querySelectorAll('.quantity-controls').forEach((control) => {
-        const decrementBtn = control.querySelector('.decrement');
-        const incrementBtn = control.querySelector('.increment');
-        const quantityInput = control.querySelector('.cart-quantity');
-        const row = control.closest('tr');
-
-        decrementBtn.addEventListener('click', () => {
-            let quantity = parseInt(quantityInput.value, 10);
-            if (quantity > 1) {
-                quantityInput.value = --quantity;
-                updateRowTotal(row); // Cập nhật thành tiền
-                calculateTotal(); // Cập nhật tổng tiền
-            }
-        });
-
-        incrementBtn.addEventListener('click', () => {
-            let quantity = parseInt(quantityInput.value, 10);
-            quantityInput.value = ++quantity;
-            updateRowTotal(row); // Cập nhật thành tiền
-            calculateTotal(); // Cập nhật tổng tiền
-        });
-
-        quantityInput.addEventListener('input', () => {
-            let quantity = parseInt(quantityInput.value, 10) || 1;
-            if (quantity < 1) quantity = 1;
-            quantityInput.value = quantity;
-            updateRowTotal(row); // Cập nhật thành tiền
-            calculateTotal(); // Cập nhật tổng tiền
-        });
-    });
-
-    // Khi trang được load
-    document.addEventListener('DOMContentLoaded', () => {
-        // Bỏ chọn tất cả checkbox sản phẩm
-        productCheckboxes.forEach((checkbox) => {
-            checkbox.checked = false;
-        });
-        selectAllCheckbox.checked = false;
-
-        // Đặt tổng tiền mặc định là 0
-        calculateTotal();
-    });
-
-</script>
 
 <!-- Check out -->
-<script>
-    document.querySelector(".checkout-btn").addEventListener('click', function () {
-        window.location.href = './oder.html';
 
-    })
-</script>
 
 </html>
