@@ -184,18 +184,17 @@
             </div>
             <div class="bbd-signup fwr-js">
                 <div class="sign-up-header">ĐĂNG KÝ</div>
-                <p>Bạn đã có tài khoản? <a href="./../login.html"><span style="color: blue;">Đăng nhập ngay</span></a>
-                </p>
+                <p>Bạn đã có tài khoản? <span class="back-to-login" style="color: blue; cursor: pointer;">Đăng nhập ngay</span></p>
                 <div class="sign-up-form">
                     <form action="" method="POST" class="form" id="form-1">
                         <div class="input-box">
-                            <span class="detail">Tên đăng nhập</span>
+                            <span class="detail">Tên đăng nhập <span style="color: red;">&#42;</span></span>
                             <input id="name" name="name" type="text" class="form-control"
                                 placeholder="Nhập tên đăng nhập của bạn">
                             <span class="invalid-message"></span>
                         </div>
                         <div class="input-box">
-                            <span class="detail">Email</span>
+                            <span class="detail">Email <span style="color: red;">&#42;</span></span>
                             <input id="email" name="email" type="text" class="form-control" placeholder="Email">
                             <span class="invalid-message"></span>
                         </div>
@@ -206,18 +205,20 @@
                   <span class="invalid-message"></span>
                 </div> -->
                         <div class="input-box">
-                            <span class="detail">Mật khẩu</span>
+                            <span class="detail">Mật khẩu <span style="color: red;">&#42;</span></span>
                             <input id="password" name="password" type="password" class="form-control"
                                 placeholder="Nhập mật khẩu của bạn">
                             <span class="invalid-message"></span>
                         </div>
                         <div class="input-box">
-                            <span class="detail">Xác nhận mật khẩu</span>
+                            <span class="detail">Xác nhận mật khẩu <span style="color: red;">&#42;</span></span>
                             <input id="confirm-password" name="confirm-password" type="password" class="form-control"
                                 placeholder="Xác nhận lại mật khẩu">
                             <span class="invalid-message"></span>
                         </div>
-                        <button type="submit" class="sign-up-button form-submit">Đăng ký</button>
+                        <div class="btn-box">
+                            <button type="submit" class="sign-up-button form-submit">ĐĂNG KÝ</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -228,39 +229,35 @@
             <div class="close-btn">
                 <i class="ri-close-line"></i>
             </div>
-            <div class="bbd-signup ">
-                
+            <div class="bbd-signup">
                 <h3 class="sign-up-header">ĐĂNG NHẬP</h3>
-                <p>Trở thành thành viên của 360 Boutique <a href="./../signup.html"><span style="color: blue;">Đăng ký
-                            ngay</span></a></p>
+                <p>Trở thành thành viên của Coolmate <span class="back-to-register" style="color: blue; cursor: pointer;">Đăng ký ngay</span></p>
                 <div class="sign-up-form">
                     <form action="" method="post" class="form" id="login">
                         <div class="form-group input-box">
                             <label for="user">
-                                <b>Tên đăng nhập <span style="color: red;">&#42;</span></b>
+                                <span class="detail">Tên đăng nhập <span style="color: red;">&#42;</span></span>
                             </label>
                             <input class="form-input form-control" name="user" id="user" type="text"
                                 placeholder="Nhập tên đăng nhập của bạn" required>
                             <span class="invalid-message"></span>
                         </div>
-                        <div class="form-group input-box">
+                        <div class="icon-box form-group input-box">
                             <label for="pass">
-                                <b>Mật khẩu <span style="color: red;">&#42;</span></b>
+                                <span class="detail">Mật khẩu <span style="color: red;">&#42;</span></span>
                             </label>
                             <input class="form-input form-control" name="pass" id="pass" type="password"
                                 placeholder="Nhập mật khẩu" style="position: relative;">
-                            <span class="show-btn" style="position: absolute;"><i class="fas fa-eye"></i></span>
+                            <div class="show-btn"><i id="pass-icon" class="fas fa-lock"></i></div>
                             <span class="invalid-message"></span>
                         </div>
-
-                        <div class="sub-form-group">
-                            <div class="sub1">
-                                <input type="checkbox" name="" id="remember">
-                                <label for="remember"><b>Ghi nhớ mật khẩu</b></label>
-                            </div>
+                        <div class="sub1">
+                            <input type="checkbox" name="" id="remember">
+                            <label for="remember"><b>Ghi nhớ mật khẩu</b></label>
                         </div>
-
-                        <button type="submit" class="submit-button form-group">ĐĂNG NHẬP</button>
+                        <div class="btn-box">
+                            <button type="submit" class="submit-button form-group">ĐĂNG NHẬP</button>
+                        </div>
                     </form>
                 </div>
             </div>

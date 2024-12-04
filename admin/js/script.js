@@ -1,7 +1,7 @@
 // Check if Loginned
 let isLogin = localStorage.getItem('isLogin') ? JSON.parse(localStorage.getItem('isLogin')) : false;
 if(isLogin == false){
-    window.location.href = "login.html";
+    window.location.href = "./login.html";
 }
 
 // Menu Bar

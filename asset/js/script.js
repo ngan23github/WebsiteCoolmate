@@ -399,20 +399,23 @@ function load() {
 
   document.querySelector(".sign-in-js").addEventListener(("click"), function () {
     let tmp = document.querySelector('.s-js').style.display;
-    console.log("click!!!!");
-    console.log(document.querySelector('.s-js'));
     if (tmp === "none") {
       document.querySelector('.s-js').style.display = "flex";
     }
   });
   document.querySelector(".register-js").addEventListener(("click"), function () {
     let tmp = document.querySelector('.r-js').style.display;
-    console.log(tmp);
-    console.log(document.querySelector('.r-js'));
     if (tmp === "none") {
-      console.log("hi");
       document.querySelector('.r-js').style.display = "flex";
     }
+  });
+  document.querySelector(".back-to-login").addEventListener(("click"), ()=>{
+    document.querySelector('.r-js').style.display = 'none';
+    document.querySelector('.s-js').style.display = 'flex';
+  });
+  document.querySelector(".back-to-register").addEventListener(("click"), ()=>{
+    document.querySelector('.s-js').style.display = 'none';
+    document.querySelector('.r-js').style.display = 'flex';
   });
   // document.querySelector(".s-js").addEventListener("click", function () {
   //   let tmp = document.querySelector('.s-js').style.display;
