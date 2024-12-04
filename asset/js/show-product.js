@@ -31,7 +31,7 @@ function renderProducts(activeType = 'all') {
                 <img src="${imagePath}" class="card-img-top" alt="${product.title}">
                 <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
                     <div class="mb-3">
-                        <strong>Size:</strong>
+                        <strong style="color: white;">Size:</strong>
                         <div class="btn-group" role="group" aria-label="Size">
                             ${Object.keys(product.size).map(size => `
                                 <button 
@@ -45,13 +45,25 @@ function renderProducts(activeType = 'all') {
                     </div>
                     <div class="d-flex align-items-center mb-3" style="color: white;">
                         <strong>Số lượng:</strong>
-                        <div class="input-group" style="width: 100px;">
-                            <button class="btn btn-outline-light decrease-btn">-</button>
-                            <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10" />
-                            <button class="btn btn-outline-light increase-btn">+</button>
-                        </div>
+                  <div class="input-group" style="width: 100px; margin-left: 10px">
+    <button class="btn btn-outline-light decrease-btn" style="height: 35px; line-height: 35px; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+        -
+    </button>
+    <input 
+        type="number" 
+        class="form-control form-control-sm quantity-input" 
+        value="1" 
+        min="1" 
+        max="10" 
+        style="height: 35px; text-align: center; padding: 0; border: 1px solid #ced4da; border-left: none; border-right: none;"
+    />
+    <button class="btn btn-outline-light increase-btn" style="height: 35px; line-height: 35px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+        +
+    </button>
+</div>
+
                     </div>
-                    <button class="btn btn-warning w-100 py-2">Thêm vào giỏ hàng</button>
+                    <button class="btn btn-warning w-100 py-2 add-card-js">Thêm vào giỏ hàng</button>
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title">${product.title}</h5>

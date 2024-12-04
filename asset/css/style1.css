@@ -870,7 +870,8 @@ html {
   text-align: center;
   padding: 5px;
   font-size: 16px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
+  border: none;
   border-radius: 5px;
 }
 
@@ -949,7 +950,7 @@ html {
   width: 80px;
   height: 40px;
   text-align: center;
-  border: 2px solid #ddd;
+  border: none;
   border-radius: 5px;
   padding: 5px;
   font-size: 16px;

@@ -2,37 +2,135 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet" href="../asset/css/style.css" />
-    <!-- <script type="module" src="../asset/js/script.js"></script> -->
+
+    <link rel="stylesheet" href="./../vendor/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./../asset/icon/cart-shopping-solid.svg">
+    <link rel="stylesheet" href="./../asset/css/style1.css">
+    <style>
+        /* Đảm bảo các cột có khoảng cách đều */
+    </style>
 </head>
 
 <body>
-    <!-- ---------------HEADER---------- -->
     <header>
+        <div class="container-fluid bgtop2 fixed-top">
+            <div class="row p-3 align-items-center">
+                <!-- Logo -->
+                <div class="col-1  ms-1">
+                    <img src="./../vendor/image/logo-coolmate-new.svg" alt="">
+                </div>
+
+                <!-- Sản phẩm -->
+                <div class="col xl-6 lg-6 md-5">
+                    <!-- Desktop menu (dàn ngang) -->
+                    <div class="d-none d-md-flex justify-content-center">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./../index.html">Trang chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./product.html">Sản phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Giới thiệu</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <!-- Mobile menu (dọc) -->
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-md-none">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./../index.html">Trang chủ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Giới thiệu</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Tìm kiếm -->
+                <div class="col-md-1 col-xl-3 col-lg-1">
+                    <div class="header-search">
+                        <input type="text" placeholder="Tìm kiếm" class="header-search-rp" />
+                        <button class="header-search-css" style="color: black;"><i
+                                class="ri-search-2-line"></i></button>
+                    </div>
+                    <div style="display: none;" class="search-delete">
+                        <button class="clear-btn" id="clear-btn">
+                            <i class="ri-close-line"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tài khoản và Giỏ hàng -->
+                <div class="col-xl-2 col-lg-4 md-5 text-end d-flex justify-content-end align-items-center gap-3 me-3">
+                    <div class="header-account">
+                        <div class="show-signup">
+                            <div class="sign-in-js" style="display: inline-block;">Đăng Nhập</div>/<div
+                                class="register-js" style="display: inline-block;">Đăng Ký</div>
+                        </div>
+
+                    </div>
+                    <div class="header-account ac" style="display: none;">
+                        <i class="fa fa-user ac-img" style="color: white;"></i>
+                        <ul class="account-menu">
+                            <li><a href="./../profile.html">Hồ sơ</a></li>
+                            <li><a href="./../orders.html">Đơn hàng</a></li>
+                            <li>
+                                <a href="#" id="logout">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header-cart">
+                        <i class="ri-shopping-cart-line" number="0"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tìmm kiếm cơ bản -->
+        <!-- <div class="search-css search-cb" style="display: none;">
+            <div class="search-box">
+                <div class="search-container">
+                    <input class="sb-input" type="text" placeholder="Tìm kiếm" />
+                    <button class="sb-button"><i class="ri-search-2-line"></i></button>
+                </div>
+
+            </div>
+            <div class="btn btn-light">Tìm kiếm nâng cao</div>
+        </div> -->
+        <!-- Tìm kiếm nâng cao -->
         <div class="search-css" style="display: none;">
             <div class="search-box">
-                <!-- Container chứa input tìm kiếm, danh mục và khoảng giá -->
                 <div class="search-container">
-                    <!-- Danh mục sản phẩm -->
-
-                    <!-- Khoảng giá -->
-
-                    <!-- Input tìm kiếm và nút tìm kiếm -->
                     <input class="sb-input" type="text" placeholder="Tìm kiếm" />
-                    <div class="dropdown category-css">
-                        <select name="category" id="category">
+
+                    <div class="dropdown category-css" style="display: none;">
+                        <select name="category" id="category" style="padding-right: 10px;">
                             <option value="">Tất cả</option>
                             <option value="electronics">Áo thun</option>
                             <option value="fashion">Áo sơ mi</option>
                             <option value="books">Áo Polo</option>
                         </select>
                     </div>
-                    <div class="dropdown price-css">
+                    <div class="dropdown price-css" style="display: none;">
                         <select id="price-filter">
                             <option value="all">Tất cả</option>
                             <option value="0-200000">Dưới 200.000 VND</option>
@@ -41,336 +139,391 @@
                             <option value="10000000">Trên 500.000 VND</option>
                         </select>
                     </div>
-
                     <button class="sb-button"><i class="ri-search-2-line"></i></button>
                 </div>
+                <div class="search-nc bg-primary text-white text-center rounded-pill px-4 py-1 d-flex align-items-center ms-2 bg-dark text-light"
+                    style="cursor: pointer;">
+                    <i class="bi bi-search"></i> Tìm kiếm nâng cao
+                </div>
             </div>
 
         </div>
-        <div class="container">
-            <div class="row-flex">
-                <div class="header-bar-icon"><i class="ri-menu-line"></i></div>
-                <div class="header-logo">
-                    <img src="asset/image/logo.png" alt="" />
-                </div>
-                <div class="header-nav">
-                    <ul>
-                        <li><a href="./user/product.html">SẢN PHẨM</a></li>
-                        <li><a href="#">ĐỒ THỂ THAO</a></li>
-                        <li><a href="#">MẶC HẰNG NGÀY</a></li>
-                        <li><a href="#">ĐỒ LÓT</a></li>
-                        <li><a href="#">SẢN XUẤT RIÊNG</a></li>
-                    </ul>
-                </div>
-                <div class="header-search">
-                    <input type="text" placeholder="Tìm kiếm" />
-                    <button class="header-search-css"><i class="ri-search-2-line"></i></button>
-                </div>
-                <div style="display: none;" class="search-delete"> <button class="clear-btn" id="clear-btn">
-                        <i class="ri-close-line"></i></button></div>
-                <div>
-                    <div>
-                        <div style="" class="show-signup">
-                            <div class="sign-in-js" style="display: inline-block;">Đăng Nhập</div>/<div
-                                class="register-js" style="display: inline-block;">Đăng Ký
-                            </div>
-                        </div>
-
-                        <div class="header-account" style="display: none;">
-                            <i class="fa fa-user"></i>
-                            <ul class="account-menu">
-                                <li><a href="./profile.html">Hồ sơ</a></li>
-                                <li><a href="./orders.html">Đơn hàng</a></li>
-                                <li>
-                                    <div id="logout">Đăng xuất</div>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="header-cart">
-                    <i class="ri-shopping-cart-line" number="0"></i>
-                </div>
-            </div>
-        </div>
-
     </header>
-    <!-- ---------------SLIDER---------- -->
-    <div class="body">
-        <section class="slider">
-            <div class="slider-container">
-                <div class="slider-item">
-                    <img src="../asset/image/baner3.jpeg" alt="" />
-                </div>
-                <div class="slider-item">
-                    <img src="../asset/image/baner1.jpg" alt="" />
-                </div>
-                <div class="slider-item">
-                    <img src="../asset/image/baner2.jpeg" alt="" />
-                </div>
-            </div>
-            <div class="slider-control">
-                <button class="prev"><i class="ri-arrow-left-s-line"></i></button>
-                <button class="next"><i class="ri-arrow-right-s-line"></i></button>
-            </div>
-        </section>
-    </div>
 
-    <!-- ---------------HOT PRODUCT---------- -->
+    <!-- CSS -->
+    <style>
 
+    </style>
 
-    <section class="hot-product">
-        <div class="container">
-            <div class="row-grid" style="margin-right: 5%;">
-                <p class="heading-text">TÂT CẢ SẢN PHẨM</p>
-                <div class="product-all-js">
+    <section style="margin-top: 120px;">
+        <div class="container mt-5">
+            <!-- Row chứa các nút -->
+            <div class="row g-3 gap-3">
+                <div class="col">
+                    <button class="btn btn-dark active border btn-dm w-100" id="btn-all" data-type="all">Tất cả</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-light border w-100 btn-dm" id="btn-tshirt" data-type="aothun">Áo
+                        thun</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-light border w-100 btn-dm" id="btn-polo" data-type="polo">Áo polo</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-light border w-100 btn-dm" id="btn-shirt" data-type="shirt">Áo sơ mi</button>
                 </div>
             </div>
-        </div>
-        <div class="body-signup r-js" style="display: none;">
-            <div class="form-wrapper ">
-                <div class="close-btn">
-                    <i class="ri-close-line"></i>
-                </div>
-                <div class="bbd-signup fwr-js">
-                    <div class="sign-up-header">ĐĂNG KÝ</div>
-                    <p>Bạn đã có tài khoản? <a href="./login.html"><span style="color: blue;">Đăng nhập ngay</span></a>
-                    </p>
-                    <div class="sign-up-form">
-                        <form action="" method="POST" class="form" id="form-1">
-                            <div class="input-box">
-                                <span class="detail">Tên đăng nhập</span>
-                                <input id="name" name="name" type="text" class="form-control"
-                                    placeholder="Nhập tên đăng nhập của bạn">
-                                <span class="invalid-message"></span>
-                            </div>
-                            <div class="input-box">
-                                <span class="detail">Email</span>
-                                <input id="email" name="email" type="text" class="form-control" placeholder="Email">
-                                <span class="invalid-message"></span>
-                            </div>
-                            <!-- <div class="input-box">
-                      <span class="detail">Số điện thoại</span>
-                      <input id="phone-number" name="phone-number" type="text" class="form-control"
-                        placeholder="Số điện thoại">
-                      <span class="invalid-message"></span>
-                    </div> -->
-                            <div class="input-box">
-                                <span class="detail">Mật khẩu</span>
-                                <input id="password" name="password" type="password" class="form-control"
-                                    placeholder="Nhập mật khẩu của bạn">
-                                <span class="invalid-message"></span>
-                            </div>
-                            <div class="input-box">
-                                <span class="detail">Xác nhận mật khẩu</span>
-                                <input id="confirm-password" name="confirm-password" type="password"
-                                    class="form-control" placeholder="Xác nhận lại mật khẩu">
-                                <span class="invalid-message"></span>
-                            </div>
-                            <button type="submit" class="sign-up-button form-submit">Đăng ký</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="body-signup s-js" style="display: none;">
-            <div class="form-wrapper fws-js">
-                <div class="close-btn">
-                    <i class="ri-close-line"></i>
-                </div>
-                <div class="bbd-signup ">
-
-                    <h3 class="sign-up-header">ĐĂNG NHẬP</h3>
-                    <p>Trở thành thành viên của 360 Boutique <a href="./signup.html"><span style="color: blue;">Đăng ký
-                                ngay</span></a></p>
-                    <div class="sign-up-form">
-                        <form action="" method="post" class="form" id="login">
-                            <div class="form-group input-box">
-                                <label for="user">
-                                    <b>Tên đăng nhập <span style="color: red;">&#42;</span></b>
-                                </label>
-                                <input class="form-input form-control" name="user" id="user" type="text"
-                                    placeholder="Nhập tên đăng nhập của bạn" required>
-                                <span class="invalid-message"></span>
-                            </div>
-                            <div class="form-group input-box">
-                                <label for="pass">
-                                    <b>Mật khẩu <span style="color: red;">&#42;</span></b>
-                                </label>
-                                <input class="form-input form-control" name="pass" id="pass" type="password"
-                                    placeholder="Nhập mật khẩu" style="position: relative;">
-                                <span class="show-btn" style="position: absolute;"><i class="fas fa-eye"></i></span>
-                                <span class="invalid-message"></span>
-                            </div>
-
-                            <div class="sub-form-group">
-                                <div class="sub1">
-                                    <input type="checkbox" name="" id="remember">
-                                    <label for="remember"><b>Ghi nhớ mật khẩu</b></label>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="submit-button form-group">ĐĂNG NHẬP</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal for login warning -->
-        <!-- Modal -->
-        <div class="login-warning-modal" id="login-warning-modal" style="display: none;">
-            <div class="modal-content">
-                <span class="close-btn" onclick="closeModal()">&times;</span>
-                <p class="modal-text">Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.</p>
-                <button class="ok-btn" onclick="closeModal()">OK</button>
-            </div>
-        </div>
-
-
-        <div class="modalSuccess"></div>
-        <div class="share-pg">
-            <button class="share-pg-mini spml">&lt;&lt;</button>
-            <button class="share-pg-mini spm1 active">1</button>
-            <button class="share-pg-mini spm2">2</button>
-            <button class="share-pg-mini spmr">&gt;&gt;</button>
         </div>
     </section>
-    <!-- ---------------FOOTER---------- -->
-    <footer>
-        <div class="container">
-            <div class="row-grid">
-                <div class="footer-item">
-                    <p>COOLCLUB</p>
-                    <p>Đăng ký thành viên</p>
-                    <p>Ưu đãi & Đặc quyền</p>
-                </div>
-                <div class="footer-item">
-                    <p>CHÍNH SÁCH</p>
-                    <p>Chính sách bảo mật</p>
-                    <p>Chính sách vận chuyển</p>
-                    <p>Chính sách đổi trả</p>
-                </div>
-                <div class="footer-item">
-                    <p>CHĂM SÓC KHÁCH HÀNG</p>
-                    <p>Hotline: 1900 1234</p>
-                    <p>Email: xxx</p>
-                </div>
-                <div class="footer-item">
-                    <p>ĐỊA CHỈ LIÊN HỆ</p>
-                    <p>Chi nhánh HCM: 47 đường 17, Linh Trung, Thủ Đức, TP.HCM</p>
-                    <p>Thời gian làm việc: 8h - 22h</p>
+    <!-- Hiện các  thông báo -->
+
+    <div class="body-signup r-js" style="display: none;">
+        <div class="form-wrapper ">
+            <div class="close-btn">
+                <i class="ri-close-line"></i>
+            </div>
+            <div class="bbd-signup fwr-js">
+                <div class="sign-up-header">ĐĂNG KÝ</div>
+                <p>Bạn đã có tài khoản? <a href="./../login.html"><span style="color: blue;">Đăng nhập ngay</span></a>
+                </p>
+                <div class="sign-up-form">
+                    <form action="" method="POST" class="form" id="form-1">
+                        <div class="input-box">
+                            <span class="detail">Tên đăng nhập</span>
+                            <input id="name" name="name" type="text" class="form-control"
+                                placeholder="Nhập tên đăng nhập của bạn">
+                            <span class="invalid-message"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="detail">Email</span>
+                            <input id="email" name="email" type="text" class="form-control" placeholder="Email">
+                            <span class="invalid-message"></span>
+                        </div>
+                        <!-- <div class="input-box">
+                  <span class="detail">Số điện thoại</span>
+                  <input id="phone-number" name="phone-number" type="text" class="form-control"
+                    placeholder="Số điện thoại">
+                  <span class="invalid-message"></span>
+                </div> -->
+                        <div class="input-box">
+                            <span class="detail">Mật khẩu</span>
+                            <input id="password" name="password" type="password" class="form-control"
+                                placeholder="Nhập mật khẩu của bạn">
+                            <span class="invalid-message"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="detail">Xác nhận mật khẩu</span>
+                            <input id="confirm-password" name="confirm-password" type="password" class="form-control"
+                                placeholder="Xác nhận lại mật khẩu">
+                            <span class="invalid-message"></span>
+                        </div>
+                        <button type="submit" class="sign-up-button form-submit">Đăng ký</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </footer>
-</body>
-<script src="./../asset/js/product.js"></script>
-<script src="./../asset/js/show-product.js"></script>
-<script class="showhotproduct">
-    show_product('hot', 'product-all-js', './../',);
-    load();
-    // addToCart();
-</script>
-<script src="./../asset/js/script.js"></script>
-<script src="./../asset/js/validator.js"></script>
-<script>
-    console.log(document.querySelector('.show-signup').style);
-    if (user != null) {
-        document.querySelector('.show-signup').style.display = 'none';
-        document.querySelector('.ac').style.display = '';
-        setcart();
-    }
-    const logoutButton = document.getElementById("logout");
+    </div>
+    <div class="body-signup s-js" style="display: none;">
+        <div class="form-wrapper fws-js">
+            <div class="close-btn">
+                <i class="ri-close-line"></i>
+            </div>
+            <div class="bbd-signup ">
 
-    logoutButton.addEventListener('click', function () {
-        // Xóa thông tin người dùng trong localStorage
-        localStorage.setItem('user', JSON.stringify(null));
-        // // Hiển thị lại form đăng ký
-        // document.querySelector('.show-signup').style.display = '';
+                <h3 class="sign-up-header">ĐĂNG NHẬP</h3>
+                <p>Trở thành thành viên của 360 Boutique <a href="./../signup.html"><span style="color: blue;">Đăng ký
+                            ngay</span></a></p>
+                <div class="sign-up-form">
+                    <form action="" method="post" class="form" id="login">
+                        <div class="form-group input-box">
+                            <label for="user">
+                                <b>Tên đăng nhập <span style="color: red;">&#42;</span></b>
+                            </label>
+                            <input class="form-input form-control" name="user" id="user" type="text"
+                                placeholder="Nhập tên đăng nhập của bạn" required>
+                            <span class="invalid-message"></span>
+                        </div>
+                        <div class="form-group input-box">
+                            <label for="pass">
+                                <b>Mật khẩu <span style="color: red;">&#42;</span></b>
+                            </label>
+                            <input class="form-input form-control" name="pass" id="pass" type="password"
+                                placeholder="Nhập mật khẩu" style="position: relative;">
+                            <span class="show-btn" style="position: absolute;"><i class="fas fa-eye"></i></span>
+                            <span class="invalid-message"></span>
+                        </div>
 
-        // // Ẩn thông tin tài khoản
-        document.querySelector('.ac').style.display = 'none';
-        document.querySelector('.header-account').style.display = "";
-        console.log(document.querySelector('.header-account').style);
-    });
-    Validator({
-        form: '#form-1',
-        rules: [
-            Validator.isRequired('#name', 'Vui lòng nhập tên đăng nhập'),
-            Validator.isRequired('#email', 'Vui lòng nhập email'),
-            Validator.isEmail('#email'),
-            Validator.isRequired('#password', 'Vui lòng nhập mật khẩu'),
-            Validator.minLength('#password', 8),
-            Validator.isRequired('#confirm-password', 'Vui lòng xác nhận lại mật khẩu'),
-            Validator.isConfirmed('#confirm-password', function () {
-                return document.querySelector('#form-1 #password').value;
-            }, 'Mật khẩu nhập lại không chính xác')
-        ],
-        onSubmit: function (data) {
-            console.log("bấm rồi nè1");
-            let tmp = {
-                data,
-                cart: []
-            }
-            // let userList = (JSON.parse(localStorage.getItem('userList'))) || [];
-            let userList = [];
-            userList.push(tmp);
-            document.querySelector('.r-js').style.display = 'none';
-            console.log("Đăng ký thành công");
-            localStorage.setItem('userList', JSON.stringify(userList));
-            console.log(JSON.parse(localStorage.getItem('userList')));
-            document.querySelector('.s-js').style.display = 'flex';
+                        <div class="sub-form-group">
+                            <div class="sub1">
+                                <input type="checkbox" name="" id="remember">
+                                <label for="remember"><b>Ghi nhớ mật khẩu</b></label>
+                            </div>
+                        </div>
 
-        }
-    });
-</script>
-<script>
-    if (JSON.parse(localStorage.getItem('user'))) {
-        document.querySelector('.show-signup').style.display = 'none';
-        document.querySelector('.header-account').style.display = '';
-    }
-    Validator_login({
-        form: '#login',
-        rules: [
-            Validator_login.isRequired('#user', 'Vui lòng nhập tên đăng nhập'),
-            Validator_login.isRequired('#pass', 'Vui lòng nhập mật khẩu')
-        ],
-        onSubmit: function (data) {
-            let userList = (JSON.parse(localStorage.getItem('userList'))) || [];
+                        <button type="submit" class="submit-button form-group">ĐĂNG NHẬP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for login warning -->
+    <!-- Modal -->
+    <div class="login-warning-modal" id="login-warning-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <p class="modal-text">Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.</p>
+            <button class="ok-btn" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <h2>Thông báo</h2>
+            <p>Vui lòng đăng nhập để xem giỏ hàng.</p>
+            <div class="modal-actions">
+                <button class="btn-login">Đăng Nhập</button>
+            </div>
+            <!-- Nút đóng ở ngoài button -->
+            <span class="close">&times;</span>
+        </div>
+    </div>
 
-            console.log("bấm rồi nè")
-            console.log(userList);
-            let check = false;
-            for (let i = 0; i < userList.length; i++) {
-                if (userList[i].data.name === data.user && userList[i].data.password === data.pass) {
-                    check = true;
-                    usercart = userList[i];
-                    localStorage.setItem('user', JSON.stringify(userList[i]));
-                    // let usercart = JSON.parse(localStorage.getItem('user'));
-                    console.log(JSON.parse(localStorage.getItem('user')));
-                    console.log("đăng nhập thành công");
 
+
+
+
+    <!-- Hiện sản phẩm -->
+    <div class="container mt-5">
+        <div class="row" id="product-list">
+            <!-- Các sản phẩm sẽ được render tại đây -->
+        </div>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <!-- Phân trang sẽ được render tại đây -->
+            </ul>
+        </nav>
+    </div>
+
+
+    <script src="./../vendor/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./../asset/js/dssp.js"></script>
+    <script src="./../asset/js/show-product.js"></script>
+    <script src="./../asset/js/script.js"></script>
+    <script src="./../asset/js/validator.js"></script>
+    <script>  renderProducts();
+        load();
+        Search();
+    </script>
+
+    <script>
+        //CLick tìm kiếm nâng cao
+
+        function clickSearch() {
+            document.querySelector(".header-search").addEventListener("click", function () {
+                console.log("click rồi nè");
+                this.style.display = "none"; // Ẩn thẻ bằng cách đặt display thành "none"
+                document.querySelector(".search-css").style.display = "";
+                document.querySelector(".search-delete").style.display = "";
+                // console.log(document.querySelector(".clear-btn"));
+                // document.querySelector(".clear-btn").style.display = "";
+
+
+            });
+            document.querySelector(".clear-btn").addEventListener("click", function () {
+                document.querySelector(".search-css").style.display = "none";
+                document.querySelector(".search-delete").style.display = "none";
+                document.querySelector(".header-search").style.display = "";
+            })
+            // document.querySelector(".sb-input").addEventListener("click", function () {
+            //   console.log(document.querySelector(".sb-input").style);
+            //   // document.querySelector(".sb-input").style;
+            // })
+            document.querySelector(".search-nc").addEventListener("click", function () {
+                if (document.querySelector(".search-nc").innerHTML == "Tìm kiếm cơ bản") {
+                    document.querySelector(".category-css").style.display = "none";
+                    document.querySelector(".price-css").style.display = "none";
+                    document.querySelector(".search-nc").innerHTML = "Tìm kiếm nâng cao";
                 }
-            }
-            if (check) {
-                // window.location.href = "index.html";
-                document.querySelector('.s-js').style.display = 'none';
-                console.log("đăng nhập thành công");
-                document.querySelector('.show-signup').style.display = 'none';
-                document.querySelector('.header-account').style.display = '';
-                setcart();
-                // document.querySelector('.login-fail').innerHTML = '';
-            } else {
-                // document.querySelector('.login-fail').innerHTML = 'Sai tên đăng nhập hoặc mật khẩu';
-                console.log("lỗi nè")
-            }
-            document.querySelector('.form-input').value = '';
-            console.log("hhihi");
-            console.log(JSON.parse(localStorage.getItem('userList')));
+                else {
+                    document.querySelector(".category-css").style.display = "";
+                    document.querySelector(".price-css").style.display = "";
+                    document.querySelector(".search-nc").innerHTML = "Tìm kiếm cơ bản";
+                }
+
+
+
+            })
+
         }
-    });
-</script>
+        clickSearch();
+        document.querySelectorAll('.btn-dm').forEach(button => {
+            button.addEventListener('click', function () {
+                // Xóa active và nền đen cho tất cả các nút
+                document.querySelectorAll('.btn-dm').forEach(btn => {
+                    btn.classList.remove('active', 'btn-dark');
+                    btn.classList.add('btn-light');
+                });
+
+                // Thêm active và nền đen cho nút được click
+                this.classList.add('active', 'btn-dark');
+                this.classList.remove('btn-light');
+
+                // Gọi renderProducts với loại được chọn
+                const selectedType = this.getAttribute('data-type');
+                currentPage = 1;
+                renderProducts(selectedType);
+
+            });
+        });
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lấy các phần tử cần thiết
+            const cartIcon = document.querySelector('.header-cart i');
+            const modal = document.getElementById('myModal');  // Sửa lại ID để khớp với HTML
+            const closeModal = modal.querySelector('.close');
+            const loginButton = modal.querySelector('.btn-login');
+            const closeButton = modal.querySelector('.btn-close');
+
+            // Mở modal khi click vào icon giỏ hàng
+            cartIcon.addEventListener('click', () => {
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (!user) {
+                    // Nếu chưa đăng nhập, hiển thị modal
+                    modal.style.display = 'flex';
+                } else {
+                    // Nếu đã đăng nhập, chuyển hướng đến trang giỏ hàng
+                    window.location.href = './../user/cart.html';
+                }
+            });
+
+            // Đóng modal khi click vào dấu X
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+            // Chuyển hướng đến trang đăng nhập khi click vào nút "Đăng Nhập"
+            loginButton.addEventListener('click', () => {
+                window.location.href = './../login.html';
+            });
+
+            // Đóng modal khi click bên ngoài modal
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+
+        user = JSON.parse(localStorage.getItem('user'));
+        console.log("user nè");
+        console.log(user);
+        if (user != null) {
+            document.querySelector('.show-signup').style.display = 'none';
+            document.querySelector('.ac').style.display = '';
+            setcart();
+        }
+        // const logoutButton = document.getElementById("logout");
+        // console.log(logoutButton);
+        // logoutButton.addEventListener('click', function () {
+        //     console.log("đăng xuất");
+        //     localStorage.setItem('user', JSON.stringify(null));
+
+        //     document.querySelector('.ac').style.display = 'none';
+        //     document.querySelector('.header-account').style.display = "";
+        //     console.log(document.querySelector('.header-account').style);
+        // });
+
+        Validator({
+            form: '#form-1',
+            rules: [
+                Validator.isRequired('#name', 'Vui lòng nhập tên đăng nhập'),
+                Validator.isRequired('#email', 'Vui lòng nhập email'),
+                Validator.isEmail('#email'),
+                Validator.isRequired('#password', 'Vui lòng nhập mật khẩu'),
+                Validator.minLength('#password', 8),
+                Validator.isRequired('#confirm-password', 'Vui lòng xác nhận lại mật khẩu'),
+                Validator.isConfirmed('#confirm-password', function () {
+                    return document.querySelector('#form-1 #password').value;
+                }, 'Mật khẩu nhập lại không chính xác')
+            ],
+            onSubmit: function (data) {
+                console.log("bấm rồi nè1");
+                let tmp = {
+                    data,
+                    cart: []
+                }
+                // let userList = (JSON.parse(localStorage.getItem('userList'))) || [];
+                let userList = [];
+                userList.push(tmp);
+                document.querySelector('.r-js').style.display = 'none';
+                console.log("Đăng ký thành công");
+                localStorage.setItem('userList', JSON.stringify(userList));
+                console.log(JSON.parse(localStorage.getItefm('userList')));
+                document.querySelector('.s-js').style.display = 'flex';
+
+            }
+        });
+    </script>
+    <script>
+
+        Validator_login({
+            form: '#login',
+            rules: [
+                Validator_login.isRequired('#user', 'Vui lòng nhập tên đăng nhập'),
+                Validator_login.isRequired('#pass', 'Vui lòng nhập mật khẩu')
+            ],
+            onSubmit: function (data) {
+                let userList = (JSON.parse(localStorage.getItem('userList'))) || [];
+
+                console.log("bấm rồi nè")
+                console.log(userList);
+                let check = false;
+                for (let i = 0; i < userList.length; i++) {
+                    if (userList[i].data.name === data.user && userList[i].data.password === data.pass) {
+                        check = true;
+                        usercart = userList[i];
+                        localStorage.setItem('user', JSON.stringify(userList[i]));
+                        // let usercart = JSON.parse(localStorage.getItem('user'));
+                        console.log(JSON.parse(localStorage.getItem('user')));
+                        console.log("đăng nhập thành công");
+
+                    }
+                }
+                if (check) {
+                    // window.location.href = "index.html";
+                    document.querySelector('.s-js').style.display = 'none';
+                    console.log("đăng nhập thành công");
+                    document.querySelector('.show-signup').style.display = 'none';
+                    document.querySelector('.ac').style.display = '';
+                    setcart();
+                    // document.querySelector('.login-fail').innerHTML = '';
+                } else {
+                    // document.querySelector('.login-fail').innerHTML = 'Sai tên đăng nhập hoặc mật khẩu';
+                    console.log("lỗi nè")
+                }
+                document.querySelector('.form-input').value = '';
+                console.log(JSON.parse(localStorage.getItem('userList')));
+            }
+        });
+        // Xử lý sự kiện khi nhấn vào các nút size
+        document.querySelectorAll('.size-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                console.log(this);
+                // Xóa trạng thái active của tất cả các nút size
+                document.querySelectorAll('.size-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // Thêm trạng thái active cho nút được nhấn
+                this.classList.add('active');
+            });
+        });
+
+
+    </script>
+
+</body>
 
 </html>

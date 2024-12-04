@@ -656,7 +656,7 @@ product-image-main img {
   height: 25px;
   width: 70px;
   text-align: center;
-  /* border: none; */
+  border: none;
 }
 .product-detail-right-quantity-input i {
   height: 25px;

@@ -618,6 +618,7 @@ function Search() {
     console.log("click tìm kiếm nè");
     pathname = window.location.pathname;
     const currentUrl = window.location.href;
+    console.log(currentUrl);
     if (pathname.includes('user')) {
       window.location.assign('./Search.html');
     }
@@ -628,5 +629,12 @@ function Search() {
     else {
       window.location.assign('./user/Search.html');
     }
+  })
+}
+
+// CLick nút thêm vào giỏ hàng
+function clickaddpd() {
+  document.querySelector("add-card-js").addEventListener(("click"), function () {
+
   })
 }
