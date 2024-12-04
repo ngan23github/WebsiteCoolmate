@@ -399,7 +399,6 @@ function load() {
 
   document.querySelector(".sign-in-js").addEventListener(("click"), function () {
     let tmp = document.querySelector('.s-js').style.display;
-    console.log("click!!!!");
     console.log(document.querySelector('.s-js'));
     if (tmp === "none") {
       document.querySelector('.s-js').style.display = "flex";
@@ -588,7 +587,6 @@ function clickaccount() {
     const accountIcon = document.getElementById("accounts-icon");
     const accountMenu = document.getElementById("account-menu");
 
-    // Toggle menu visibility when the icon is clicked
     accountIcon.addEventListener("click", function () {
       accountMenu.style.display = accountMenu.style.display === "block" ? "none" : "block";
     });
@@ -604,7 +602,6 @@ function clickaccount() {
   document.getElementById("logout").addEventListener("click", function (e) {
     // e.preventDefault();
     localStorage.removeItem("user");
-    // Chuyển hướng đến trang đăng nhập
     document.querySelector(".ac").style.display = "none";
     document.querySelector(".show-signup").style.display = "";
   });
@@ -632,9 +629,4 @@ function Search() {
   })
 }
 
-// CLick nút thêm vào giỏ hàng
-function clickaddpd() {
-  document.querySelector("add-card-js").addEventListener(("click"), function () {
 
-  })
-}

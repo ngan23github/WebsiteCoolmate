@@ -310,6 +310,7 @@
     <script src="./../asset/js/dssp.js"></script>
     <script src="./../asset/js/show-product.js"></script>
     <script src="./../asset/js/script.js"></script>
+    <script src="./../asset/js/script1.js"></script>
     <script src="./../asset/js/validator.js"></script>
     <script>  renderProducts();
         load();
@@ -319,43 +320,7 @@
     <script>
         //CLick tìm kiếm nâng cao
 
-        function clickSearch() {
-            document.querySelector(".header-search").addEventListener("click", function () {
-                console.log("click rồi nè");
-                this.style.display = "none"; // Ẩn thẻ bằng cách đặt display thành "none"
-                document.querySelector(".search-css").style.display = "";
-                document.querySelector(".search-delete").style.display = "";
-                // console.log(document.querySelector(".clear-btn"));
-                // document.querySelector(".clear-btn").style.display = "";
 
-
-            });
-            document.querySelector(".clear-btn").addEventListener("click", function () {
-                document.querySelector(".search-css").style.display = "none";
-                document.querySelector(".search-delete").style.display = "none";
-                document.querySelector(".header-search").style.display = "";
-            })
-            // document.querySelector(".sb-input").addEventListener("click", function () {
-            //   console.log(document.querySelector(".sb-input").style);
-            //   // document.querySelector(".sb-input").style;
-            // })
-            document.querySelector(".search-nc").addEventListener("click", function () {
-                if (document.querySelector(".search-nc").innerHTML == "Tìm kiếm cơ bản") {
-                    document.querySelector(".category-css").style.display = "none";
-                    document.querySelector(".price-css").style.display = "none";
-                    document.querySelector(".search-nc").innerHTML = "Tìm kiếm nâng cao";
-                }
-                else {
-                    document.querySelector(".category-css").style.display = "";
-                    document.querySelector(".price-css").style.display = "";
-                    document.querySelector(".search-nc").innerHTML = "Tìm kiếm cơ bản";
-                }
-
-
-
-            })
-
-        }
         clickSearch();
         document.querySelectorAll('.btn-dm').forEach(button => {
             button.addEventListener('click', function () {
@@ -379,43 +344,7 @@
 
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Lấy các phần tử cần thiết
-            const cartIcon = document.querySelector('.header-cart i');
-            const modal = document.getElementById('myModal');  // Sửa lại ID để khớp với HTML
-            const closeModal = modal.querySelector('.close');
-            const loginButton = modal.querySelector('.btn-login');
-            const closeButton = modal.querySelector('.btn-close');
-
-            // Mở modal khi click vào icon giỏ hàng
-            cartIcon.addEventListener('click', () => {
-                const user = JSON.parse(localStorage.getItem('user'));
-                if (!user) {
-                    // Nếu chưa đăng nhập, hiển thị modal
-                    modal.style.display = 'flex';
-                } else {
-                    // Nếu đã đăng nhập, chuyển hướng đến trang giỏ hàng
-                    window.location.href = './../user/cart.html';
-                }
-            });
-
-            // Đóng modal khi click vào dấu X
-            closeModal.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
-            // Chuyển hướng đến trang đăng nhập khi click vào nút "Đăng Nhập"
-            loginButton.addEventListener('click', () => {
-                window.location.href = './../login.html';
-            });
-
-            // Đóng modal khi click bên ngoài modal
-            window.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
-
+        clickcard();
 
         user = JSON.parse(localStorage.getItem('user'));
         console.log("user nè");

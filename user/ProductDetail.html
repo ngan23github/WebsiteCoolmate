@@ -13,8 +13,25 @@
   <link rel="stylesheet" href="./../asset/css/style1.css">
   <!-- <link rel="stylesheet" href="./../asset/css/style.css"> -->
   <style>
-    /* Đảm bảo các cột có khoảng cách đều */
+    @media screen and (max-width: 768px) {
+
+      /* Phần bên trái chiếm toàn bộ màn hình */
+      .product-detail-left {
+        width: 100%;
+        text-align: center;
+        /* Căn giữa nội dung nếu cần */
+        margin-bottom: 20px;
+        /* Khoảng cách với phần bên phải */
+      }
+
+      /* Phần bên phải (nếu cần chỉnh lại) */
+      .product-detail-right {
+        width: 100%;
+        /* Chiếm toàn bộ màn hình khi xuống dòng */
+      }
+    }
   </style>
+
 </head>
 
 <body>
@@ -305,8 +322,8 @@
     <i class="ri-arrow-right-line"> </i>
     <p>${product.title}</p>
   </div>
-  <div class="row-grid">
-    <div class="product-detail-left">
+  <div class="row-grid row">
+    <div class="product-detail-left" style="width: 100%">
       <img
         class="product-image-main"
         src="./../${product.img[0]}"
@@ -399,6 +416,24 @@
     // detailProduct(productId);
 
   </script>
+  <script>
+    //reponsive
+    function handleResponsiveClasses() {
+      const container = document.querySelector('.row-grid.row'); // Chọn phần tử cần xử lý
+      if (container) {
+        if (window.innerWidth <= 768) {
+          container.classList.remove('row-grid', 'row'); // Xóa class khi màn hình nhỏ hơn 768px
+        } else {
+          container.classList.add('row-grid', 'row'); // Thêm lại class khi màn hình lớn hơn 768px
+        }
+      }
+    }
+
+    // Gọi hàm khi tải trang và khi thay đổi kích thước màn hình
+    window.addEventListener('load', handleResponsiveClasses);
+    window.addEventListener('resize', handleResponsiveClasses);
+  </script>
+
   <script>
     const quantityInput = document.querySelector(".quantity-input");
     const addButton = document.querySelector(".ri-add-line");
