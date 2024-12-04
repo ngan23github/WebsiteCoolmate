@@ -242,7 +242,7 @@ function showProductDetail() {
   id = (id == null) ? 1 : id;
   console.log(id);
   let pd;
-  product.forEach((value) => {
+  products.forEach((value) => {
     if (id == value.id) {
       pd = value;
     }
@@ -340,19 +340,32 @@ function dieu_huong(a, b) {
   //id sanpham
   if (a == "ctsp") {
     let url = new URL(window.location.href);
-    console.log("1");
-    if (url.pathname == '/WEB/Webct/index.html') {
-      location.href = `./user/ProductDetail.html?id=${b}`;
-      load();
-    }
-    else {
-      console.log("sai");
-      location.href = `./ProductDetail.html?id=${b}`;
-      load();
-    }
+    console.log(url);
+
+    //     if (path.includes("index.html")) {
+    //   console.log("Tìm thấy index.html");
+    // } else {
+    //   console.log("Không tìm thấy index.html");
+    // }
+    // console.log("1");
+    // if (url.pathname == 'index.html') {
+    //   console.log("test link web");
+
+
+    //   location.href = `./user/ProductDetail.html?id=${b}`;
+    //   load();
+    // }
+    // else {
+    //   console.log("sai");
+    //   location.href = `./ProductDetail.html?id=${b}`;
+    //   load();
+    // }
     // show_product('hot', 'product-hot-js', '../', 3);
   }
   else if (a == "dk") {
+
+  }
+  else if (a == "cart") {
 
   }
   else {
@@ -391,7 +404,7 @@ function load() {
 
   document.querySelector(".sign-in-js").addEventListener(("click"), function () {
     let tmp = document.querySelector('.s-js').style.display;
-    console.log(tmp);
+    console.log("click!!!!");
     console.log(document.querySelector('.s-js'));
     if (tmp === "none") {
       document.querySelector('.s-js').style.display = "flex";

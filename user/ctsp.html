@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link đến file CSS của bạn -->
+    <style>
+        /* Cấu trúc các phần tử chính */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Nút tăng/giảm và ô nhập số lượng */
+        .quantity-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .quantity-input {
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        /* Nút tăng giảm */
+        .quantity-btn {
+            width: 30px;
+            height: 40px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background-color: #ddd;
+        }
+
+        /* Hiển thị các nút khi hover vào */
+        .quantity-wrapper:hover .quantity-btn {
+            opacity: 1;
+        }
+
+        /* Điều chỉnh kiểu dáng cho khi hover vào nút */
+        .quantity-btn:active {
+            background-color: #ccc;
+        }
+
+        /* Ẩn nút khi không hover vào ô nhập số lượng */
+        .quantity-wrapper .quantity-btn {
+            opacity: 0;
+        }
+
+        /* Các ảnh thu nhỏ */
+        .image-thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .thumbnail-img {
+            width: 70px;
+            height: 70px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail-img:hover {
+            opacity: 1;
+        }
+
+        .thumbnail-img.active {
+            border: 2px solid #f39c12;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Chi tiết sản phẩm</h1>
+        <div id="product-detail" class="row"></div>
+    </div>
+
+    <script src=".script.js"></script> <!-- Link đến file JS của bạn -->
+</body>
+
+<script>
+
+    // Lấy ID sản phẩm từ URL
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const productId = urlParams.get('id');
+
+    // Tìm sản phẩm theo ID
+    const product = products.find(p => p.id == productId);
+
+    // Hiển thị chi tiết sản phẩm
+    const productDetailContainer = document.getElementById('product-detail');
+    if (product) {
+        productDetailContainer.innerHTML = `
+    <div class="row">
+        <!-- Hình ảnh sản phẩm -->
+        <div class="col-md-6 position-relative">
+            <img id="main-image" src="./../${product.img[0]}" class="img-fluid" alt="${product.title}">
+            <div class="image-thumbnails mt-3 d-flex position-absolute bottom-0 start-0 w-100 justify-content-center">
+                ${product.img.map((image, index) => `
+                    <img src="./../${image}" class="thumbnail-img img-thumbnail me-2 ${index === 0 ? 'active' : ''}" data-index="${index}" alt="Thumbnail ${index}">
+                `).join('')}
+            </div>
+        </div>
+  
+        <!-- Thông tin sản phẩm -->
+        <div class="col-md-6">
+            <h2>${product.title}</h2>
+            <p>${product.description}</p>
+            <p><strong>Giá:</strong> ${product.price.toLocaleString()} VND</p>
+            <div class="btn-group mb-3" role="group" aria-label="Chọn size">
+                ${Object.keys(product.size)
+                .filter(size => product.size[size])
+                .map(size => `
+                    <button type="button" class="btn btn-outline-secondary">${size}</button>
+                `).join('')}
+            </div>
+            <div class="mb-3">
+                <label for="quantity">Số lượng:</label>
+                <div class="quantity-wrapper">
+                    <button id="decrease" class="quantity-btn">-</button>
+                    <input type="number" id="quantity" class="form-control quantity-input" value="1" min="1" max="10">
+                    <button id="increase" class="quantity-btn">+</button>
+                </div>
+            </div>
+            <button class="btn btn-warning mt-3">Thêm vào giỏ hàng</button>
+        </div>
+    </div>
+  `;
+    } else {
+        productDetailContainer.innerHTML = `
+    <div class="col-12 text-center">
+        <p>Sản phẩm không tồn tại!</p>
+        <a href="index.html" class="btn btn-primary">Quay lại danh sách sản phẩm</a>
+    </div>
+  `;
+    }
+
+    // Thêm sự kiện thay đổi ảnh lớn khi nhấp vào ảnh nhỏ
+    const mainImage = document.getElementById('main-image');
+    const thumbnails = document.querySelectorAll('.thumbnail-img');
+
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function () {
+            // Đổi ảnh lớn
+            const selectedImageIndex = this.getAttribute('data-index');
+            mainImage.src = `./../${product.img[selectedImageIndex]}`;
+
+            // Đổi trạng thái "active"
+            thumbnails.forEach(img => img.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Lấy đối tượng nút và ô nhập số lượng
+    const decreaseBtn = document.getElementById('decrease');
+    const increaseBtn = document.getElementById('increase');
+    const quantityInput = document.getElementById('quantity');
+
+    // Thêm sự kiện cho nút giảm số lượng
+    decreaseBtn.addEventListener('click', () => {
+        let quantity = parseInt(quantityInput.value);
+        if (quantity > 1) {
+            quantityInput.value = quantity - 1;
+        }
+    });
+
+    // Thêm sự kiện cho nút tăng số lượng
+    increaseBtn.addEventListener('click', () => {
+        let quantity = parseInt(quantityInput.value);
+        if (quantity < 10) {
+            quantityInput.value = quantity + 1;
+        }
+    });
+
+</script>
+
+</html>

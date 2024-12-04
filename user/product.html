@@ -70,7 +70,7 @@
                         <i class="ri-close-line"></i></button></div>
                 <div>
                     <div>
-                        <div class="show-signup">
+                        <div style="" class="show-signup">
                             <div class="sign-in-js" style="display: inline-block;">Đăng Nhập</div>/<div
                                 class="register-js" style="display: inline-block;">Đăng Ký
                             </div>
@@ -276,6 +276,25 @@
 <script src="./../asset/js/script.js"></script>
 <script src="./../asset/js/validator.js"></script>
 <script>
+    console.log(document.querySelector('.show-signup').style);
+    if (user != null) {
+        document.querySelector('.show-signup').style.display = 'none';
+        document.querySelector('.ac').style.display = '';
+        setcart();
+    }
+    const logoutButton = document.getElementById("logout");
+
+    logoutButton.addEventListener('click', function () {
+        // Xóa thông tin người dùng trong localStorage
+        localStorage.setItem('user', JSON.stringify(null));
+        // // Hiển thị lại form đăng ký
+        // document.querySelector('.show-signup').style.display = '';
+
+        // // Ẩn thông tin tài khoản
+        document.querySelector('.ac').style.display = 'none';
+        document.querySelector('.header-account').style.display = "";
+        console.log(document.querySelector('.header-account').style);
+    });
     Validator({
         form: '#form-1',
         rules: [
