@@ -28,7 +28,7 @@ function renderProducts(activeType = 'all') {
 
         productElement.innerHTML = `
             <div class="card img-1 product-item" data-id="${product.id}">
-                <img src="${imagePath}" class="card-img-top" alt="${product.title}">
+                <img src="${imagePath}" style="cursor: pointer;" class="card-img-top" alt="${product.title}">
                 <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
                     <div class="mb-3">
                         <strong style="color: white;">Size:</strong>

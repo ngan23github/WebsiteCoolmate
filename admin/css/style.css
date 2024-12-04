@@ -517,25 +517,28 @@ body{
 }
 /* Delete Popup */
 .delete-popup{
-    position: relative;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
     display: none;
 }
 .delete-popup.active{
     display: block;
 }
-.delete-popup .bg-shadow{
-    position: fixed;
-    top: 0;
-    background: rgb(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-}
 .delete-popup .popup{
     position: relative;
     background: #fff;
     max-width: 30%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 80%);
+    transform: translate(-50%, -50%);
     animation: modalShow 0.5s linear;
 }
 .delete-popup .popup .popup-head{
@@ -591,35 +594,39 @@ body{
 }
 @keyframes modalShow {
     from {
-        transform: translate(-50%, -50%);
+        top: 0;
         opacity: 0;
     }
 
     to {
-        transform: translate(-50%, 80%);
+        top: 50%;
         opacity: 1;
     }
 }
+/* Lock Popup */
 .lock-popup{
-    position: relative;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
     display: none;
 }
 .lock-popup.active{
     display: block;
 }
-.lock-popup .bg-shadow{
-    position: fixed;
-    top: 0;
-    background: rgb(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-}
 .lock-popup .l-popup{
     position: relative;
     background: #fff;
     max-width: 30%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 80%);
+    transform: translate(-50%, -50%);
     animation: modalShow 0.5s linear;
 }
 .lock-popup .l-popup .l-popup-head{
@@ -673,30 +680,34 @@ body{
 .lock-popup .l-popup .l-popup-foot .l-popup-confirm-btn:hover{
     opacity: 0.7;
 }
+/* Add Popup */
 .add-popup{
-    position: relative;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
     display: none;
 }
 .add-popup.active{
     display: block;
-}
-.add-popup .bg-shadow{
-    position: fixed;
-    top: 0;
-    background: rgb(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
 }
 .add-popup .a-popup{
     position: relative;
     background: #fff;
     max-width: 700px;
     width: 100%;
+    top: 50%;
     left: 50%;
     padding: 25px;
-    transform: translate(-50%, 25%);
     border-radius: 8px;
-    animation: modalShow_addButton 0.5s linear;
+    transform: translate(-50%, -50%);
+    animation: modalShow 0.5s linear;
 }
 .add-popup .a-popup .a-popup-head{
     padding-bottom: 0;
@@ -776,41 +787,34 @@ body{
 .form .cancel-button button:hover{
     background-color: rgba(255, 0, 0, 0.571);
 }
-@keyframes modalShow_addButton {
-    from {
-        transform: translate(-50%, -50%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translate(-50%, 25%);
-        opacity: 1;
-    }
-}
+/* Edit Popup */
 .edit-popup{
-    position: relative;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
     display: none;
 }
 .edit-popup.active{
     display: block;
-}
-.edit-popup .bg-shadow{
-    position: fixed;
-    top: 0;
-    background: rgb(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
 }
 .edit-popup .e-popup{
     position: relative;
     background: #fff;
     max-width: 700px;
     width: 100%;
+    top: 50%;
     left: 50%;
     padding: 25px;
-    transform: translate(-50%, 25%);
     border-radius: 8px;
-    animation: modalShow_addButton 0.5s linear;
+    transform: translate(-50%, -50%);
+    animation: modalShow 0.5s linear;
 }
 .edit-popup .e-popup .e-popup-head{
     padding-bottom: 0;

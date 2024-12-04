@@ -25,82 +25,83 @@ userPic.addEventListener('click', ()=>{
 
 // Products
 
-let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) :
+let productList = localStorage.getItem('productList') ? JSON.parse(localStorage.getItem('productList')) :
 [{
     productId: 'SP672831',
     productName: 'Áo thun Stitch',
     productImage: './img/stitchbeach2.jpg',
-    productCount: '384',
-    productPrice: '220000',
+    productCount: 384,
+    productPrice: 220000,
     productStatus: 'true'
 },{
     productId: 'SP823874',
     productName: 'Áo thun Venom',
     productImage: './img/2484.ULSMV.TSZ707_HEHEHEVENOM_0050__20_DEN.webp',
-    productCount: '672',
-    productPrice: '190000'
+    productCount: 672,
+    productPrice: 190000
 },{
     productId: 'SP172392',
     productName: 'Áo khoác thể thao có mũ',
     productImage: './img/ao-khoac-the-thao-co-mu.webp',
-    productCount: '583',
-    productPrice: '350000'
+    productCount: 583,
+    productPrice: 350000
 },{
     productId: 'SP283499',
     productName: 'Áo khoác thể thao cổ Rib',
     productImage: './img/ao-khoac-the-thao-co-rib.webp',
-    productCount: '826',
-    productPrice: '400000'
+    productCount: 826,
+    productPrice: 400000
 },{
     productId: 'SP789456',
     productName: 'Áo phao nhẹ',
     productImage: './img/ao-phao-nhe.webp',
-    productCount: '429',
-    productPrice: '380000'
+    productCount: 429,
+    productPrice: 380000
 },{
     productId: 'SP492748',
     productName: 'Áo sơ mi cổ tàu',
     productImage: './img/ao-so-mi-co-tau.webp',
-    productCount: '732',
-    productPrice: '430000'
+    productCount: 732,
+    productPrice: 430000
 },{
     productId: 'SP237891',
     productName: 'Áo sơ mi Modal Essential',
     productImage: './img/ao-so-mi-modal-essential.webp',
-    productCount: '662',
-    productPrice: '500000'
+    productCount: 662,
+    productPrice: 500000
 },{
     productId: 'SP628435',
     productName: 'Áo sơ mi Oxford Premium',
     productImage: './img/ao-so-mi-oxford.webp',
-    productCount: '348',
-    productPrice: '380000'
+    productCount: 348,
+    productPrice: 380000
 },{
     productId: 'SP827348',
     productName: 'Áo Sweater',
     productImage: './img/ao-sweater.webp',
-    productCount: '723',
-    productPrice: '250000'
+    productCount: 723,
+    productPrice: 250000
 },{
     productId: 'SP827348',
     productName: 'Áo Sweater',
     productImage: './img/ao-sweater.webp',
-    productCount: '723',
-    productPrice: '250000'
+    productCount: 723,
+    productPrice: 250000
 },{
     productId: 'SP827348',
     productName: 'Áo Sweater',
     productImage: './img/ao-sweater.webp',
-    productCount: '723',
-    productPrice: '250000'
+    productCount: 723,
+    productPrice: 250000
 },{
     productId: 'SP827348',
     productName: 'Áo Sweater',
     productImage: './img/ao-sweater.webp',
-    productCount: '723',
-    productPrice: '250000'
+    productCount: 723,
+    productPrice: 250000
 }];
-// localStorage.setItem('products', JSON.stringify(products));
+// productList.splice(12);
+// localStorage.setItem('productList', JSON.stringify(productList));
 const popup_close_btn = document.querySelector('.popup-close-btn'); 
 const popup_cancel_btn = document.querySelector('.popup-cancel-btn'); 
 const delete_popup = document.querySelector('.delete-popup');
@@ -110,21 +111,25 @@ popup_close_btn.addEventListener('click', ()=>{
 popup_cancel_btn.addEventListener('click', ()=>{
     delete_popup.classList.remove('active');
 });
+
+function vnd(value){
+    return value.toLocaleString("vi-VN");
+}
 renderTable();
 function renderTable(){
     let tableHTML = '';
-    for(let i=0; i<products.length; i++){
-        const {productId, productName, productImage, productCount, productPrice} = products[i];
+    for(let i=0; i<productList.length; i++){
+        const {productId, productName, productImage, productCount, productPrice} = productList[i];
         tableHTML += 
         `<tr>
             <td>${productId}</td>
             <td>${productName}</td>
             <td><img class="product-img" src="${productImage}" alt=""></td>
             <td>${productCount}</td>
-            <td>${productPrice}</td>
+            <td>${vnd(Number(productPrice))}</td>
             <td>
                 <div class="tools">
-                    <button class="edit-btn" onclick="editProduct('${i}','${productId}', '${productName}', '${productCount}', '${productPrice}', '${productImage}')"><i class="fas fa-edit"></i></button>
+                    <button class="edit-btn" onclick="editProduct('${i}','${productId}', '${productName}', '${productCount}', '${vnd(productPrice)}', '${productImage}')"><i class="fas fa-edit"></i></button>
                     <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </td>
@@ -245,12 +250,12 @@ function addProduct(){
     const id = idInput.value; 
     const name = nameInput.value; 
     const count = countInput.value; 
-    const price = priceInput.value; 
+    const price = priceInput.value;
     const img = imgInput.src;
     if(id != '' && name != '' && count != '' && price != '' && img != ''){
-        products.push({productId: id, productName: name, productImage: img, productCount: count, productPrice: price});
+        productList.push({productId: id, productName: name, productImage: img, productCount: count, productPrice: price});
     }
-    localStorage.setItem('products', JSON.stringify(products));
+    localStorage.setItem('productList', JSON.stringify(productList));
     idInput.value = '';
     nameInput.value = '';
     countInput.value = '';

@@ -27,7 +27,7 @@ userPic.addEventListener('click', ()=>{
 let orderList = [{
     orderId: 'DH912873',
     orderUser: 'hello23hihi',
-    orderTotal: '1280000',
+    orderTotal: 1280000,
     orderDate: '10/10/2024',
     orderAddress: '8',
     orderStatus: 'Thành công',
@@ -35,7 +35,7 @@ let orderList = [{
 },{
     orderId: 'DH882948',
     orderUser: 'alice_wang',
-    orderTotal: '1000000',
+    orderTotal: 1000000,
     orderDate: '12/1/2024',
     orderAddress: '10',
     orderStatus: 'Chưa xử lý',
@@ -43,7 +43,7 @@ let orderList = [{
 },{
     orderId: 'DH234738',
     orderUser: 'bob_smith',
-    orderTotal: '450000',
+    orderTotal: 450000,
     orderDate: '11/25/2024',
     orderAddress: '3',
     orderStatus: 'Đang giao hàng',
@@ -51,7 +51,7 @@ let orderList = [{
 },{
     orderId: 'DH723791',
     orderUser: 'carol_jones',
-    orderTotal: '600000',
+    orderTotal: 600000,
     orderDate: '11/21/2024',
     orderAddress: 'Tân Phú',
     orderStatus: 'Đã hủy',
@@ -59,7 +59,7 @@ let orderList = [{
 },{
     orderId: 'DH123929',
     orderUser: 'david_lee',
-    orderTotal: '200000',
+    orderTotal: 200000,
     orderDate: '11/22/2024',
     orderAddress: '5',
     orderStatus: 'Thành công',
@@ -67,7 +67,7 @@ let orderList = [{
 },{
     orderId: 'DH643823',
     orderUser: 'emma_clark',
-    orderTotal: '500000',
+    orderTotal: 500000,
     orderDate: '12/3/2024',
     orderAddress: '2',
     orderStatus: 'Đang giao hàng',
@@ -75,7 +75,7 @@ let orderList = [{
 },{
     orderId: 'DH239493',
     orderUser: 'frank_harris',
-    orderTotal: '350000',
+    orderTotal: 350000,
     orderDate: '11/30/2024',
     orderAddress: 'Bình Tân',
     orderStatus: 'Chưa xử lý',
@@ -83,7 +83,7 @@ let orderList = [{
 },{
     orderId: 'DH873827',
     orderUser: 'grace_martin',
-    orderTotal: '700000',
+    orderTotal: 700000,
     orderDate: '10/14/2024',
     orderAddress: '7',
     orderStatus: 'Đã hủy',
@@ -91,7 +91,7 @@ let orderList = [{
 },{
     orderId: 'DH299310',
     orderUser: 'henry_wilson',
-    orderTotal: '300000',
+    orderTotal: 300000,
     orderDate: '11/23/2024',
     orderAddress: 'Phú Nhuận',
     orderStatus: 'Thành công',
@@ -99,13 +99,16 @@ let orderList = [{
 },{
     orderId: 'DH829123',
     orderUser: 'isabella_thompson',
-    orderTotal: '550000',
+    orderTotal: 550000,
     orderDate: '11/21/2024',
     orderAddress: '12',
     orderStatus: 'Đang giao hàng',
     classStatus: 'inprogress'
 }];
 
+function vnd(value){
+    return value.toLocaleString("vi-VN");
+}
 // Order Details
 const order_popup = document.querySelector('.order-popup');
 const close_btn = document.querySelector('.close-btn');
@@ -118,7 +121,7 @@ function renderDetails(){
         `<tr>
             <td>${orderId}</td>
             <td>${orderUser}</td>
-            <td>${orderTotal}</td>
+            <td>${vnd(orderTotal)}</td>
             <td>${orderDate}</td>
             <td>${orderAddress}</td>
             <td><span class="status ${classStatus}">${orderStatus}</span></td>
@@ -158,7 +161,7 @@ function renderDetails_bySort(){
         `<tr>
             <td>${orderId}</td>
             <td>${orderUser}</td>
-            <td>${orderTotal}</td>
+            <td>${vnd(orderTotal)}</td>
             <td>${orderDate}</td>
             <td>${orderAddress}</td>
             <td><span class="status ${classStatus}">${orderStatus}</span></td>
