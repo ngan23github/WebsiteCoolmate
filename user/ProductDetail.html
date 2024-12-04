@@ -287,6 +287,7 @@
     let output = document.querySelector(".product-detail-js");
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
+    detailProduct(productId);
     function detailProduct(masp) {
 
       if (masp == null) {
@@ -296,7 +297,12 @@
       let productDetail = document.querySelector(".product-detail-js");
       console.log(productDetail);
       console.log(products);
-      let product = products.find(value => value.id === masp);
+      let product;
+      products.forEach((value) => {
+        if (value.id == masp) {
+          product = value;
+        }
+      })
       console.log(product);
       productDetail.innerHTML = `
 <div class="container">
@@ -382,7 +388,7 @@
 `;
       productDetail.style.display = "block";
     }
-    detailProduct(productId);
+    // detailProduct(productId);
 
   </script>
 
