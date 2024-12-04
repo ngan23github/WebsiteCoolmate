@@ -399,7 +399,27 @@
     // detailProduct(productId);
 
   </script>
+  <script>
+    const quantityInput = document.querySelector(".quantity-input");
+    const addButton = document.querySelector(".ri-add-line");
+    const subtractButton = document.querySelector(".ri-subtract-fill");
 
+    if (quantityInput && addButton && subtractButton) {
+      addButton.addEventListener("click", () => {
+        console.log("đang click +");
+        let currentValue = parseInt(quantityInput.value) || 0; // Chuyển đổi giá trị sang số
+        quantityInput.value = currentValue + 1;
+      });
+
+      subtractButton.addEventListener("click", () => {
+        console.log("đang click -");
+        let currentValue = parseInt(quantityInput.value) || 0;
+        if (currentValue > 1) {
+          quantityInput.value = currentValue - 1;
+        }
+      });
+    }
+  </script>
 
   <script>
     //CLick tìm kiếm nâng cao
@@ -631,25 +651,7 @@
       });
     }
     // quantity product
-    const quantityInput = document.querySelector(".quantity-input");
-    const addButton = document.querySelector(".ri-add-line");
-    const subtractButton = document.querySelector(".ri-subtract-fill");
 
-    if (quantityInput && addButton && subtractButton) {
-      addButton.addEventListener("click", () => {
-        console.log("đang click +");
-        let currentValue = parseInt(quantityInput.value) || 0; // Chuyển đổi giá trị sang số
-        quantityInput.value = currentValue + 1;
-      });
-
-      subtractButton.addEventListener("click", () => {
-        console.log("đang click -");
-        let currentValue = parseInt(quantityInput.value) || 0;
-        if (currentValue > 1) {
-          quantityInput.value = currentValue - 1;
-        }
-      });
-    }
 
   </script>
 
