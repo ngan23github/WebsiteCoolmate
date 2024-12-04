@@ -370,7 +370,6 @@
   <div class="product-detail-right-quantity-input">
     <i class="ri-subtract-fill"></i>
     <input
-      onkeydown="return false"
       class="quantity-input"
       type="number"
       value="1"
@@ -607,12 +606,7 @@
 
 
   </script>
-  <script>function vnd(price) {
-      return price.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
-    }
-    var productAll = JSON.parse(localStorage.getItem("products")).filter(
-      (item) => item.status == 1
-    );
+  <script>
 
     function getProductInfo(masp) {
       let products = JSON.parse(localStorage.getItem("products"));
@@ -643,11 +637,13 @@
 
     if (quantityInput && addButton && subtractButton) {
       addButton.addEventListener("click", () => {
+        console.log("đang click +");
         let currentValue = parseInt(quantityInput.value) || 0; // Chuyển đổi giá trị sang số
         quantityInput.value = currentValue + 1;
       });
 
       subtractButton.addEventListener("click", () => {
+        console.log("đang click -");
         let currentValue = parseInt(quantityInput.value) || 0;
         if (currentValue > 1) {
           quantityInput.value = currentValue - 1;
