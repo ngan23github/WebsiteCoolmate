@@ -899,11 +899,11 @@ td {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.size-select:focus {
+/* .size-select:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
-}
+} */
 .quantity-controls {
   display: flex;
   align-items: center;

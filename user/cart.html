@@ -97,12 +97,12 @@
                             <li><a href="./profile.html">Hồ sơ</a></li>
                             <li><a href="./orders.html">Đơn hàng</a></li>
                             <li>
-                                <a href="#" id="logout">Đăng xuất</a>
+                                <a href="#" id="logout" class="logout-js">Đăng xuất</a>
                             </li>
                         </ul>
                     </div>
                     <div class="header-cart">
-                        <i class="ri-shopping-cart-line" number="0"></i>
+                        <i class="ri-shopping-cart-line" number="2"></i>
                     </div>
                 </div>
             </div>
@@ -265,7 +265,7 @@
                         <tr>
                             <td><input type="checkbox" class="product-checkbox" /></td>
                             <td>
-                                <img src="./../asset/image/product/WEB1/AoThun/9/Legend_Club_1.1.webp" alt="Sản phẩm"
+                                <img src="./../asset/image/product/WEB1/AoThun/11/xanh_colonial_1.webp" alt="Sản phẩm"
                                     class="cart-product-img" />
                             </td>
                             <td>Áo Thun Nam MS001</td>
@@ -291,7 +291,7 @@
                         <tr>
                             <td><input type="checkbox" class="product-checkbox" /></td>
                             <td>
-                                <img src="./../asset/image/product/WEB1/AoThun/8/2484.ULSMV.TSZ707_HEHEHEVENOM_0050__20_DEN.webp"
+                                <img src="./../asset/image/product/WEB1/AoThun/12/beachtsittrangdua3.webp"
                                     alt="Sản phẩm" class="cart-product-img" />
                             </td>
                             <td>Áo Polo Nam MS002</td>
@@ -317,10 +317,7 @@
                     </tbody>
                 </table>
                 <div class="cart-footer">
-                    <div class="select-all-container">
-                        <input type="checkbox" id="select-all-footer" />
-                        <label for="select-all-footer">Chọn tất cả</label>
-                    </div>
+
                     <div class="total-amount-container">
                         Tổng tiền: <span class="total-amount" data-value="500000">500.000</span>
                     </div>
@@ -347,14 +344,11 @@
     // addToCart();
 </script>
 <script>
-    const logoutButton = document.getElementById("logout");
+    const logoutButton = document.querySelector('.logout-js');
 
     logoutButton.addEventListener('click', function () {
-        // Xóa thông tin người dùng trong localStorage
+
         localStorage.setItem('user', JSON.stringify(null));
-        // // Hiển thị lại form đăng ký
-        // document.querySelector('.show-signup').style.display = '';
-        // // Ẩn thông tin tài khoản
         location.href = "./../index.html";
     });
     //CLick tìm kiếm nâng cao

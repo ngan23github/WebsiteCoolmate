@@ -457,7 +457,7 @@ html {
   width: 100%;
   height: 45px;
 }
-.sign-up-form .btn-box{
+.sign-up-form .btn-box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -521,13 +521,13 @@ html {
 .close-btn i {
   font-size: 22px;
 }
-.icon-box i{
+.icon-box i {
   position: absolute;
   right: 27px;
   top: 57%;
   font-size: 24px;
 }
-.sub1{
+.sub1 {
   margin: 15px 0 0 0;
 }
 .submit-button {
@@ -823,17 +823,11 @@ html {
   padding: 10px 20px;
   font-size: 16px;
   color: white;
-  background-color: #333; /* Xám đậm - dễ nhìn, không quá nặng nề */
+  background-color: #333;
   border: 2px solid #333; /* Đường viền màu xám đậm */
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-}
-
-/* Nút khi hover */
-.size-btn:hover {
-  background-color: #444; /* Xám sáng hơn khi hover */
-  transform: scale(1.05); /* Tăng kích thước nhẹ khi hover */
 }
 
 /* Thông báo size đã chọn */
