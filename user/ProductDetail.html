@@ -604,9 +604,9 @@
   }
 </style>
 
-<div class="product-detail-right-quantity">
+<div class="product-detail-right-quantity" style="display: inline-block">
   <h2>Số lượng:</h2>
-  <div class="product-detail-right-quantity-input">
+  <div class="product-detail-right-quantity-input" style="display: inline-block">
     <i class="ri-subtract-fill"></i>
     <input
       class="quantity-input"
@@ -616,6 +616,17 @@
     <i class="ri-add-line"></i>
   </div>
 </div>
+      
+    <div class="row justify-content-center" style="display: inline-block">
+        <div class="col-12 col-md-8">
+            <div class="d-flex justify-content-start">
+                <button class="btn btn-outline-dark btn-sm mx-2 size-btn bg-white text-dark active" data-size="S" style="padding: 5px 10px;">S</button>
+                <button class="btn btn-outline-dark btn-sm mx-2 size-btn bg-white text-dark" data-size="M" style="padding: 5px 10px;">M</button>
+                <button class="btn btn-outline-dark btn-sm mx-2 size-btn bg-white text-dark" data-size="L" style="padding: 5px 10px;">L</button>
+                <button class="btn btn-outline-dark btn-sm mx-2 size-btn bg-white text-dark" data-size="XL" style="padding: 5px 10px;">XL</button>
+            </div>
+        </div>
+    </div>
 
       <div class="product-detail-right-addcart">
         <button id="add"  class="main-btn" onclick="addspm() ">Thêm vào giỏ hàng</button>
