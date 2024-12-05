@@ -24,7 +24,7 @@ userPic.addEventListener('click', ()=>{
 });
 
 // List Khách Hàng
-let userList = localStorage.getItem('userList') ? JSON.parse(localStorage.getItem('userList')) :
+let userListMenu = localStorage.getItem('userListMenu') ? JSON.parse(localStorage.getItem('userListMenu')) :
 [{
     username: 'hello89hihi',
     email: 'abcd55@gmail.com',
@@ -126,7 +126,7 @@ let userList = localStorage.getItem('userList') ? JSON.parse(localStorage.getIte
     phone: '0909274673',
     userStatus: 'Đang hoạt động'
 }];
-// localStorage.setItem('userList', JSON.stringify(userList));
+// localStorage.setItem('userListMenu', JSON.stringify(userListMenu));
 const delete_popup = document.querySelector('.delete-popup');
 const popup_close_btn = document.querySelector('.popup-close-btn'); 
 const popup_cancel_btn = document.querySelector('.popup-cancel-btn'); 
@@ -139,8 +139,8 @@ popup_cancel_btn.addEventListener('click', ()=>{
 renderTable();
 function renderTable(){
     let tableHTML = '';
-    for(let i=0; i<userList.length; i++){
-        const {username, email, phone, userStatus} = userList[i];
+    for(let i=0; i<userListMenu.length; i++){
+        const {username, email, phone, userStatus} = userListMenu[i];
         tableHTML += 
         `<tr>
             <td>${username}</td>
@@ -194,15 +194,15 @@ function renderTable(){
     });
     document.querySelectorAll('.edit-btn').forEach((editButton, i)=>{
         editButton.addEventListener('click', ()=>{
-            console.log(userList[i]);
-            edit_user.value = userList[i].username;
-            edit_email.value = userList[i].email;
-            edit_phone.value = userList[i].phone;
+            console.log(userListMenu[i]);
+            edit_user.value = userListMenu[i].username;
+            edit_email.value = userListMenu[i].email;
+            edit_phone.value = userListMenu[i].phone;
             edit_popup.classList.add('active');
             edit_button.addEventListener('click', ()=>{
-                // userList[i].username = edit_user.value;
-                // userList[i].email = edit_email.value;
-                // userList[i].phone = edit_phone.value;
+                // userListMenu[i].username = edit_user.value;
+                // userListMenu[i].email = edit_email.value;
+                // userListMenu[i].phone = edit_phone.value;
                 edit_popup.classList.remove('active');
                 // renderTable();
             });
@@ -289,9 +289,9 @@ function addUser(){
     const email = emailInput.value;
     const phone = phoneInput.value;
     if(name != '' && email != '' && phone != ''){
-        userList.push({username: name, email: email, phone: phone, userStatus: 'Đang hoạt động'});     
+        userListMenu.push({username: name, email: email, phone: phone, userStatus: 'Đang hoạt động'});     
     }
-    localStorage.setItem('userList', JSON.stringify(userList));
+    localStorage.setItem('userListMenu', JSON.stringify(userListMenu));
     nameInput.value = '';
     emailInput.value = '';
     phoneInput.value = '';
