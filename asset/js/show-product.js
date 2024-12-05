@@ -34,7 +34,7 @@ function renderProducts(activeType = 'all') {
                         <strong style="color: white;">Size:</strong>
                         <div class="btn-group" role="group" aria-label="Size">
                             ${Object.keys(product.size).map(size => `
-                                <button 
+                                <button  tabindex="-1"
                                     type="button" 
                                     class="btn btn-outline-light btn-sm size-btn" 
                                     data-size="${size}">
@@ -63,7 +63,7 @@ function renderProducts(activeType = 'all') {
 </div>
 
                     </div>
-                    <button class="btn btn-warning w-100 py-2 add-card-js">Thêm vào giỏ hàng</button>
+                    <button class="btn btn-warning w-100 py-2 add-card-js" id="${product.id}">Thêm vào giỏ hàng</button>
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title">${product.title}</h5>

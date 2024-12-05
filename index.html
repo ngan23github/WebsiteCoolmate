@@ -68,16 +68,6 @@
         .header-cart .badge {
             font-size: 1rem;
         }
-
-        .container-fluid.bg-dark.fixed-top {
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        section {
-            margin-top: 0;
-            padding-top: 0;
-        }
     </style>
     <style>
         /* SEARCH nè */
@@ -193,10 +183,10 @@
 <body>
     <header>
         <div class="container-fluid bg-dark fixed-top">
-            <div class="row align-items-center p-3 mg-js">
+            <div class="row align-items-center p-2 mg-js">
                 <!-- Logo -->
                 <div class="col-auto">
-                    <a href="./../index.html">
+                    <a href="./index.html">
                         <img src="./vendor/image/logo-coolmate-new.svg" alt="Logo" style="height: 40px;">
                     </a>
                 </div>
@@ -232,11 +222,6 @@
                         <button class="btn btn-sm btn-outline-light ms-2 "><i class="ri-search-2-line"></i></button>
 
                     </div>
-                    <div style="display: none;" class="search-delete">
-                        <button class="clear-btn" id="clear-btn">
-                            <i class="ri-close-line"></i>
-                        </button>
-                    </div>
 
                 </div>
 
@@ -263,7 +248,7 @@
                     </div>
                     <div class="header-cart position-relative">
                         <button class="btn btn-sm btn-outline-light" style="border: none; background: transparent;">
-                            <i class="ri-shopping-cart-line" style="color: white;" number="0"></i>
+                            <i class="ri-shopping-cart-line" style="color: white;" number="2"></i>
                             <!-- Số lượng giỏ hàng -->
 
                         </button>
@@ -276,10 +261,10 @@
             <div class="collapse bg-dark" id="mobileMenu">
                 <ul class="nav flex-column text-white p-3">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="./../index.html">Trang chủ</a>
+                        <a class="nav-link text-white" href="./index.html">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="./product.html">Sản phẩm</a>
+                        <a class="nav-link text-white" href="../user/product.html">Sản phẩm</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Giới thiệu</a>
@@ -346,7 +331,7 @@
 
                     <!-- Nút tắt -->
                     <div class="mt-3">
-                        <button class="btn btn-outline-danger  clear-btn-js" id="clear-btn">
+                        <button class="btn btn-outline-danger clear-btn-js" id="clear-btn">
                             <i class="ri-close-line"></i> Tắt
                         </button>
                     </div>
@@ -366,6 +351,7 @@
                 <button type="button" data-bs-target="#slideshowExample" data-bs-slide-to="1"></button>
                 <button type="button" data-bs-target="#slideshowExample" data-bs-slide-to="2"></button>
             </div>
+
             <!-- Slides -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -611,7 +597,7 @@
     <script>
         //CLick tìm kiếm nâng cao
         // clickSearch();
-        margin_js();
+
 
         document.querySelectorAll('.btn-dm').forEach(button => {
             button.addEventListener('click', function () {

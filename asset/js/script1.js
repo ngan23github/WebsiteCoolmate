@@ -109,10 +109,13 @@ function clickaddpd() {
             value.addEventListener("click", function () {
                 let user = JSON.parse(localStorage.getItem('user'));
                 if (user == null) {
-                    console.log("đg chạy cái này");
-                    console.log(document.querySelector('.modal-text'));
+
                     document.querySelector('.modal-text').innerHTML = "Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng";
                     modal.style.display = 'flex';
+                }
+                else {
+                    console.log(value.parentElement);
+                    Addsp();
                 }
 
             });
@@ -143,6 +146,55 @@ function clickaddpd() {
     });
 }
 
+function Addsp() {
+    // Khởi tạo mảng giỏ hàng
+    let cart = [];
+
+
+    const productId = this.id;
+
+    // Lấy thông tin size
+    const sizeBtn = this.closest('.card-img-overlay').querySelector('.size-btn.active'); // Giả sử có class 'active' khi chọn size
+    const size = sizeBtn ? sizeBtn.dataset.size : null;
+
+    // Lấy số lượng
+    const quantityInput = this.closest('.card-img-overlay').querySelector('.quantity-input');
+    const quantity = parseInt(quantityInput.value);
+
+    if (!size) {
+        alert('Vui lòng chọn size!');
+        return;
+    }
+
+    // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+    const existingProduct = cart.find(item => item.id === productId && item.size === size);
+
+    if (existingProduct) {
+        // Nếu sản phẩm đã tồn tại, cập nhật số lượng
+        existingProduct.quantity += quantity;
+    } else {
+        // Nếu sản phẩm chưa có, thêm mới vào mảng giỏ hàng
+        cart.push({
+            id: productId,
+            size: size,
+            quantity: quantity
+        });
+    }
+
+    console.log(cart); // Hiển thị giỏ hàng trong console để kiểm tra
+
+    // // Xử lý chọn size (thêm class 'active' khi chọn)
+    // document.querySelectorAll('.size-btn').forEach(button => {
+    //     button.addEventListener('click', function () {
+    //         // Bỏ class 'active' khỏi tất cả các nút size trong cùng nhóm
+    //         this.closest('.btn-group').querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+
+    //         // Thêm class 'active' vào nút được nhấn
+    //         this.classList.add('active');
+    //     });
+    // });
+
+}
 
 // Kiểm tra chiều cao header
 function margin_js() {
@@ -153,3 +205,67 @@ function margin_js() {
     console.log(`chiều cao: ${headerHeight}`);
     document.querySelector('.mg-bg-js').style.marginTop = `${headerHeight - 1}px`;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Lấy các phần tử cần sử dụng
+    const basicSearchInput = document.getElementById('basic-search');
+    const basicSearchButton = document.getElementById('search-button');
+    const advancedSearchButton = document.querySelector('.nc-js-2-3');
+    const clearButton = document.getElementById('clear-btn');
+
+    // Lắng nghe sự kiện "Enter" trên ô tìm kiếm cơ bản
+    basicSearchInput.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            handleSearch('cb'); // cb = cơ bản
+        }
+    });
+
+    // Lắng nghe sự kiện click nút "Tìm kiếm cơ bản"
+    basicSearchButton.addEventListener('click', function () {
+        handleSearch('cb'); // cb = cơ bản
+    });
+
+    // Lắng nghe sự kiện click nút "Tìm kiếm nâng cao"
+    advancedSearchButton.addEventListener('click', function () {
+        handleSearch('nc'); // nc = nâng cao
+    });
+
+    // Lắng nghe sự kiện click nút "Tắt"
+    clearButton.addEventListener('click', function () {
+        clearSearch();
+    });
+
+    // Hàm xử lý tìm kiếm
+    function handleSearch(type) {
+        const queryParams = new URLSearchParams();
+
+        // Nếu là tìm kiếm cơ bản
+        if (type === 'cb') {
+            const query = basicSearchInput.value.trim();
+            if (query) {
+                queryParams.append('cb', query);
+            }
+        }
+
+        // Nếu là tìm kiếm nâng cao
+        if (type === 'nc') {
+            const category = document.getElementById('category-filter').value;
+            const price = document.getElementById('price-filter').value;
+
+            if (category) queryParams.append('category', category);
+            if (price) queryParams.append('price', price);
+        }
+
+        // Chuyển hướng đến trang tìm kiếm với query params
+        const searchType = type === 'cb' ? 'cb' : 'nc';
+        window.location.href = `./user/Search.html?${searchType}&${queryParams.toString()}`;
+    }
+
+    // Hàm xóa tìm kiếm và ẩn modal
+    function clearSearch() {
+        basicSearchInput.value = '';
+        document.getElementById('category-filter').value = '';
+        document.getElementById('price-filter').value = '';
+        document.querySelector('.search-css').style.display = 'none'; // Ẩn khung tìm kiếm
+    }
+});
