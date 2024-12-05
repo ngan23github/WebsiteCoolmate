@@ -63,7 +63,7 @@ function renderProducts(activeType = 'all') {
 </div>
 
                     </div>
-                    <button class="btn btn-warning w-100 py-2 add-card-js" id="${product.id}">Thêm vào giỏ hàng</button>
+                    <button class="btn btn-warning w-100 py-2 add-card-js" id="${product.id}" onclick="addspm() ">Thêm vào giỏ hàng</button>
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title">${product.title}</h5>
