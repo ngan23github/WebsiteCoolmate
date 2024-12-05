@@ -28,85 +28,105 @@ let userList = localStorage.getItem('userList') ? JSON.parse(localStorage.getIte
 [{
     username: 'hello89hihi',
     email: 'abcd55@gmail.com',
-    phone: '0859869534'
+    phone: '0859869534',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'alice_wang',
     email: 'alice.wang@example.com',
-    phone: '0987654321'
+    phone: '0987654321',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'bob_smith',
     email: 'bob.smith@example.com',
-    phone: '0234567894'
+    phone: '0234567894',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'carol_jones',
     email: 'carol.jones@example.com',
-    phone: '0867893123'
+    phone: '0867893123',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'david_lee',
     email: 'david.lee@example.com',
-    phone: '0345678901'
+    phone: '0345678901',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'emma_clark',
     email: 'emma.clark@example.com',
-    phone: '0945789012'
+    phone: '0945789012',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'frank_harris',
     email: 'frank.harris@example.com',
-    phone: '0878901234'
+    phone: '0878901234',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'grace_martin',
     email: 'grace.martin@example.com',
-    phone: '0789012345'
+    phone: '0789012345',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'henry_wilson',
     email: 'henry.wilson@example.com',
-    phone: '0890223456'
+    phone: '0890223456',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'isabella_thompson',
     email: 'isabella.thompson@example.com',
-    phone: '0909234567'
+    phone: '0909234567',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'james_johnson',
     email: 'james.johnson@example.com',
-    phone: '0385947836'
+    phone: '0385947836',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'katherine_king',
     email: 'katherine.king@example.com',
-    phone: '0758939482'
+    phone: '0758939482',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'liam_lewis',
     email: 'liam.lewis@example.com',
-    phone: '0128378293'
+    phone: '0128378293',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'madison_miller',
     email: 'madison.miller@example.com',
-    phone: '0812839034'
+    phone: '0812839034',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'noah_nelson',
     email: 'noah.nelson@example.com',
-    phone: '0823484737'
+    phone: '0823484737',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'olivia_ben',
     email: 'olivia.ben@example.com',
-    phone: '0928349873'
+    phone: '0928349873',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'patrick_parker',
     email: 'patrick.parker@example.com',
-    phone: '0872189234'
+    phone: '0872189234',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'quinn_hally',
     email: 'quinn.hally@example.com',
-    phone: '0781238924'
+    phone: '0781238924',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'rachel_roberts',
     email: 'rachel.roberts@example.com',
-    phone: '0890223456'
+    phone: '0890223456',
+    userStatus: 'Đang hoạt động'
 },{
     username: 'samuel_smith',
     email: 'samuel.smith@example.com',
-    phone: '0909274673'
+    phone: '0909274673',
+    userStatus: 'Đang hoạt động'
 }];
-
+// localStorage.setItem('userList', JSON.stringify(userList));
 const delete_popup = document.querySelector('.delete-popup');
 const popup_close_btn = document.querySelector('.popup-close-btn'); 
 const popup_cancel_btn = document.querySelector('.popup-cancel-btn'); 
@@ -120,12 +140,13 @@ renderTable();
 function renderTable(){
     let tableHTML = '';
     for(let i=0; i<userList.length; i++){
-        const {username, email, phone} = userList[i];
+        const {username, email, phone, userStatus} = userList[i];
         tableHTML += 
         `<tr>
             <td>${username}</td>
             <td>${email}</td>
             <td>${phone}</td>
+            <td><span class="status delivered">${userStatus}</span></td>
             <td>
                 <div class="tools">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
@@ -149,22 +170,11 @@ function renderTable(){
     });
 
     // Lock User PopUp
-    const lock_popup = document.querySelector('.lock-popup');
-    const l_popup_close_btn = document.querySelector('.l-popup-close-btn'); 
-    const l_popup_cancel_btn = document.querySelector('.l-popup-cancel-btn');
-    const l_popup_confirm_btn = document.querySelector('.l-popup-confirm-btn');
-    document.querySelectorAll('.lock-btn').forEach((lockButton)=>{
+    const color = document.querySelectorAll('.delivered');
+    document.querySelectorAll('.lock-btn').forEach((lockButton, i)=>{
         lockButton.addEventListener('click', ()=>{
-            lock_popup.classList.add('active');
-        });
-        l_popup_close_btn.addEventListener('click', ()=>{
-            lock_popup.classList.remove('active');
-        });
-        l_popup_cancel_btn.addEventListener('click', ()=>{
-            lock_popup.classList.remove('active');
-        });
-        l_popup_confirm_btn.addEventListener('click', ()=>{
-            lock_popup.classList.remove('active');
+            color[i].style.background = "red";
+            color[i].innerText = "Đã khóa";
         });
     });
 
@@ -279,7 +289,7 @@ function addUser(){
     const email = emailInput.value;
     const phone = phoneInput.value;
     if(name != '' && email != '' && phone != ''){
-        userList.push({username: name, email: email, phone: phone});     
+        userList.push({username: name, email: email, phone: phone, userStatus: 'Đang hoạt động'});     
     }
     localStorage.setItem('userList', JSON.stringify(userList));
     nameInput.value = '';

@@ -199,7 +199,6 @@ body{
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    cursor: pointer;
 }
 .cardBox .card .numbers{
     position: relative;

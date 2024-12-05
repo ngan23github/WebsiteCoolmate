@@ -228,7 +228,8 @@ const edit_product_name = document.getElementById('edit-product-name');
 const edit_product_count = document.getElementById('edit-product-count');
 const edit_product_price = document.getElementById('edit-product-price');
 const edit_img = document.querySelector('.edit-img');
-const edit_file = document.getElementById('edit-imgInput')
+const edit_file = document.getElementById('edit-imgInput');
+
 file.onchange = function(){
     const fileReader = new FileReader();
     fileReader.onload = function(e){
