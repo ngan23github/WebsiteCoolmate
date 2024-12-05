@@ -1,6 +1,12 @@
 function clickSearch() {
     document.querySelector('.clear-btn-js').addEventListener('click', function () {
         document.querySelector('.htsearch-js').style.display = "none";
+        const header = document.querySelector('.mg-js');
+
+        // Kiểm tra chiều cao của header
+        const headerHeight = header.offsetHeight;
+        console.log(headerHeight);
+        document.querySelector('.mg-bg-js').style.marginTop = `${headerHeight + 1}px`;
     })
     document.querySelector('.search-click-js').addEventListener('click', function () {
         if (window.location.href.includes("index")) {
@@ -8,7 +14,7 @@ function clickSearch() {
 
             // Kiểm tra chiều cao của header
             const headerHeight = header.offsetHeight;
-            document.querySelector('.mg-bg-js').style.marginTop = "-50px";
+            document.querySelector('.mg-bg-js').style.marginTop = `-45px`;
         }
         document.querySelector('.htsearch-js').style.display = "";
     });
@@ -139,5 +145,5 @@ function margin_js() {
     // Kiểm tra chiều cao của header
     const headerHeight = header.offsetHeight;
     console.log(`chiều cao: ${headerHeight}`);
-    document.querySelector('.mg-bg-js').style.marginTop = `${headerHeight}px`;
+    document.querySelector('.mg-bg-js').style.marginTop = `${headerHeight - 1}px`;
 }

@@ -463,6 +463,48 @@
     </div>
   </div>
 
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-left">
+      <div class="row text-center text-md-left">
+        <!-- Thành viên nhóm -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Thành viên nhóm</h5>
+          <p><i class="bi bi-person-circle"></i> Nguyễn Tiến Duẫn</p>
+          <p><i class="bi bi-person-circle"></i> Đoàn Anh Dũng</p>
+          <p><i class="bi bi-person-circle"></i> Nguyễn Quốc Đại</p>
+          <p><i class="bi bi-person-circle"></i> Lê Đoàn Kim Ngân</p>
+          <p><i class="bi bi-person-circle"></i> Lâm Tú Nhi</p>
+        </div>
+
+        <!-- Chính sách -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Chính sách</h5>
+          <p><i class="bi bi-arrow-repeat"></i> Chính sách đổi trả 60 ngày</p>
+          <p><i class="bi bi-gift"></i> Chính sách khuyến mãi</p>
+          <p><i class="bi bi-shield-lock"></i> Chính sách bảo mật</p>
+          <p><i class="bi bi-truck"></i> Chính sách giao hàng</p>
+        </div>
+
+        <!-- Liên hệ -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Liên hệ</h5>
+          <p><i class="bi bi-geo-alt"></i> 273 Đ.An Dương Vương, Phường 3, Quận 5, TP.Hồ Chí Minh</p>
+          <p><i class="bi bi-envelope"></i> admin@gmail.com</p>
+          <p><i class="bi bi-telephone"></i> 0336328273</p>
+        </div>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="row justify-content-center">
+        <div class="col-auto d-flex justify-content-center">
+          <div class="text-white me-3"><i class="bi bi-facebook"></i></div>
+          <div class="text-white me-3"><i class="bi bi-twitter"></i></div>
+          <div class="text-white me-3"><i class="bi bi-instagram"></i></div>
+          <div class="text-white me-3"><i class="bi bi-linkedin"></i></div>
+        </div>
+      </div>
+
+  </footer>
 
 
   <script src="./../vendor/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
@@ -474,7 +516,6 @@
   <script>
     load();
     clickSearch();
-    console.log("chyaj");
     let output = document.querySelector(".product-detail-js");
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
@@ -670,9 +711,6 @@
           document.querySelector(".price-css").style.display = "";
           document.querySelector(".search-nc").innerHTML = "Tìm kiếm cơ bản";
         }
-
-
-
       })
 
     }
@@ -725,23 +763,24 @@
     });
   </script>
   <script>
-    console.log(document.querySelector('.show-signup').style);
-    const user = JSON.parse(localStorage.getItem('user'));
+    let user = JSON.parse(localStorage.getItem('user'));
     if (user != null) {
+      console.log("null nè");
       document.querySelector('.show-signup').style.display = 'none';
       document.querySelector('.ac').style.display = '';
-      setcart();
+    } else {
+      console.log("khong null");
+      document.querySelector('.ac').style.display = 'none';
     }
     const logoutButton = document.getElementById("logout");
-
+    console.log(logoutButton);
     logoutButton.addEventListener('click', function () {
-      // Xóa thông tin người dùng trong localStorage
+      console.log("đăng xuất");
       localStorage.setItem('user', JSON.stringify(null));
 
-      // // Ẩn thông tin tài khoản
       document.querySelector('.ac').style.display = 'none';
-      document.querySelector('.header-account').style.display = "";
-
+      document.querySelector('.show-signup').style.display = "";
+      console.log(document.querySelector('.header-account').style);
     });
 
     document.addEventListener('DOMContentLoaded', () => {
