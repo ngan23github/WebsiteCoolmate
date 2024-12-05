@@ -44,6 +44,7 @@ function clickSearch() {
 
 
 function clickcard() {
+    console.log("vooo");
 
     document.addEventListener('DOMContentLoaded', () => {
         // Lấy các phần tử cần thiết
