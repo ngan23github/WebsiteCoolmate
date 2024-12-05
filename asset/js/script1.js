@@ -1,12 +1,11 @@
 function clickSearch() {
     document.querySelector('.clear-btn-js').addEventListener('click', function () {
         document.querySelector('.htsearch-js').style.display = "none";
-        const header = document.querySelector('.mg-js');
-
+        // const header = document.querySelector('.mg-js');
         // Kiểm tra chiều cao của header
-        const headerHeight = header.offsetHeight;
-        console.log(headerHeight);
-        document.querySelector('.mg-bg-js').style.marginTop = `${headerHeight + 1}px`;
+        // const headerHeight = header.offsetHeight;
+        // console.log(headerHeight);
+        // document.querySelector('.mg-bg-js').style.marginTop = `${headerHeight + 1}px`;
     })
     document.querySelector('.search-click-js').addEventListener('click', function () {
         if (window.location.href.includes("index")) {
@@ -14,7 +13,7 @@ function clickSearch() {
 
             // Kiểm tra chiều cao của header
             const headerHeight = header.offsetHeight;
-            document.querySelector('.mg-bg-js').style.marginTop = `-45px`;
+            document.querySelector('.mg-bg-js').style.marginTop = `${-headerHeight / 2 - 20}px`;
         }
         document.querySelector('.htsearch-js').style.display = "";
     });
@@ -97,27 +96,32 @@ function clickcard() {
 }
 // CLick nút thêm vào giỏ hàng
 function clickaddpd() {
+    console.log("vào được rồi nè");
     // Lấy các phần tử của modal và các nút
     const modal = document.getElementById('myModal');  // Lấy modal theo ID
     const closeModal = modal.querySelector('.close'); // Lấy nút đóng modal
     const loginButton = modal.querySelector('.btn-login'); // Lấy nút đăng nhập
     let user = JSON.parse(localStorage.getItem('user'));
+
     // Đảm bảo modal được hiển thị khi trang được tải
     document.addEventListener('DOMContentLoaded', function () {
         // Lắng nghe sự kiện click vào các nút có class 'add-card-js'
-        document.querySelectorAll('.add-card-js').forEach((value) => {
+        document.querySelectorAll('add-card-js').forEach((value) => {
+
             value.addEventListener("click", function () {
+                console.log("thêm");
                 let user = JSON.parse(localStorage.getItem('user'));
                 if (user == null) {
-
                     document.querySelector('.modal-text').innerHTML = "Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng";
                     modal.style.display = 'flex';
+                } else {
+                    // Hiển thị thông báo thêm sản phẩm vào giỏ hàng ngay lập tức
+                    const cartMessage = document.querySelector('.add-cart-tb');
+                    cartMessage.style.display = 'block';  // Hiện thông báo
+                    setTimeout(() => {
+                        cartMessage.style.display = 'none';  // Ẩn thông báo sau 3 giây
+                    }, 3000);
                 }
-                else {
-                    console.log(value.parentElement);
-                    Addsp();
-                }
-
             });
         });
 
@@ -125,17 +129,6 @@ function clickaddpd() {
         closeModal.addEventListener('click', () => {
             modal.style.display = 'none';
         });
-
-        // Chuyển hướng đến trang đăng nhập khi click vào nút "Đăng Nhập"
-        // loginButton.addEventListener('click', () => {
-        //     let tmp = document.querySelector('.s-js').style.display;
-        //     console.log(document.querySelector('.s-js'));
-        //     if (tmp === "none") {
-        //         document.querySelector('.modal-text').innerHTML = "Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng"; // Thay đổi nội dung
-        //         document.querySelector('.s-js').style.display = "flex"; // Hiển thị phần đăng nhập
-        //         modal.style.display = 'none'; // Đóng modal sau khi click
-        //     }
-        // });
 
         // Đóng modal khi click bên ngoài modal
         window.addEventListener('click', (event) => {
@@ -146,55 +139,6 @@ function clickaddpd() {
     });
 }
 
-function Addsp() {
-    // Khởi tạo mảng giỏ hàng
-    let cart = [];
-
-
-    const productId = this.id;
-
-    // Lấy thông tin size
-    const sizeBtn = this.closest('.card-img-overlay').querySelector('.size-btn.active'); // Giả sử có class 'active' khi chọn size
-    const size = sizeBtn ? sizeBtn.dataset.size : null;
-
-    // Lấy số lượng
-    const quantityInput = this.closest('.card-img-overlay').querySelector('.quantity-input');
-    const quantity = parseInt(quantityInput.value);
-
-    if (!size) {
-        alert('Vui lòng chọn size!');
-        return;
-    }
-
-    // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
-    const existingProduct = cart.find(item => item.id === productId && item.size === size);
-
-    if (existingProduct) {
-        // Nếu sản phẩm đã tồn tại, cập nhật số lượng
-        existingProduct.quantity += quantity;
-    } else {
-        // Nếu sản phẩm chưa có, thêm mới vào mảng giỏ hàng
-        cart.push({
-            id: productId,
-            size: size,
-            quantity: quantity
-        });
-    }
-
-    console.log(cart); // Hiển thị giỏ hàng trong console để kiểm tra
-
-    // // Xử lý chọn size (thêm class 'active' khi chọn)
-    // document.querySelectorAll('.size-btn').forEach(button => {
-    //     button.addEventListener('click', function () {
-    //         // Bỏ class 'active' khỏi tất cả các nút size trong cùng nhóm
-    //         this.closest('.btn-group').querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
-
-    //         // Thêm class 'active' vào nút được nhấn
-    //         this.classList.add('active');
-    //     });
-    // });
-
-}
 
 // Kiểm tra chiều cao header
 function margin_js() {
@@ -203,7 +147,8 @@ function margin_js() {
     // Kiểm tra chiều cao của header
     const headerHeight = header.offsetHeight;
     console.log(`chiều cao: ${headerHeight}`);
-    document.querySelector('.mg-bg-js').style.marginTop = `${headerHeight - 1}px`;
+    document.querySelector('.mg-bg-js').style.marginTop = `${-headerHeight / 2}px`;
+    console.log(document.querySelector('.mg-bg-js').style.marginTop);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -230,13 +175,14 @@ document.addEventListener('DOMContentLoaded', function () {
         handleSearch('nc'); // nc = nâng cao
     });
 
-    // Lắng nghe sự kiện click nút "Tắt"
-    clearButton.addEventListener('click', function () {
-        clearSearch();
-    });
+    // // Lắng nghe sự kiện click nút "Tắt"
+    // clearButton.addEventListener('click', function () {
+    //     clearSearch();
+    // });
 
     // Hàm xử lý tìm kiếm
     function handleSearch(type) {
+        console.log("vào hàm tìm kiếm");
         const queryParams = new URLSearchParams();
 
         // Nếu là tìm kiếm cơ bản
@@ -258,14 +204,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Chuyển hướng đến trang tìm kiếm với query params
         const searchType = type === 'cb' ? 'cb' : 'nc';
-        window.location.href = `./user/Search.html?${searchType}&${queryParams.toString()}`;
+
+        if (window.location.pathname.includes('/user/')) {
+            console.log("có user nè");
+            window.location.href = `./Search.html?${searchType}&${queryParams.toString()}`;
+        }
+        else {
+            console.log("ko có user nè");
+            window.location.href = `./user/Search.html?${searchType}&${queryParams.toString()}`;
+        }
+
     }
 
     // Hàm xóa tìm kiếm và ẩn modal
-    function clearSearch() {
-        basicSearchInput.value = '';
-        document.getElementById('category-filter').value = '';
-        document.getElementById('price-filter').value = '';
-        document.querySelector('.search-css').style.display = 'none'; // Ẩn khung tìm kiếm
-    }
+    // function clearSearch() {
+    //     basicSearchInput.value = '';
+    //     document.getElementById('category-filter').value = '';
+    //     document.getElementById('price-filter').value = '';
+    //     document.querySelector('.search-css').style.display = 'none'; // Ẩn khung tìm kiếm
+    // }
 });

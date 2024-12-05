@@ -264,7 +264,7 @@
                         <a class="nav-link text-white" href="./index.html">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="../user/product.html">Sản phẩm</a>
+                        <a class="nav-link text-white" href="./user/product.html">Sản phẩm</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Giới thiệu</a>
@@ -341,7 +341,10 @@
     </div>
 
 
-
+    <div id="notification" class="add-cart-tb"
+        style="display: none; position: fixed; bottom: 20px; right: 20px; background: green; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000;">
+        Thêm sản phẩm vào giỏ hàng thành công!
+    </div>
     <!-- Slideshow Section -->
     <section>
         <div id="slideshowExample" class="carousel slide mg-bg-js" data-bs-ride="carousel">
@@ -588,6 +591,7 @@
         } else {
             document.querySelector('.ac').style.display = 'none';
         }
+        margin_js();
         renderProducts();
         load();
         Search();

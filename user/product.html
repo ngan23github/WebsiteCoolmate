@@ -225,16 +225,16 @@
                     <div class="header-account ac">
                         <i class="fa fa-user ac-img" style="color: white;"></i>
                         <ul class="account-menu">
-                            <li><a href="./user/profile.html">Hồ sơ</a></li>
-                            <li><a href="./user/orders.html">Đơn hàng</a></li>
+                            <li><a href="./../user/profile.html">Hồ sơ</a></li>
+                            <li><a href="./../user/orders.html">Đơn hàng</a></li>
                             <li>
-                                <div style="color: black;" id="logout">Đăng xuất</div>
+                                <div style="color: black;" id="logout" class="logout">Đăng xuất</div>
                             </li>
                         </ul>
                     </div>
                     <div class="header-cart position-relative">
                         <button class="btn btn-sm btn-outline-light" style="border: none; background: transparent;">
-                            <i class="ri-shopping-cart-line" style="color: white;" number="2"></i>
+                            <i class="ri-shopping-cart-line" style="color: white;" number="0"></i>
                             <!-- Số lượng giỏ hàng -->
 
                         </button>
@@ -250,7 +250,7 @@
                         <a class="nav-link text-white" href="./../index.html">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="./product.html">Sản phẩm</a>
+                        <a class="nav-link text-white" href="./../product.html">Sản phẩm</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Giới thiệu</a>
@@ -454,7 +454,10 @@
         </div>
     </div>
 
-
+    <div id="notification" class="add-cart-tb"
+        style="display: none; position: fixed; bottom: 20px; right: 20px; background: green; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000;">
+        Thêm sản phẩm vào giỏ hàng thành công!
+    </div>
 
 
     <!-- Hiện sản phẩm -->
@@ -560,20 +563,23 @@
             console.log("null nè");
             document.querySelector('.show-signup').style.display = 'none';
             document.querySelector('.ac').style.display = '';
+            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 2);
         } else {
             console.log("khong null");
             document.querySelector('.ac').style.display = 'none';
+            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 0);
         }
-        // const logoutButton = document.getElementById("logout");
-        // console.log(logoutButton);
-        // logoutButton.addEventListener('click', function () {
-        //     console.log("đăng xuất");
-        //     localStorage.setItem('user', JSON.stringify(null));
+        const logoutButton = document.querySelector(".logout");
+        logoutButton.addEventListener('click', function () {
+            console.log("đăng xuất");
+            localStorage.setItem('user', JSON.stringify(null));
 
-        //     document.querySelector('.ac').style.display = 'none';
-        //     document.querySelector('.header-account').style.display = "";
-        //     console.log(document.querySelector('.header-account').style);
-        // });
+            document.querySelector('.ac').style.display = 'none';
+            document.querySelector('.show-signup').style.display = "";
+            console.log(document.querySelector('.header-account').style);
+            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 0);
+        });
+
 
         Validator({
             form: '#form-1',
@@ -628,6 +634,7 @@
                         // let usercart = JSON.parse(localStorage.getItem('user'));
                         console.log(JSON.parse(localStorage.getItem('user')));
                         console.log("đăng nhập thành công");
+                        document.querySelector(".ri-shopping-cart-line").setAttribute('number', 2);
 
                     }
                 }

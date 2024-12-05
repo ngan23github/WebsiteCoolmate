@@ -12,143 +12,321 @@
     <link rel="stylesheet" href="./../asset/icon/cart-shopping-solid.svg">
     <link rel="stylesheet" href="./../asset/css/style1.css">
     <style>
-        /* Đảm bảo các cột có khoảng cách đều */
+        .nav-link {
+            padding: 5px 10px;
+        }
+
+        .header-cart .btn-outline-light {
+            border: none;
+            background: transparent;
+        }
+
+        .header-cart .btn-outline-light i {
+            color: white;
+            /* Đảm bảo icon có màu trắng */
+        }
+
+        .header-cart .btn-outline-light .badge {
+            display: none;
+            /* Loại bỏ chấm đen (badge) */
+        }
+
+        .header-cart .btn-outline-light {
+            border: none;
+            background: transparent;
+        }
+
+        .header-cart .btn-outline-light i {
+            color: white;
+        }
+
+        .header-cart .badge {
+            display: inline-block;
+            padding: 0.2em 0.5em;
+            font-size: 0.8rem;
+            color: white;
+            background-color: red;
+            border-radius: 50%;
+            top: -5px;
+            right: -5px;
+        }
+
+        .header-cart .badge {
+            font-size: 1rem;
+        }
+    </style>
+    <style>
+        /* SEARCH nè */
+        /* Khung tìm kiếm nâng cao */
+        .search-css {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            z-index: 1000;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        /* Các thành phần trong form tìm kiếm */
+        .search-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Input tìm kiếm */
+        .sb-input {
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        /* Các dropdown */
+        .dropdown select.form-select {
+            border-radius: 5px;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #ccc;
+        }
+
+        /* Nút tìm kiếm */
+        .sb-button {
+            margin-top: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /* Nút tắt tìm kiếm nâng cao */
+        .clear-btn {
+            background: transparent;
+            border: none;
+            color: #333;
+        }
+
+        /* Màu sắc khi hover */
+        .clear-btn:hover,
+        .btn-dark:hover {
+            color: #007bff;
+        }
+
+        /* Các phần tử khi hover */
+        .dropdown select.form-select:hover,
+        .sb-input:hover {
+            border-color: #007bff;
+        }
+
+        /* Định dạng các nút Tìm kiếm cơ bản và Tìm kiếm nâng cao */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+
+        #basic-search-btn.active,
+        #advanced-search-btn.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* CSS để ẩn phần tử khi cần */
+        #advanced-search-container,
+        #basic-search-container {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+
+            /* Khi màn hình nhỏ hơn 767px */
+            .search-css {
+                padding: 20px;
+            }
+
+            .form-control {
+                width: 100%;
+                /* Đảm bảo các input chiếm hết chiều rộng */
+            }
+
+            .btn {
+                width: 100%;
+                /* Đảm bảo các nút chiếm hết chiều rộng */
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="container-fluid bgtop2 fixed-top">
-            <div class="row p-3 align-items-center">
+        <div class="container-fluid bg-dark fixed-top">
+            <div class="row align-items-center p-2">
                 <!-- Logo -->
-                <div class="col-1  ms-1">
-                    <img src="./../vendor/image/logo-coolmate-new.svg" alt="">
+                <div class="col-auto">
+                    <a href="./../index.html">
+                        <img src="./../vendor/image/logo-coolmate-new.svg" alt="Logo" style="height: 40px;">
+                    </a>
                 </div>
 
-                <!-- Sản phẩm -->
-                <div class="col xl-6 lg-6 md-5">
-                    <!-- Desktop menu (dàn ngang) -->
-                    <div class="d-none d-md-flex justify-content-center">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="./../index.html">Trang chủ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./product.html">Sản phẩm</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Giới thiệu</a>
-                            </li>
+                <!-- Menu -->
+                <div class="col d-none d-md-block">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./../index.html">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./product.html">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Giới thiệu</a>
+                        </li>
+                    </ul>
+                </div>
 
-                        </ul>
+                <!-- Mobile Menu Toggle -->
+                <div class="col-auto d-md-none">
+                    <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <!-- Search -->
+                <div class="col-auto ms-auto">
+                    <div class="d-flex align-items-center search-js">
+                        <input type="text" class="form-control form-control-sm d-none d-md-block search-click-js"
+                            placeholder="Tìm kiếm">
+                        <button class="btn btn-sm btn-outline-light ms-2 "><i class="ri-search-2-line"></i></button>
+
                     </div>
 
-                    <!-- Mobile menu (dọc) -->
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-md-none">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./../index.html">Trang chủ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./product.html">Sản phẩm</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Giới thiệu</a>
-                                </li>
-                            </ul>
+                </div>
+
+                <!-- Account & Cart -->
+
+                <div class="col-auto d-flex align-items-center gap-3">
+                    <div class="header-account d-none d-md-block">
+                        <div class="show-signup" style="">
+                            <div class="text-white">
+                                <div class="sign-in-js" style="display: inline-block;">Đăng Nhập</div>/<div
+                                    class="register-js" style="display: inline-block;">Đăng Ký</div>
+                            </div>
                         </div>
-                    </nav>
-                </div>
-
-                <!-- Tìm kiếm -->
-                <div class="col-md-1 col-xl-3 col-lg-1">
-                    <div class="header-search">
-                        <input type="text" placeholder="Tìm kiếm" class="header-search-rp" />
-                        <button class="header-search-css" style="color: black;"><i
-                                class="ri-search-2-line"></i></button>
                     </div>
-                    <div style="display: none;" class="search-delete">
-                        <button class="clear-btn" id="clear-btn">
-                            <i class="ri-close-line"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Tài khoản và Giỏ hàng -->
-                <div class="col-xl-2 col-lg-4 md-5 text-end d-flex justify-content-end align-items-center gap-3 me-3">
-                    <div class="header-account">
-                        <div class="show-signup">
-                            <div class="sign-in-js" style="display: inline-block;">Đăng Nhập</div>/<div
-                                class="register-js" style="display: inline-block;">Đăng Ký</div>
-                        </div>
-
-                    </div>
-                    <div class="header-account ac" style="display: none;">
+                    <div class="header-account ac">
                         <i class="fa fa-user ac-img" style="color: white;"></i>
                         <ul class="account-menu">
-                            <li><a href="./../profile.html">Hồ sơ</a></li>
-                            <li><a href="./../orders.html">Đơn hàng</a></li>
+                            <li><a href="./../user/profile.html">Hồ sơ</a></li>
+                            <li><a href="./../user/orders.html">Đơn hàng</a></li>
                             <li>
-                                <a href="#" id="logout">Đăng xuất</a>
+                                <div style="color: black;" id="logout" class="logout">Đăng xuất</div>
                             </li>
                         </ul>
                     </div>
-                    <div class="header-cart">
-                        <i class="ri-shopping-cart-line" number="0"></i>
+                    <div class="header-cart position-relative">
+                        <button class="btn btn-sm btn-outline-light" style="border: none; background: transparent;">
+                            <i class="ri-shopping-cart-line" style="color: white;" number="0"></i>
+                            <!-- Số lượng giỏ hàng -->
+
+                        </button>
                     </div>
                 </div>
+
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="collapse bg-dark" id="mobileMenu">
+                <ul class="nav flex-column text-white p-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./../index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./../product.html">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Giới thiệu</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- Tìmm kiếm cơ bản -->
-        <!-- <div class="search-css search-cb" style="display: none;">
-            <div class="search-box">
-                <div class="search-container">
-                    <input class="sb-input" type="text" placeholder="Tìm kiếm" />
-                    <button class="sb-button"><i class="ri-search-2-line"></i></button>
-                </div>
 
-            </div>
-            <div class="btn btn-light">Tìm kiếm nâng cao</div>
-        </div> -->
-        <!-- Tìm kiếm nâng cao -->
-        <div class="search-css" style="display: none;">
-            <div class="search-box">
-                <div class="search-container">
-                    <input class="sb-input" type="text" placeholder="Tìm kiếm" />
 
-                    <div class="dropdown category-css" style="display: none;">
-                        <select name="category" id="category" style="padding-right: 10px;">
+
+
+    </header>
+    <!-- CSS -->
+    <div class="container mt-5 htsearch-js" style="display: none;">
+        <!-- Nút tìm kiếm cơ bản và tìm kiếm nâng cao -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <div class="search-css p-4 border rounded shadow-sm">
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <!-- Nút tìm kiếm cơ bản -->
+                        <button class="btn btn-dark active basic-search-btn1" id="basic-search-btn"
+                            data-search-type="basic">Tìm kiếm
+                            cơ bản</button>
+
+                        <!-- Nút tìm kiếm nâng cao -->
+                        <button class="btn btn-dark basic-search-btn2" id="advanced-search-btn"
+                            data-search-type="advanced">Tìm kiếm
+                            nâng cao</button>
+                    </div>
+
+                    <!-- Tìm kiếm cơ bản -->
+                    <div class="d-flex flex-column" id="basic-search-container">
+                        <input type="text" class="form-control mb-3" id="basic-search"
+                            placeholder="Nhập từ khoá tìm kiếm">
+                        <button class="btn btn-outline-primary nc-js-1" id="search-button">
+                            <i class="ri-search-2-line nc-js-1-2"></i> Tìm kiếm cơ bản
+                        </button>
+                    </div>
+
+                    <!-- Tìm kiếm nâng cao -->
+                    <div class="d-flex flex-column mt-3" id="advanced-search-container">
+                        <select class="form-select mb-3 nc-js-2" id="category-filter" style="display: none;">
                             <option value="">Tất cả</option>
                             <option value="electronics">Áo thun</option>
                             <option value="fashion">Áo sơ mi</option>
                             <option value="books">Áo Polo</option>
                         </select>
-                    </div>
-                    <div class="dropdown price-css" style="display: none;">
-                        <select id="price-filter">
+
+                        <select class="form-select mb-3 nc-js-2-2" id="price-filter" style="display: none;">
                             <option value="all">Tất cả</option>
                             <option value="0-200000">Dưới 200.000 VND</option>
                             <option value="200000-5000000">200.000 VND - 299.000 VND</option>
                             <option value="5000000-10000000">300.000 VND - 499.000 VND</option>
                             <option value="10000000">Trên 500.000 VND</option>
                         </select>
+
+                        <button class="btn btn-outline-secondary nc-js-2-3" style="display: none;">
+                            <i class="ri-search-2-line"></i> Tìm kiếm nâng cao
+                        </button>
                     </div>
-                    <button class="sb-button"><i class="ri-search-2-line"></i></button>
-                </div>
-                <div class="search-nc bg-primary text-white text-center rounded-pill px-4 py-1 d-flex align-items-center ms-2 bg-dark text-light"
-                    style="cursor: pointer;">
-                    <i class="bi bi-search"></i> Tìm kiếm nâng cao
+
+                    <!-- Nút tắt -->
+                    <div class="mt-3">
+                        <button class="btn btn-outline-danger clear-btn-js" id="clear-btn">
+                            <i class="ri-close-line"></i> Tắt
+                        </button>
+                    </div>
                 </div>
             </div>
-
         </div>
-    </header>
+    </div>
+
+
+    <!-- CSS -->
+
 
 
     <!-- Hiện các  thông báo -->
@@ -160,18 +338,18 @@
             </div>
             <div class="bbd-signup fwr-js">
                 <div class="sign-up-header">ĐĂNG KÝ</div>
-                <p>Bạn đã có tài khoản? <a href="./../login.html"><span style="color: blue;">Đăng nhập ngay</span></a>
-                </p>
+                <p>Bạn đã có tài khoản? <span class="back-to-login" style="color: blue; cursor: pointer;">Đăng nhập
+                        ngay</span></p>
                 <div class="sign-up-form">
                     <form action="" method="POST" class="form" id="form-1">
                         <div class="input-box">
-                            <span class="detail">Tên đăng nhập</span>
+                            <span class="detail">Tên đăng nhập <span style="color: red;">&#42;</span></span>
                             <input id="name" name="name" type="text" class="form-control"
                                 placeholder="Nhập tên đăng nhập của bạn">
                             <span class="invalid-message"></span>
                         </div>
                         <div class="input-box">
-                            <span class="detail">Email</span>
+                            <span class="detail">Email <span style="color: red;">&#42;</span></span>
                             <input id="email" name="email" type="text" class="form-control" placeholder="Email">
                             <span class="invalid-message"></span>
                         </div>
@@ -182,18 +360,20 @@
                   <span class="invalid-message"></span>
                 </div> -->
                         <div class="input-box">
-                            <span class="detail">Mật khẩu</span>
+                            <span class="detail">Mật khẩu <span style="color: red;">&#42;</span></span>
                             <input id="password" name="password" type="password" class="form-control"
                                 placeholder="Nhập mật khẩu của bạn">
                             <span class="invalid-message"></span>
                         </div>
                         <div class="input-box">
-                            <span class="detail">Xác nhận mật khẩu</span>
+                            <span class="detail">Xác nhận mật khẩu <span style="color: red;">&#42;</span></span>
                             <input id="confirm-password" name="confirm-password" type="password" class="form-control"
                                 placeholder="Xác nhận lại mật khẩu">
                             <span class="invalid-message"></span>
                         </div>
-                        <button type="submit" class="sign-up-button form-submit">Đăng ký</button>
+                        <div class="btn-box">
+                            <button type="submit" class="sign-up-button form-submit">ĐĂNG KÝ</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -204,39 +384,36 @@
             <div class="close-btn">
                 <i class="ri-close-line"></i>
             </div>
-            <div class="bbd-signup ">
-
+            <div class="bbd-signup">
                 <h3 class="sign-up-header">ĐĂNG NHẬP</h3>
-                <p>Trở thành thành viên của 360 Boutique <a href="./../signup.html"><span style="color: blue;">Đăng ký
-                            ngay</span></a></p>
+                <p>Trở thành thành viên của Coolmate <span class="back-to-register"
+                        style="color: blue; cursor: pointer;">Đăng ký ngay</span></p>
                 <div class="sign-up-form">
                     <form action="" method="post" class="form" id="login">
                         <div class="form-group input-box">
                             <label for="user">
-                                <b>Tên đăng nhập <span style="color: red;">&#42;</span></b>
+                                <span class="detail">Tên đăng nhập <span style="color: red;">&#42;</span></span>
                             </label>
                             <input class="form-input form-control" name="user" id="user" type="text"
                                 placeholder="Nhập tên đăng nhập của bạn" required>
                             <span class="invalid-message"></span>
                         </div>
-                        <div class="form-group input-box">
+                        <div class="icon-box form-group input-box">
                             <label for="pass">
-                                <b>Mật khẩu <span style="color: red;">&#42;</span></b>
+                                <span class="detail">Mật khẩu <span style="color: red;">&#42;</span></span>
                             </label>
                             <input class="form-input form-control" name="pass" id="pass" type="password"
                                 placeholder="Nhập mật khẩu" style="position: relative;">
-                            <span class="show-btn" style="position: absolute;"><i class="fas fa-eye"></i></span>
+                            <div class="show-btn"><i id="pass-icon" class="fas fa-lock"></i></div>
                             <span class="invalid-message"></span>
                         </div>
-
-                        <div class="sub-form-group">
-                            <div class="sub1">
-                                <input type="checkbox" name="" id="remember">
-                                <label for="remember"><b>Ghi nhớ mật khẩu</b></label>
-                            </div>
+                        <div class="sub1">
+                            <input type="checkbox" name="" id="remember">
+                            <label for="remember"><b>Ghi nhớ mật khẩu</b></label>
                         </div>
-
-                        <button type="submit" class="submit-button form-group">ĐĂNG NHẬP</button>
+                        <div class="btn-box">
+                            <button type="submit" class="submit-button form-group">ĐĂNG NHẬP</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -244,18 +421,10 @@
     </div>
     <!-- Modal for login warning -->
     <!-- Modal -->
-    <div class="login-warning-modal" id="login-warning-modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <p class="modal-text">Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.</p>
-            <button class="ok-btn" onclick="closeModal()">OK</button>
-        </div>
-    </div>
-    <!-- Modal -->
     <div class="modal" id="myModal">
         <div class="modal-content">
             <h2>Thông báo</h2>
-            <p>Vui lòng đăng nhập để xem giỏ hàng.</p>
+            <p class="modal-text">Vui lòng đăng nhập để xem giỏ hàng.</p>
             <div class="modal-actions">
                 <button class="btn-login">Đăng Nhập</button>
             </div>
@@ -264,7 +433,10 @@
         </div>
     </div>
 
-
+    <div id="notification" class="add-cart-tb"
+        style="display: none; position: fixed; bottom: 20px; right: 20px; background: green; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000;">
+        Thêm sản phẩm vào giỏ hàng thành công!
+    </div>
 
 
     <div class="search-results-section" style="margin-top: 120px;">
@@ -290,143 +462,114 @@
             </ul>
         </nav>
     </div>
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-left">
+            <div class="row text-center text-md-left">
+                <!-- Thành viên nhóm -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Thành viên nhóm</h5>
+                    <p><i class="bi bi-person-circle"></i> Nguyễn Tiến Duẫn</p>
+                    <p><i class="bi bi-person-circle"></i> Đoàn Anh Dũng</p>
+                    <p><i class="bi bi-person-circle"></i> Nguyễn Quốc Đại</p>
+                    <p><i class="bi bi-person-circle"></i> Lê Đoàn Kim Ngân</p>
+                    <p><i class="bi bi-person-circle"></i> Lâm Tú Nhi</p>
+                </div>
+
+                <!-- Chính sách -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Chính sách</h5>
+                    <p><i class="bi bi-arrow-repeat"></i> Chính sách đổi trả 60 ngày</p>
+                    <p><i class="bi bi-gift"></i> Chính sách khuyến mãi</p>
+                    <p><i class="bi bi-shield-lock"></i> Chính sách bảo mật</p>
+                    <p><i class="bi bi-truck"></i> Chính sách giao hàng</p>
+                </div>
+
+                <!-- Liên hệ -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Liên hệ</h5>
+                    <p><i class="bi bi-geo-alt"></i> 273 Đ.An Dương Vương, Phường 3, Quận 5, TP.Hồ Chí Minh</p>
+                    <p><i class="bi bi-envelope"></i> admin@gmail.com</p>
+                    <p><i class="bi bi-telephone"></i> 0336328273</p>
+                </div>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="row justify-content-center">
+                <div class="col-auto d-flex justify-content-center">
+                    <div class="text-white me-3"><i class="bi bi-facebook"></i></div>
+                    <div class="text-white me-3"><i class="bi bi-twitter"></i></div>
+                    <div class="text-white me-3"><i class="bi bi-instagram"></i></div>
+                    <div class="text-white me-3"><i class="bi bi-linkedin"></i></div>
+                </div>
+            </div>
+
+    </footer>
 
 
     <script src="./../vendor/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <script src="./../asset/js/dssp.js"></script>
     <!-- <script src="./../asset/js/show-product.js"></script> -->
     <script src="./../asset/js/script.js"></script>
+    <script src="./../asset/js/script1.js"></script>
     <script src="./../asset/js/validator.js"></script>
     <script>
         load();
         Search();
+        clickSearch();
+
     </script>
 
     <script>
         //CLick tìm kiếm nâng cao
 
-        function clickSearch() {
-            document.querySelector(".header-search").addEventListener("click", function () {
-                console.log("click rồi nè");
-                this.style.display = "none"; // Ẩn thẻ bằng cách đặt display thành "none"
-                document.querySelector(".search-css").style.display = "";
-                document.querySelector(".search-delete").style.display = "";
-                // console.log(document.querySelector(".clear-btn"));
-                // document.querySelector(".clear-btn").style.display = "";
 
+
+        document.querySelectorAll('.btn-dm').forEach(button => {
+            button.addEventListener('click', function () {
+                // Xóa active và nền đen cho tất cả các nút
+                document.querySelectorAll('.btn-dm').forEach(btn => {
+                    btn.classList.remove('active', 'btn-dark');
+                    btn.classList.add('btn-light');
+                });
+
+                // Thêm active và nền đen cho nút được click
+                this.classList.add('active', 'btn-dark');
+                this.classList.remove('btn-light');
+
+                // Gọi renderProducts với loại được chọn
+                const selectedType = this.getAttribute('data-type');
+                currentPage = 1;
+                renderProducts(selectedType);
 
             });
-            document.querySelector(".clear-btn").addEventListener("click", function () {
-                document.querySelector(".search-css").style.display = "none";
-                document.querySelector(".search-delete").style.display = "none";
-                document.querySelector(".header-search").style.display = "";
-            })
-            // document.querySelector(".sb-input").addEventListener("click", function () {
-            //   console.log(document.querySelector(".sb-input").style);
-            //   // document.querySelector(".sb-input").style;
-            // })
-            document.querySelector(".search-nc").addEventListener("click", function () {
-                if (document.querySelector(".search-nc").innerHTML == "Tìm kiếm cơ bản") {
-                    document.querySelector(".category-css").style.display = "none";
-                    document.querySelector(".price-css").style.display = "none";
-                    document.querySelector(".search-nc").innerHTML = "Tìm kiếm nâng cao";
-                }
-                else {
-                    document.querySelector(".category-css").style.display = "";
-                    document.querySelector(".price-css").style.display = "";
-                    document.querySelector(".search-nc").innerHTML = "Tìm kiếm cơ bản";
-                }
-
-
-
-            })
-
-        }
-        clickSearch();
-        // document.querySelectorAll('.btn-dm').forEach(button => {
-        //     button.addEventListener('click', function () {
-        //         // Xóa active và nền đen cho tất cả các nút
-        //         document.querySelectorAll('.btn-dm').forEach(btn => {
-        //             btn.classList.remove('active', 'btn-dark');
-        //             btn.classList.add('btn-light');
-        //         });
-
-        //         // Thêm active và nền đen cho nút được click
-        //         this.classList.add('active', 'btn-dark');
-        //         this.classList.remove('btn-light');
-
-        //         // Gọi renderProducts với loại được chọn
-        //         const selectedType = this.getAttribute('data-type');
-        //         currentPage = 1;
-        //         renderProducts(selectedType);
-
-        //     });
-        // });
+        });
 
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Lấy các phần tử cần thiết
-            const cartIcon = document.querySelector('.header-cart i');
-            const modal = document.getElementById('myModal');  // Sửa lại ID để khớp với HTML
-            const closeModal = modal.querySelector('.close');
-            const loginButton = modal.querySelector('.btn-login');
-            const closeButton = modal.querySelector('.btn-close');
+        clickcard();
 
-            // Mở modal khi click vào icon giỏ hàng
-            cartIcon.addEventListener('click', () => {
-                const user = JSON.parse(localStorage.getItem('user'));
-                if (!user) {
-                    // Nếu chưa đăng nhập, hiển thị modal
-                    modal.style.display = 'flex';
-                } else {
-                    // Nếu đã đăng nhập, chuyển hướng đến trang giỏ hàng
-                    window.location.href = './../user/cart.html';
-                }
-            });
-
-            // Đóng modal khi click vào dấu X
-            closeModal.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
-
-            // Đóng modal khi click vào nút "Đóng"
-            closeButton.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
-
-            // Chuyển hướng đến trang đăng nhập khi click vào nút "Đăng Nhập"
-            loginButton.addEventListener('click', () => {
-                window.location.href = './../login.html';
-            });
-
-            // Đóng modal khi click bên ngoài modal
-            window.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
-
-        console.log(document.querySelector('.show-signup').style);
-        user = JSON.parse(localStorage.getItem('user'));
+        let user = JSON.parse(localStorage.getItem('user'));
         if (user != null) {
+            console.log("null nè");
             document.querySelector('.show-signup').style.display = 'none';
             document.querySelector('.ac').style.display = '';
-            setcart();
-        }
-        const logoutButton = document.getElementById("logout");
-
-        logoutButton.addEventListener('click', function () {
-            // Xóa thông tin người dùng trong localStorage
-            localStorage.setItem('user', JSON.stringify(null));
-            // // Hiển thị lại form đăng ký
-            // document.querySelector('.show-signup').style.display = '';
-            // // Ẩn thông tin tài khoản
+            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 2);
+        } else {
+            console.log("khong null");
             document.querySelector('.ac').style.display = 'none';
-            document.querySelector('.header-account').style.display = "";
+            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 0);
+        }
+        const logoutButton = document.querySelector(".logout");
+        logoutButton.addEventListener('click', function () {
+            console.log("đăng xuất");
+            localStorage.setItem('user', JSON.stringify(null));
+
+            document.querySelector('.ac').style.display = 'none';
+            document.querySelector('.show-signup').style.display = "";
             console.log(document.querySelector('.header-account').style);
+            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 0);
         });
+
 
         Validator({
             form: '#form-1',
@@ -453,7 +596,7 @@
                 document.querySelector('.r-js').style.display = 'none';
                 console.log("Đăng ký thành công");
                 localStorage.setItem('userList', JSON.stringify(userList));
-                console.log(JSON.parse(localStorage.getItem('userList')));
+                console.log(JSON.parse(localStorage.getItefm('userList')));
                 document.querySelector('.s-js').style.display = 'flex';
 
             }
@@ -481,6 +624,7 @@
                         // let usercart = JSON.parse(localStorage.getItem('user'));
                         console.log(JSON.parse(localStorage.getItem('user')));
                         console.log("đăng nhập thành công");
+                        document.querySelector(".ri-shopping-cart-line").setAttribute('number', 2);
 
                     }
                 }
@@ -546,38 +690,36 @@
                     : product.img[0];
 
                 productElement.innerHTML = `
-            <div class="card img-1 product-item" data-id="${product.id}">
-                <img src="${imagePath}" class="card-img-top" alt="${product.title}">
-                <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
-                    <div class="mb-3">
-                        <strong>Size:</strong>
-                        <div class="btn-group" role="group" aria-label="Size">
-                            ${Object.keys(product.size).map(size => `
-                                <button 
-                                    type="button" 
-                                    class="btn btn-outline-light btn-sm size-btn" 
-                                    data-size="${size}">
-                                    ${size}
-                                </button>
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mb-3" style="color: white;">
-                        <strong>Số lượng:</strong>
-                        <div class="input-group" style="width: 100px;">
-                            <button class="btn btn-outline-light decrease-btn">-</button>
-                            <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1" max="10" />
-                            <button class="btn btn-outline-light increase-btn">+</button>
-                        </div>
-                    </div>
-                    <button class="btn btn-warning add-card-js w-100 py-2">Thêm vào giỏ hàng</button>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">${product.title}</h5>
-                    <p class="card-text">${product.price.toLocaleString()} VND</p>
+    <div class="card img-1 product-item" data-id="${product.id}">
+        <img src="${imagePath}" class="card-img-top" alt="${product.title}">
+        <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+            <div class="mb-3">
+                <strong>Size:</strong>
+                <div class="btn-group" role="group" aria-label="Size">
+                    ${Object.keys(product.size).map(size => `
+                    <button type="button" class="btn btn-outline-light btn-sm size-btn" data-size="${size}">
+                        ${size}
+                    </button>
+                    `).join('')}
                 </div>
             </div>
-        `;
+            <div class="d-flex align-items-center mb-3" style="color: white;">
+                <strong>Số lượng:</strong>
+                <div class="input-group" style="width: 100px;">
+                    <button class="btn btn-outline-light decrease-btn">-</button>
+                    <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1"
+                        max="10" />
+                    <button class="btn btn-outline-light increase-btn">+</button>
+                </div>
+            </div>
+            <button class="btn btn-warning add-card-js w-100 py-2" button onclick="addspm()">Thêm vào giỏ hàng</button>
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title">${product.title}</h5>
+            <p class="card-text">${product.price.toLocaleString()} VND</p>
+        </div>
+    </div>
+    `;
 
                 productList.appendChild(productElement);
             });
@@ -616,15 +758,10 @@
 
                 increaseBtn.addEventListener("click", () => {
                     let currentValue = parseInt(input.value, 10) || 1;
-                    if (currentValue < 10) {
-                        input.value = currentValue + 1;
-                    }
-                });
-
-                input.addEventListener("input", () => {
+                    if (currentValue < 10) { input.value = currentValue + 1; }
+                }); input.addEventListener("input", () => {
                     let currentValue = parseInt(input.value, 10) || 1;
-                    if (currentValue < 1) input.value = 1;
-                    if (currentValue > 10) input.value = 10;
+                    if (currentValue < 1) input.value = 1; if (currentValue > 10) input.value = 10;
                 });
             });
 
@@ -660,10 +797,7 @@
             // Các nút số trang
             for (let i = 1; i <= totalPages; i++) {
                 const pageItem = document.createElement("li");
-                pageItem.classList.add("page-item");
-                if (i === currentPage) {
-                    pageItem.classList.add("active");
-                }
+                pageItem.classList.add("page-item"); if (i === currentPage) { pageItem.classList.add("active"); }
                 pageItem.innerHTML = `<a class="page-link" href="#">${i}</a>`;
                 pageItem.addEventListener("click", () => {
 
@@ -676,8 +810,8 @@
             // Nút "Trang sau"
             if (currentPage < totalPages) {
                 const nextButton = document.createElement("li");
-                nextButton.classList.add("page-item");
-                nextButton.innerHTML = `<a class="page-link" href="#">Trang sau</a>`;
+                nextButton.classList.add("page-item"); nextButton.innerHTML = `<a class="page-link" href="#">Trang
+                    sau</a>`;
                 nextButton.addEventListener("click", () => {
                     console.log("click rồi");
                     currentPage++;
@@ -693,8 +827,29 @@
             Hienthi();
         });
 
+        clickaddpd();
+        function addspm() {
+            console.log("test");
+            // Lấy các phần tử của modal và các nút
+            const modal = document.getElementById('myModal');  // Lấy modal theo ID
+            const closeModal = modal.querySelector('.close'); // Lấy nút đóng modal
+            const loginButton = modal.querySelector('.btn-login'); // Lấy nút đăng nhập
+            let user = JSON.parse(localStorage.getItem('user'));
+            if (user == null) {
+                document.querySelector('.modal-text').innerHTML = "Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng";
+                modal.style.display = 'flex';
+            } else {
+                // Hiển thị thông báo thêm sản phẩm vào giỏ hàng ngay lập tức
+                const cartMessage = document.querySelector('.add-cart-tb');
+                cartMessage.style.display = 'block';  // Hiện thông báo
+                setTimeout(() => {
+                    cartMessage.style.display = 'none';  // Ẩn thông báo sau 3 giây
+                }, 3000);
+            }
+        }
+
     </script>
+
 </body>
-<script>Searchs()</script>
 
 </html>
