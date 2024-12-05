@@ -248,7 +248,7 @@
                     </div>
                     <div class="header-cart position-relative">
                         <button class="btn btn-sm btn-outline-light" style="border: none; background: transparent;">
-                            <i class="ri-shopping-cart-line" style="color: white;" number="2"></i>
+                            <i class="ri-shopping-cart-line" style="color: white;" number="0"></i>
                             <!-- Số lượng giỏ hàng -->
 
                         </button>
@@ -584,7 +584,7 @@
         if (user != null) {
             document.querySelector('.show-signup').style.display = 'none';
             document.querySelector('.ac').style.display = '';
-            setcart();
+            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 2);
         } else {
             document.querySelector('.ac').style.display = 'none';
         }
@@ -634,6 +634,7 @@
             document.querySelector('.ac').style.display = 'none';
             document.querySelector('.show-signup').style.display = "";
             console.log(document.querySelector('.header-account').style);
+            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 0);
         });
 
         Validator({
@@ -689,6 +690,7 @@
                         // let usercart = JSON.parse(localStorage.getItem('user'));
                         console.log(JSON.parse(localStorage.getItem('user')));
                         console.log("đăng nhập thành công");
+                        document.querySelector(".ri-shopping-cart-line").setAttribute('number', 2);
 
                     }
                 }
