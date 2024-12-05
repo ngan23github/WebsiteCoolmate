@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./../vendor/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./../asset/css/style1.css" />
+
+    <script type="module" src="./../asset/js/script.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn Hàng Của Tôi</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .table th,
+        .table td {
+            vertical-align: middle;
+        }
+
+        .table thead th {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .btn-dark {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .btn-dark:hover {
+            background-color: #333;
+        }
+
+        /* header */
+        .nav-link {
+            padding: 5px 10px;
+        }
+
+        .header-cart .btn-outline-light {
+            border: none;
+            background: transparent;
+        }
+
+        .header-cart .btn-outline-light i {
+            color: white;
+            /* Đảm bảo icon có màu trắng */
+        }
+
+        .header-cart .btn-outline-light .badge {
+            display: none;
+            /* Loại bỏ chấm đen (badge) */
+        }
+
+        .header-cart .btn-outline-light {
+            border: none;
+            background: transparent;
+        }
+
+        .header-cart .btn-outline-light i {
+            color: white;
+        }
+
+        .header-cart .badge {
+            display: inline-block;
+            padding: 0.2em 0.5em;
+            font-size: 0.8rem;
+            color: white;
+            background-color: red;
+            border-radius: 50%;
+            top: -5px;
+            right: -5px;
+        }
+
+        .header-cart .badge {
+            font-size: 1rem;
+        }
+
+        /* Responsive chỉnh riêng */
+        @media (max-width: 768px) {
+
+            .table-responsive .table th:nth-child(3),
+            .table-responsive .table td:nth-child(3),
+            .table-responsive .table th:nth-child(4),
+            .table-responsive .table td:nth-child(4) {
+                display: none;
+            }
+
+            .table th:nth-child(6),
+            .table td:nth-child(6) {
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+
+    <header>
+        <div class="container-fluid bg-dark fixed-top">
+            <div class="row align-items-center p-2">
+                <!-- Logo -->
+                <div class="col-auto">
+                    <a href="./../index.html">
+                        <img src="./../vendor/image/logo-coolmate-new.svg" alt="Logo" style="height: 40px;">
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <div class="col d-none d-md-block">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./../index.html">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./product.html">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Giới thiệu</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="col-auto d-md-none">
+                    <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <!-- Search -->
+                <div class="col-auto ms-auto">
+                    <div class="d-flex align-items-center">
+                        <input type="text" class="form-control form-control-sm d-none d-md-block"
+                            placeholder="Tìm kiếm">
+                        <button class="btn btn-sm btn-outline-light ms-2"><i class="ri-search-2-line"></i></button>
+                    </div>
+                </div>
+
+                <!-- Account & Cart -->
+                <!-- Giỏ hàng -->
+                <!-- Giỏ hàng -->
+                <div class="col-auto d-flex align-items-center gap-3">
+                    <div class="header-account ac">
+                        <i class="fa fa-user ac-img" style="color: white;"></i>
+                        <ul class="account-menu">
+                            <li><a href="./profile.html">Hồ sơ</a></li>
+                            <li><a href="./orders.html">Đơn hàng</a></li>
+                            <li>
+                                <a href="#" id="logout">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header-cart position-relative">
+                        <button class="btn btn-sm btn-outline-light" style="border: none; background: transparent;">
+                            <i class="ri-shopping-cart-line" style="color: white;" number="0"></i>
+                            <!-- Số lượng giỏ hàng -->
+
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="collapse bg-dark" id="mobileMenu">
+                <ul class="nav flex-column text-white p-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./../index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./product.html">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Giới thiệu</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <div style="margin-top: 120px;">
+        <div class="container my-5">
+            <h1 class="mb-4">Đơn Hàng Của Tôi</h1>
+
+            <!-- Bảng Đơn Hàng -->
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Mã Đơn Hàng</th>
+                            <th>Ngày Đặt</th>
+                            <th>Sản Phẩm</th>
+                            <th>Tổng Tiền</th>
+                            <th>Trạng Thái</th>
+                            <th>Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>DH123456</td>
+                            <td>05/12/2024</td>
+                            <td>Áo thun nam x1</td>
+                            <td>350,000 VND</td>
+                            <td>Đang xử lý</td>
+                            <td>
+                                <button class="btn btn-dark btn-sm">Xem Chi Tiết</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>DH123457</td>
+                            <td>02/12/2024</td>
+                            <td>Quần jean nữ x1</td>
+                            <td>500,000 VND</td>
+                            <td>Đã giao</td>
+                            <td>
+                                <button class="btn btn-dark btn-sm">Xem Chi Tiết</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>DH123458</td>
+                            <td>30/11/2024</td>
+                            <td>Giày thể thao x1</td>
+                            <td>1,200,000 VND</td>
+                            <td>Đã hủy</td>
+                            <td>
+                                <button class="btn btn-dark btn-sm">Xem Chi Tiết</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3">
+        <p>© 2024 Coolmate. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+<script src="./../vendor/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script src="./../vendor/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+<script src="./../asset/js/script.js"></script>
+<script src="./../asset/js/validator.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modalElement = document.querySelector('.js-modal'); // Lấy modal
+        const addCreditButton = document.querySelector('.add-creadit-js'); // Lấy nút "Thêm thẻ mới"
+
+        // Kiểm tra xem các phần tử có tồn tại hay không
+        if (modalElement && addCreditButton) {
+            const modal = new bootstrap.Modal(modalElement, {
+                backdrop: false  // Loại bỏ backdrop
+            });
+            addCreditButton.addEventListener('click', function () {
+                console.log("Đã click vào nút Thêm thẻ mới");
+
+                modal.show();
+            });
+        } else {
+            console.error('Không tìm thấy phần tử cần thiết!');
+        }
+    });
+</script>
+<script>document.addEventListener("DOMContentLoaded", () => {
+        // Lấy nút và modal
+        const payButton = document.getElementById("payButton");
+        const goHomeButton = document.getElementById("goHome");
+
+        // Khi nhấn nút "Thanh toán", mở modal
+        payButton.addEventListener("click", () => {
+            const successModal = new bootstrap.Modal(document.getElementById("successModal"));
+            successModal.show();
+        });
+
+        // Khi nhấn nút "Về trang chủ", chuyển hướng
+        goHomeButton.addEventListener("click", () => {
+            window.location.href = "./../index.html";
+        });
+    });
+</script>
+<script>
+    const logoutButton = document.getElementById("logout");
+
+    logoutButton.addEventListener('click', function () {
+        // Xóa thông tin người dùng trong localStorage
+        localStorage.setItem('user', JSON.stringify(null));
+        // // Hiển thị lại form đăng ký
+        // document.querySelector('.show-signup').style.display = '';
+        // // Ẩn thông tin tài khoản
+        location.href = "./../index.html";
+    });
+    //CLick tìm kiếm nâng cao
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     // Lấy nút Thanh toán
+    //     const payButton = document.querySelector(".btn-success");
+
+    //     // Thêm sự kiện click
+    //     payButton.addEventListener("click", () => {
+    //         // Hiện thông báo
+    //         alert("Bạn đã đặt hàng thành công. Chúng tôi sẽ giao hàng trong thời gian tối đa 3 ngày làm việc.");
+
+    //         // Chuyển hướng đến trang index.html
+    //         window.location.href = "./../index.html";
+    //     });
+    // });
+
+    function clickSearch() {
+        document.querySelector(".header-search").addEventListener("click", function () {
+            console.log("click rồi nè");
+            this.style.display = "none"; // Ẩn thẻ bằng cách đặt display thành "none"
+            document.querySelector(".search-css").style.display = "";
+            document.querySelector(".search-delete").style.display = "";
+            // console.log(document.querySelector(".clear-btn"));
+            // document.querySelector(".clear-btn").style.display = "";
+
+
+        });
+        document.querySelector(".clear-btn").addEventListener("click", function () {
+            document.querySelector(".search-css").style.display = "none";
+            document.querySelector(".search-delete").style.display = "none";
+            document.querySelector(".header-search").style.display = "";
+        })
+        // document.querySelector(".sb-input").addEventListener("click", function () {
+        //   console.log(document.querySelector(".sb-input").style);
+        //   // document.querySelector(".sb-input").style;
+        // })
+        document.querySelector(".search-nc").addEventListener("click", function () {
+            if (document.querySelector(".search-nc").innerHTML == "Tìm kiếm cơ bản") {
+                document.querySelector(".category-css").style.display = "none";
+                document.querySelector(".price-css").style.display = "none";
+                document.querySelector(".search-nc").innerHTML = "Tìm kiếm nâng cao";
+            }
+            else {
+                document.querySelector(".category-css").style.display = "";
+                document.querySelector(".price-css").style.display = "";
+                document.querySelector(".search-nc").innerHTML = "Tìm kiếm cơ bản";
+            }
+
+
+
+        })
+
+    }
+    clickSearch();
+    document.querySelectorAll('.btn-dm').forEach(button => {
+        button.addEventListener('click', function () {
+            // Xóa active và nền đen cho tất cả các nút
+            document.querySelectorAll('.btn-dm').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.remove('btn-dark'); // Bỏ nền đen
+                btn.classList.add('btn-light'); // Đảm bảo các nút khác có nền sáng
+            });
+            // Thêm active và nền đen cho nút được click
+            this.classList.add('active');
+            this.classList.add('btn-dark'); // Thêm nền đen khi active
+            this.classList.remove('btn-light'); // Bỏ nền sáng khi active
+        });
+    });
+</script>
+<script>
+    Validator({
+        form: '#form-1',
+        rules: [
+            Validator.isRequired('#name', 'Vui lòng nhập tên đăng nhập'),
+            Validator.isRequired('#email', 'Vui lòng nhập email'),
+            Validator.isEmail('#email'),
+            Validator.isRequired('#password', 'Vui lòng nhập mật khẩu'),
+            Validator.minLength('#password', 8),
+            Validator.isRequired('#confirm-password', 'Vui lòng xác nhận lại mật khẩu'),
+            Validator.isConfirmed('#confirm-password', function () {
+                return document.querySelector('#form-1 #password').value;
+            }, 'Mật khẩu nhập lại không chính xác')
+        ],
+        onSubmit: function (data) {
+            console.log("bấm rồi nè1");
+            let tmp = {
+                data,
+                cart: []
+            }
+            // let userList = (JSON.parse(localStorage.getItem('userList'))) || [];
+            let userList = [];
+            userList.push(tmp);
+            document.querySelector('.r-js').style.display = 'none';
+            console.log("Đăng ký thành công");
+            localStorage.setItem('userList', JSON.stringify(userList));
+            console.log(JSON.parse(localStorage.getItem('userList')));
+            document.querySelector('.s-js').style.display = 'flex';
+
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Lấy các phần tử cần thiết
+        const cartIcon = document.querySelector('.header-cart i');
+        const modal = document.getElementById('myModal');  // Sửa lại ID để khớp với HTML
+        // const closeModal = modal.querySelector('.close');
+        // Mở modal khi click vào icon giỏ hàng
+        cartIcon.addEventListener('click', () => {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                // Nếu chưa đăng nhập, hiển thị modal
+                modal.style.display = 'flex';
+            } else {
+                // Nếu đã đăng nhập, chuyển hướng đến trang giỏ hàng
+                window.location.href = './cart.html';
+            }
+        });
+
+    });</script>
+<script>
+    if (JSON.parse(localStorage.getItem('user'))) {
+        console.log("có");
+        document.querySelector('.show-signup').style.display = 'none';
+        document.querySelector('.header-account').style.display = '';
+    }
+    else {
+        console.log("không");
+    }
+    Validator_login({
+        form: '#login',
+        rules: [
+            Validator_login.isRequired('#user', 'Vui lòng nhập tên đăng nhập'),
+            Validator_login.isRequired('#pass', 'Vui lòng nhập mật khẩu')
+        ],
+        onSubmit: function (data) {
+            console.log("click đăng nhập rồi");
+            let userList = (JSON.parse(localStorage.getItem('userList'))) || [];
+
+            console.log("bấm rồi nè")
+            console.log(userList);
+            let check = false;
+            for (let i = 0; i < userList.length; i++) {
+                if (userList[i].data.name === data.user && userList[i].data.password === data.pass) {
+                    check = true;
+                    usercart = userList[i];
+                    localStorage.setItem('user', JSON.stringify(userList[i]));
+                    // let usercart = JSON.parse(localStorage.getItem('user'));
+                    console.log(JSON.parse(localStorage.getItem('user')));
+                    console.log("đăng nhập thành công");
+
+                }
+            }
+            if (check) {
+                // window.location.href = "index.html";
+                document.querySelector('.s-js').style.display = 'none';
+                console.log("đăng nhập thành công");
+                document.querySelector('.show-signup').style.display = 'none';
+                document.querySelector('.header-account').style.display = '';
+                setcart();
+                // document.querySelector('.login-fail').innerHTML = '';
+            } else {
+                // document.querySelector('.login-fail').innerHTML = 'Sai tên đăng nhập hoặc mật khẩu';
+                console.log("lỗi nèee");
+            }
+            document.querySelector('.form-input').value = '';
+            console.log(JSON.parse(localStorage.getItem('userList')));
+        }
+    });
+
+
+
+</script>
+
+
+<!-- Check out -->
+
+
+</html>

@@ -1,40 +1,36 @@
 function clickSearch() {
-    document.querySelector(".header-search").addEventListener("click", function () {
-        console.log("click rồi nè");
-        this.style.display = "none"; // Ẩn thẻ bằng cách đặt display thành "none"
-        document.querySelector(".search-css").style.display = "";
-        document.querySelector(".search-delete").style.display = "";
-        // console.log(document.querySelector(".clear-btn"));
-        // document.querySelector(".clear-btn").style.display = "";
-
-
+    document.querySelector('.clear-btn-js').addEventListener('click', function () {
+        document.querySelector('.htsearch-js').style.display = "none";
+    })
+    document.querySelector('.search-click-js').addEventListener('click', function () {
+        document.querySelector('.htsearch-js').style.display = "";
     });
-    document.querySelector(".clear-btn").addEventListener("click", function () {
-        document.querySelector(".search-css").style.display = "none";
-        document.querySelector(".search-delete").style.display = "none";
-        document.querySelector(".header-search").style.display = "";
-    })
-    // document.querySelector(".sb-input").addEventListener("click", function () {
-    //   console.log(document.querySelector(".sb-input").style);
-    //   // document.querySelector(".sb-input").style;
-    // })
-    document.querySelector(".search-nc").addEventListener("click", function () {
-        if (document.querySelector(".search-nc").innerHTML == "Tìm kiếm cơ bản") {
-            document.querySelector(".category-css").style.display = "none";
-            document.querySelector(".price-css").style.display = "none";
-            document.querySelector(".search-nc").innerHTML = "Tìm kiếm nâng cao";
-        }
-        else {
-            document.querySelector(".category-css").style.display = "";
-            document.querySelector(".price-css").style.display = "";
-            document.querySelector(".search-nc").innerHTML = "Tìm kiếm cơ bản";
-        }
-
-
+    document.querySelector('.basic-search-btn1').addEventListener(("click"), function () {
+        document.querySelector('.basic-search-btn2').classList.remove('active');
+        this.classList.add('active');
+        document.querySelector('.nc-js-2').style.display = "none";
+        document.querySelector('.nc-js-2-2').style.display = "none";
+        document.querySelector('.nc-js-2-3').style.display = "none";
+        document.querySelector('.nc-js-1').style.display = "";
+        document.querySelector('.nc-js-1-2').style.display = "";
+        // document.getElementById('basic-search').placeholder = '';
 
     })
+    document.querySelector('.basic-search-btn2').addEventListener(("click"), function () {
+        document.querySelector('.basic-search-btn1').classList.remove('active');
+        this.classList.add('active');
+        document.querySelector('.nc-js-2').style.display = "";
+        document.querySelector('.nc-js-2-2').style.display = "";
+        document.querySelector('.nc-js-2-3').style.display = "";
+        document.querySelector('.nc-js-1').style.display = "none";
+        document.querySelector('.nc-js-1-2').style.display = "none";
+        // document.querySelector('.nc-js-2-3').style.display = "none";
 
+    })
 }
+
+
+
 function clickcard() {
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -54,7 +50,12 @@ function clickcard() {
                 document.querySelector('.modal-text').innerHTML = "Vui lòng đăng nhập để xem giỏ hàng"; // Thay đổi nội dung
             } else {
                 // Nếu đã đăng nhập, chuyển hướng đến trang giỏ hàng
-                window.location.href = './user/cart.html';
+                if (window.location.href.includes('/user/')) {
+                    window.location.href = './cart.html';
+                } else {
+                    window.location.href = './user/cart.html';
+                }
+
             }
         });
 
@@ -83,8 +84,6 @@ function clickcard() {
 }
 // CLick nút thêm vào giỏ hàng
 function clickaddpd() {
-    console.log("đang chạy nè");
-
     // Lấy các phần tử của modal và các nút
     const modal = document.getElementById('myModal');  // Lấy modal theo ID
     const closeModal = modal.querySelector('.close'); // Lấy nút đóng modal

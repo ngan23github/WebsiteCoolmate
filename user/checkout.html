@@ -419,9 +419,9 @@
                         </div>
 
                         <!-- Nút thanh toán -->
-                        <div class="text-end">
-                            <button class="btn btn-success">Thanh toán</button>
-                        </div>
+                        <!-- Nút Thanh toán -->
+                        <button class="btn btn-success" id="payButton">Thanh toán</button>
+
                     </div>
                 </div>
             </div>
@@ -429,6 +429,25 @@
     </section>
 
 
+
+    <!-- Modal Thông báo -->
+    <div class="modal fade" id="successModal" tabindex="-1" data-bs-backdrop="false" aria-labelledby="successModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-success" id="successModalLabel">Đặt hàng thành công!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Chúng tôi sẽ giao hàng trong thời gian tối đa 3 ngày làm việc.
+                </div>
+                <div class="modal-footer">
+                    <button id="goHome" class="btn btn-success">Về trang chủ</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- ---------------FOOTER---------- -->
@@ -460,6 +479,23 @@
         }
     });
 </script>
+<script>document.addEventListener("DOMContentLoaded", () => {
+        // Lấy nút và modal
+        const payButton = document.getElementById("payButton");
+        const goHomeButton = document.getElementById("goHome");
+
+        // Khi nhấn nút "Thanh toán", mở modal
+        payButton.addEventListener("click", () => {
+            const successModal = new bootstrap.Modal(document.getElementById("successModal"));
+            successModal.show();
+        });
+
+        // Khi nhấn nút "Về trang chủ", chuyển hướng
+        goHomeButton.addEventListener("click", () => {
+            window.location.href = "./../index.html";
+        });
+    });
+</script>
 <script>
     const logoutButton = document.getElementById("logout");
 
@@ -472,6 +508,19 @@
         location.href = "./../index.html";
     });
     //CLick tìm kiếm nâng cao
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     // Lấy nút Thanh toán
+    //     const payButton = document.querySelector(".btn-success");
+
+    //     // Thêm sự kiện click
+    //     payButton.addEventListener("click", () => {
+    //         // Hiện thông báo
+    //         alert("Bạn đã đặt hàng thành công. Chúng tôi sẽ giao hàng trong thời gian tối đa 3 ngày làm việc.");
+
+    //         // Chuyển hướng đến trang index.html
+    //         window.location.href = "./../index.html";
+    //     });
+    // });
 
     function clickSearch() {
         document.querySelector(".header-search").addEventListener("click", function () {
@@ -558,6 +607,26 @@
         }
     });
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Lấy các phần tử cần thiết
+        const cartIcon = document.querySelector('.header-cart i');
+        const modal = document.getElementById('myModal');  // Sửa lại ID để khớp với HTML
+        // const closeModal = modal.querySelector('.close');
+        // Mở modal khi click vào icon giỏ hàng
+        cartIcon.addEventListener('click', () => {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                // Nếu chưa đăng nhập, hiển thị modal
+                modal.style.display = 'flex';
+            } else {
+                // Nếu đã đăng nhập, chuyển hướng đến trang giỏ hàng
+                window.location.href = './cart.html';
+            }
+        });
+
+    });</script>
 <script>
     if (JSON.parse(localStorage.getItem('user'))) {
         console.log("có");

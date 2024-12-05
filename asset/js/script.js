@@ -391,13 +391,14 @@ function load() {
 
   console.log("đg load");
   clickproduct();
-  setcart();
-  clickSearch();
+  // setcart();
+  // clickSearch();
   clickaccount();
   // let url = new URL(window.location.href);
   // console.log(`url hiện tại: ${url}`)
 
   document.querySelector(".sign-in-js").addEventListener(("click"), function () {
+    console.log("click đăng nhập nè");
     let tmp = document.querySelector('.s-js').style.display;
     console.log(document.querySelector('.s-js'));
     if (tmp === "none") {
@@ -503,28 +504,28 @@ function load() {
 
 }
 //Tìm kiếm sản phẩm
-function clickSearch() {
-  document.querySelector(".header-search").addEventListener("click", function () {
+// function clickSearch() {
+//   document.querySelector(".header-search").addEventListener("click", function () {
 
-    this.style.display = "none"; // Ẩn thẻ bằng cách đặt display thành "none"
-    document.querySelector(".search-css").style.display = "";
-    document.querySelector(".search-delete").style.display = "";
-    // console.log(document.querySelector(".clear-btn"));
-    // document.querySelector(".clear-btn").style.display = "";
+//     this.style.display = "none"; // Ẩn thẻ bằng cách đặt display thành "none"
+//     document.querySelector(".search-css").style.display = "";
+//     document.querySelector(".search-delete").style.display = "";
+//     // console.log(document.querySelector(".clear-btn"));
+//     // document.querySelector(".clear-btn").style.display = "";
 
 
-  });
-  document.querySelector(".clear-btn").addEventListener("click", function () {
-    document.querySelector(".search-css").style.display = "none";
-    document.querySelector(".search-delete").style.display = "none";
-    document.querySelector(".header-search").style.display = "";
-  })
-  // document.querySelector(".sb-input").addEventListener("click", function () {
-  //   console.log(document.querySelector(".sb-input").style);
-  //   // document.querySelector(".sb-input").style;
-  // })
+//   });
+//   document.querySelector(".clear-btn").addEventListener("click", function () {
+//     document.querySelector(".search-css").style.display = "none";
+//     document.querySelector(".search-delete").style.display = "none";
+//     document.querySelector(".header-search").style.display = "";
+//   })
+//   // document.querySelector(".sb-input").addEventListener("click", function () {
+//   //   console.log(document.querySelector(".sb-input").style);
+//   //   // document.querySelector(".sb-input").style;
+//   // })
 
-}
+// }
 
 
 //Phân trang:))))
@@ -616,22 +617,22 @@ function clickaccount() {
 
 //tìm kiếm sp
 function Search() {
-  document.querySelector(".sb-button").addEventListener(("click"), function () {
-    console.log("click tìm kiếm nè");
-    pathname = window.location.pathname;
-    const currentUrl = window.location.href;
-    console.log(currentUrl);
-    if (pathname.includes('user')) {
-      window.location.assign('./Search.html');
-    }
-    else if (currentUrl.includes('Search.html')) {
-      console.log("có nè");
-      window.location.reload();
-    }
-    else {
-      window.location.assign('./user/Search.html');
-    }
-  })
+  // document.querySelector(".sb-button").addEventListener(("click"), function () {
+  //   console.log("click tìm kiếm nè");
+  //   pathname = window.location.pathname;
+  //   const currentUrl = window.location.href;
+  //   console.log(currentUrl);
+  //   if (pathname.includes('user')) {
+  //     window.location.assign('./Search.html');
+  //   }
+  //   else if (currentUrl.includes('Search.html')) {
+  //     console.log("có nè");
+  //     window.location.reload();
+  //   }
+  //   else {
+  //     window.location.assign('./user/Search.html');
+  //   }
+  // })
 }
 
 
