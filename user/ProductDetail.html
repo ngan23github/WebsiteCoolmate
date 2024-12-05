@@ -439,22 +439,11 @@
   </div>
   <!-- Modal for login warning -->
   <!-- Modal -->
-  <div class="login-warning-modal" id="login-warning-modal" style="display: none;">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <p class="modal-text">Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.</p>
-      <button class="ok-btn" onclick="closeModal()">OK</button>
-    </div>
-  </div>
-  <section class="product-detail product-detail-js p-to-top container">
-
-  </section>
-
   <!-- Modal -->
   <div class="modal" id="myModal">
     <div class="modal-content">
       <h2>Thông báo</h2>
-      <p>Vui lòng đăng nhập để xem giỏ hàng.</p>
+      <p class="modal-text">Vui lòng đăng nhập để xem giỏ hàng.</p>
       <div class="modal-actions">
         <button class="btn-login">Đăng Nhập</button>
       </div>
@@ -462,6 +451,18 @@
       <span class="close">&times;</span>
     </div>
   </div>
+
+  <div id="notification" class="add-cart-tb"
+    style="display: none; position: fixed; bottom: 20px; right: 20px; background: green; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000;">
+    Thêm sản phẩm vào giỏ hàng thành công!
+  </div>
+
+  <section class="product-detail product-detail-js p-to-top container">
+
+  </section>
+
+  <!-- Modal -->
+
 
   <footer class="bg-dark text-white pt-5 pb-4">
     <div class="container text-center text-md-left">
@@ -617,8 +618,7 @@
 </div>
 
       <div class="product-detail-right-addcart">
-        <button id="add"  class="main-btn" onclick="addToCart('${product.id
-        }')">Thêm vào giỏ hàng</button>
+        <button id="add"  class="main-btn" onclick="addspm() ">Thêm vào giỏ hàng</button>
       </div>
     </div>
   </div>
@@ -957,6 +957,28 @@
         }
       });
     });
+  </script>
+  <script>
+    function addspm() {
+
+      // Lấy các phần tử của modal và các nút
+      const modal = document.getElementById('myModal');  // Lấy modal theo ID
+      const closeModal = modal.querySelector('.close'); // Lấy nút đóng modal
+      const loginButton = modal.querySelector('.btn-login'); // Lấy nút đăng nhập
+      let user = JSON.parse(localStorage.getItem('user'));
+      if (user == null) {
+        document.querySelector('.modal-text').innerHTML = "Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng";
+        modal.style.display = 'flex';
+      } else {
+        // Hiển thị thông báo thêm sản phẩm vào giỏ hàng ngay lập tức
+        const cartMessage = document.querySelector('.add-cart-tb');
+        cartMessage.style.display = 'block';  // Hiện thông báo
+        setTimeout(() => {
+          cartMessage.style.display = 'none';  // Ẩn thông báo sau 3 giây
+        }, 3000);
+      }
+    }
+
   </script>
 </body>
 
