@@ -36,7 +36,7 @@ function renderProducts(activeType = 'all') {
                             ${Object.keys(product.size).map(size => `
                                 <button  tabindex="-1"
                                     type="button" 
-                                    class="btn btn-outline-light btn-sm size-btn" 
+                                    class="btn btn-outline-light btn-sm size-btn ${size === 'S' ? 'active' : ''}" 
                                     data-size="${size}">
                                     ${size}
                                 </button>
