@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./../vendor/bootstrap-5.0.2-dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="./../asset/css/style1.css" />
+    <link rel="stylesheet" href="./../asset/css/style.css" />
+
+    <script type="module" src="./../asset/js/script.js"></script>
+  </head>
+
+  <body>
+    <!-- ---------------HEADER---------- -->
+    <header style="width: auto">
+      <div class="container-fluid bgtop2 fixed-top">
+        <div class="row p-3 align-items-center">
+          <!-- Logo -->
+          <div class="col-1 ms-1">
+            <img src="./vendor/image/logo-coolmate-new.svg" alt="" />
+          </div>
+
+          <!-- Sản phẩm -->
+          <div class="col xl-6 lg-6 md-5">
+            <!-- Desktop menu (dàn ngang) -->
+            <div class="d-none d-md-flex justify-content-center">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="./../index.html">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./product.html">Sản phẩm</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Giới thiệu</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Mobile menu (dọc) -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-md-none">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Trang chủ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Sản phẩm</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Giới thiệu</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+
+          <!-- Tìm kiếm -->
+          <div class="col-md-1 col-xl-3 col-lg-1">
+            <div class="header-search">
+              <input
+                type="text"
+                placeholder="Tìm kiếm"
+                class="header-search-rp"
+              />
+              <button class="header-search-css" style="color: black">
+                <i class="ri-search-2-line"></i>
+              </button>
+            </div>
+            <div style="display: none" class="search-delete">
+              <button class="clear-btn" id="clear-btn">
+                <i class="ri-close-line"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Tài khoản và Giỏ hàng -->
+          <div
+            class="col-xl-2 col-lg-4 md-5 text-end d-flex justify-content-end align-items-center gap-3 me-3"
+          >
+            <div class="header-account">
+              <div class="show-signup">
+                <div class="sign-in-js" style="display: inline-block">
+                  Đăng Nhập
+                </div>
+                /
+                <div class="register-js" style="display: inline-block">
+                  Đăng Ký
+                </div>
+              </div>
+            </div>
+            <div class="header-account ac" style="">
+              <i class="fa fa-user ac-img" style="color: white"></i>
+              <ul class="account-menu">
+                <li><a href="./profile.html">Hồ sơ</a></li>
+                <li><a href="./orders.html">Đơn hàng</a></li>
+                <li>
+                  <a href="#" id="logout">Đăng xuất</a>
+                </li>
+              </ul>
+            </div>
+            <div class="header-cart">
+              <i class="ri-shopping-cart-line" number="0"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tìmm kiếm cơ bản -->
+      <!-- <div class="search-css search-cb" style="display: none;">
+            <div class="search-box">
+                <div class="search-container">
+                    <input class="sb-input" type="text" placeholder="Tìm kiếm" />
+                    <button class="sb-button"><i class="ri-search-2-line"></i></button>
+                </div>
+
+            </div>
+            <div class="btn btn-light">Tìm kiếm nâng cao</div>
+        </div> -->
+      <!-- Tìm kiếm nâng cao -->
+      <div class="search-css" style="display: none">
+        <div class="search-box">
+          <div class="search-container">
+            <input class="sb-input" type="text" placeholder="Tìm kiếm" />
+
+            <div class="dropdown category-css" style="display: none">
+              <select name="category" id="category" style="padding-right: 10px">
+                <option value="">Tất cả</option>
+                <option value="electronics">Áo thun</option>
+                <option value="fashion">Áo sơ mi</option>
+                <option value="books">Áo Polo</option>
+              </select>
+            </div>
+            <div class="dropdown price-css" style="display: none">
+              <select id="price-filter">
+                <option value="all">Tất cả</option>
+                <option value="0-200000">Dưới 200.000 VND</option>
+                <option value="200000-5000000">
+                  200.000 VND - 299.000 VND
+                </option>
+                <option value="5000000-10000000">
+                  300.000 VND - 499.000 VND
+                </option>
+                <option value="10000000">Trên 500.000 VND</option>
+              </select>
+            </div>
+            <button class="sb-button"><i class="ri-search-2-line"></i></button>
+          </div>
+          <div
+            class="search-nc bg-primary text-white text-center rounded-pill px-4 py-1 d-flex align-items-center ms-2 bg-dark text-light"
+            style="cursor: pointer"
+          >
+            <i class="bi bi-search"></i> Tìm kiếm nâng cao
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CSS -->
+
+    <!-- Hiện các  thông báo -->
+
+    <div class="body-signup r-js" style="display: none">
+      <div class="form-wrapper">
+        <div class="close-btn">
+          <i class="ri-close-line"></i>
+        </div>
+        <div class="bbd-signup fwr-js">
+          <div class="sign-up-header">ĐĂNG KÝ</div>
+          <p>
+            Bạn đã có tài khoản?
+            <a href="./../login.html"
+              ><span style="color: blue">Đăng nhập ngay</span></a
+            >
+          </p>
+          <div class="sign-up-form">
+            <form action="" method="POST" class="form" id="form-1">
+              <div class="input-box">
+                <span class="detail">Tên đăng nhập</span>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  class="form-control"
+                  placeholder="Nhập tên đăng nhập của bạn"
+                />
+                <span class="invalid-message"></span>
+              </div>
+              <div class="input-box">
+                <span class="detail">Email</span>
+                <input
+                  id="email"
+                  name="email"
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                />
+                <span class="invalid-message"></span>
+              </div>
+              <!-- <div class="input-box">
+                      <span class="detail">Số điện thoại</span>
+                      <input id="phone-number" name="phone-number" type="text" class="form-control"
+                        placeholder="Số điện thoại">
+                      <span class="invalid-message"></span>
+                    </div> -->
+              <div class="input-box">
+                <span class="detail">Mật khẩu</span>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  placeholder="Nhập mật khẩu của bạn"
+                />
+                <span class="invalid-message"></span>
+              </div>
+              <div class="input-box">
+                <span class="detail">Xác nhận mật khẩu</span>
+                <input
+                  id="confirm-password"
+                  name="confirm-password"
+                  type="password"
+                  class="form-control"
+                  placeholder="Xác nhận lại mật khẩu"
+                />
+                <span class="invalid-message"></span>
+              </div>
+              <button type="submit" class="sign-up-button form-submit">
+                Đăng ký
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body-signup s-js" style="display: none">
+      <div class="form-wrapper fws-js">
+        <div class="close-btn">
+          <i class="ri-close-line"></i>
+        </div>
+        <div class="bbd-signup">
+          <h3 class="sign-up-header">ĐĂNG NHẬP</h3>
+          <p>
+            Trở thành thành viên của 360 Boutique
+            <a href="./../signup.html"
+              ><span style="color: blue">Đăng ký ngay</span></a
+            >
+          </p>
+          <div class="sign-up-form">
+            <form action="" method="post" class="form" id="login">
+              <div class="form-group input-box">
+                <label for="user">
+                  <b>Tên đăng nhập <span style="color: red">&#42;</span></b>
+                </label>
+                <input
+                  class="form-input form-control"
+                  name="user"
+                  id="user"
+                  type="text"
+                  placeholder="Nhập tên đăng nhập của bạn"
+                  required
+                />
+                <span class="invalid-message"></span>
+              </div>
+              <div class="form-group input-box">
+                <label for="pass">
+                  <b>Mật khẩu <span style="color: red">&#42;</span></b>
+                </label>
+                <input
+                  class="form-input form-control"
+                  name="pass"
+                  id="pass"
+                  type="password"
+                  placeholder="Nhập mật khẩu"
+                  style="position: relative"
+                />
+                <span class="show-btn" style="position: absolute"
+                  ><i class="fas fa-eye"></i
+                ></span>
+                <span class="invalid-message"></span>
+              </div>
+
+              <div class="sub-form-group">
+                <div class="sub1">
+                  <input type="checkbox" name="" id="remember" />
+                  <label for="remember"><b>Ghi nhớ mật khẩu</b></label>
+                </div>
+              </div>
+
+              <button type="submit" class="submit-button form-group">
+                ĐĂNG NHẬP
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------PRODUCT DETAIL---------- -->
+    <html>
+      <head>
+        <title>Profile Page</title>
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          rel="stylesheet"
+        />
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+          }
+          .container {
+            display: flex;
+            padding: 20px;
+            margin-top: 80px;
+          }
+          .sidebar {
+            width: 25%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+          }
+          .sidebar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 10px;
+          }
+          .sidebar h2 {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+          }
+          .sidebar ul {
+            list-style: none;
+            padding: 0;
+          }
+          .sidebar ul li {
+            margin-bottom: 10px;
+          }
+          .sidebar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+          }
+          .content {
+            width: 75%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          }
+          .content h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+          }
+          .content form {
+            display: flex;
+            flex-direction: column;
+          }
+          .content form label {
+            font-size: 16px;
+            margin-bottom: 5px;
+          }
+          .content form input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          }
+          .content form a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+          }
+          .content form .gender {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+          }
+          .content form .gender label {
+            margin-right: 10px;
+          }
+          .content form .gender input {
+            margin-right: 5px;
+          }
+          @media (max-width: 768px) {
+            .container {
+              flex-direction: column;
+            }
+            .sidebar,
+            .content {
+              width: 100%;
+              margin-right: 0;
+              margin-bottom: 20px;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="sidebar">
+            <img
+              alt="User profile picture"
+              height="50"
+              src="https://storage.googleapis.com/a1aa/image/E8f6ef0ex3ciehUPuNrfErCBy5V4xZYIRacMlEx0mW2oeW57JA.jpg"
+              width="50"
+            />
+            <h2>user975552</h2>
+            <ul>
+              <li>
+                <a href="#">
+                  <i class="fas fa-user"> </i>
+                  Thông tin tài khoản
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-id-card"> </i>
+                  Hồ sơ
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-map-marker-alt"> </i>
+                  Địa chỉ
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-box"> </i>
+                  Đơn hàng của tôi
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="content">
+            <h2>Hồ sơ của tôi</h2>
+            <form>
+              <label for="username"> Tên đăng nhập: </label>
+              <p>user975552</p>
+              <label for="fullname"> Họ và tên: </label>
+              <input id="fullname" placeholder="Nhập họ và tên" type="text" />
+              <div>
+                <label for="email"> Email: </label>
+                <a style="padding-left: 20px" href="#"> Thêm mới </a>
+              </div>
+              <div>
+                <label for="phone"> Số điện thoại: </label>
+                <p>
+                  03******73
+                  <a style="padding-left: 20px" href="#"> Thay đổi </a>
+                </p>
+              </div>
+              <div>
+                <label for="password"> Mật khẩu: </label>
+                <a style="padding-left: 20px" href="#"> Đổi mật khẩu </a>
+              </div>
+              <label for="gender"> Giới tính: </label>
+              <div class="gender">
+                <input id="male" name="gender" type="radio" value="male" />
+                <label for="male"> Nam </label>
+                <input id="female" name="gender" type="radio" value="female" />
+                <label for="female"> Nữ </label>
+                <input id="other" name="gender" type="radio" value="other" />
+                <label for="other"> Khác </label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </body>
+    </html>
+
+    <!-- ---------------FOOTER---------- -->
+  </body>
+  <script src="./../asset/js/product.js"></script>
+  <script src="./../asset/js/show-product.js"></script>
+  <script src="./../asset/js/script.js"></script>
+  <script src="./../asset/js/validator.js"></script>
+</html>

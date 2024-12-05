@@ -1,337 +1,744 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./../vendor/bootstrap-5.0.2-dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="./../asset/css/style1.css" />
     <link rel="stylesheet" href="./../asset/css/style.css" />
+
     <script type="module" src="./../asset/js/script.js"></script>
-    <script type="module" src="./../asset/js/apiprovince.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-    <script src="./../asset/js/apiprovince.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- ---------------HEADER---------- -->
-    <header>
-        <div class="search-css" style="display: none;">
+    <header style="width: auto">
+      <div class="container-fluid bgtop2 fixed-top">
+        <div class="row p-3 align-items-center">
+          <!-- Logo -->
+          <div class="col-1 ms-1">
+            <img src="./vendor/image/logo-coolmate-new.svg" alt="" />
+          </div>
+
+          <!-- Sản phẩm -->
+          <div class="col xl-6 lg-6 md-5">
+            <!-- Desktop menu (dàn ngang) -->
+            <div class="d-none d-md-flex justify-content-center">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="./../index.html">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./product.html">Sản phẩm</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Giới thiệu</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Mobile menu (dọc) -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-md-none">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Trang chủ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Sản phẩm</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Giới thiệu</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+
+          <!-- Tìm kiếm -->
+          <div class="col-md-1 col-xl-3 col-lg-1">
+            <div class="header-search">
+              <input
+                type="text"
+                placeholder="Tìm kiếm"
+                class="header-search-rp"
+              />
+              <button class="header-search-css" style="color: black">
+                <i class="ri-search-2-line"></i>
+              </button>
+            </div>
+            <div style="display: none" class="search-delete">
+              <button class="clear-btn" id="clear-btn">
+                <i class="ri-close-line"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Tài khoản và Giỏ hàng -->
+          <div
+            class="col-xl-2 col-lg-4 md-5 text-end d-flex justify-content-end align-items-center gap-3 me-3"
+          >
+            <div class="header-account">
+              <div class="show-signup">
+                <div class="sign-in-js" style="display: inline-block">
+                  Đăng Nhập
+                </div>
+                /
+                <div class="register-js" style="display: inline-block">
+                  Đăng Ký
+                </div>
+              </div>
+            </div>
+            <div class="header-account ac" style="">
+              <i class="fa fa-user ac-img" style="color: white"></i>
+              <ul class="account-menu">
+                <li><a href="./profile.html">Hồ sơ</a></li>
+                <li><a href="./orders.html">Đơn hàng</a></li>
+                <li>
+                  <a href="#" id="logout">Đăng xuất</a>
+                </li>
+              </ul>
+            </div>
+            <div class="header-cart">
+              <i class="ri-shopping-cart-line" number="0"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tìmm kiếm cơ bản -->
+      <!-- <div class="search-css search-cb" style="display: none;">
             <div class="search-box">
-                <!-- Container chứa input tìm kiếm, danh mục và khoảng giá -->
                 <div class="search-container">
-                    <!-- Danh mục sản phẩm -->
-
-                    <!-- Khoảng giá -->
-
-                    <!-- Input tìm kiếm và nút tìm kiếm -->
                     <input class="sb-input" type="text" placeholder="Tìm kiếm" />
-                    <div class="dropdown category-css">
-                        <select name="category" id="category">
-                            <option value="">Tất cả</option>
-                            <option value="electronics">Áo thun</option>
-                            <option value="fashion">Áo sơ mi</option>
-                            <option value="books">Áo Polo</option>
-                        </select>
-                    </div>
-                    <div class="dropdown price-css">
-                        <select id="price-filter">
-                            <option value="all">Tất cả</option>
-                            <option value="0-200000">Dưới 200.000 VND</option>
-                            <option value="200000-5000000">200.000 VND - 299.000 VND</option>
-                            <option value="5000000-10000000">300.000 VND - 499.000 VND</option>
-                            <option value="10000000">Trên 500.000 VND</option>
-                        </select>
-                    </div>
-
                     <button class="sb-button"><i class="ri-search-2-line"></i></button>
                 </div>
+
             </div>
+            <div class="btn btn-light">Tìm kiếm nâng cao</div>
+        </div> -->
+      <!-- Tìm kiếm nâng cao -->
+      <div class="search-css" style="display: none">
+        <div class="search-box">
+          <div class="search-container">
+            <input class="sb-input" type="text" placeholder="Tìm kiếm" />
 
-        </div>
-        <div class="container">
-            <div class="row-flex">
-                <div class="header-bar-icon"><i class="ri-menu-line"></i></div>
-                <div class="header-logo">
-                    <img src="asset/image/logo.png" alt="" />
-                </div>
-                <div class="header-nav">
-                    <ul>
-                        <li><a href="./user/product.html">SẢN PHẨM</a></li>
-                        <li><a href="#">ĐỒ THỂ THAO</a></li>
-                        <li><a href="#">MẶC HẰNG NGÀY</a></li>
-                        <li><a href="#">ĐỒ LÓT</a></li>
-                        <li><a href="#">SẢN XUẤT RIÊNG</a></li>
-                    </ul>
-                </div>
-                <div class="header-search">
-                    <input type="text" placeholder="Tìm kiếm" />
-                    <button class="header-search-css"><i class="ri-search-2-line"></i></button>
-                </div>
-                <div style="display: none;" class="search-delete"> <button class="clear-btn" id="clear-btn">
-                        <i class="ri-close-line"></i></button></div>
-                <div>
-                    <div>
-                        <div style="" class="show-signup">
-                            <div class="sign-in-js" style="display: inline-block;">Đăng Nhập</div>/<div
-                                class="register-js" style="display: inline-block;">Đăng Ký
-                            </div>
-                        </div>
-
-                        <div class="header-account" style="display: none;">
-                            <i class="fa fa-user"></i>
-                            <ul class="account-menu">
-                                <li><a href="./profile.html">Hồ sơ</a></li>
-                                <li><a href="./orders.html">Đơn hàng</a></li>
-                                <li>
-                                    <div id="logout">Đăng xuất</div>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="header-cart">
-                    <i class="ri-shopping-cart-line" number="0"></i>
-                </div>
+            <div class="dropdown category-css" style="display: none">
+              <select name="category" id="category" style="padding-right: 10px">
+                <option value="">Tất cả</option>
+                <option value="electronics">Áo thun</option>
+                <option value="fashion">Áo sơ mi</option>
+                <option value="books">Áo Polo</option>
+              </select>
             </div>
+            <div class="dropdown price-css" style="display: none">
+              <select id="price-filter">
+                <option value="all">Tất cả</option>
+                <option value="0-200000">Dưới 200.000 VND</option>
+                <option value="200000-5000000">
+                  200.000 VND - 299.000 VND
+                </option>
+                <option value="5000000-10000000">
+                  300.000 VND - 499.000 VND
+                </option>
+                <option value="10000000">Trên 500.000 VND</option>
+              </select>
+            </div>
+            <button class="sb-button"><i class="ri-search-2-line"></i></button>
+          </div>
+          <div
+            class="search-nc bg-primary text-white text-center rounded-pill px-4 py-1 d-flex align-items-center ms-2 bg-dark text-light"
+            style="cursor: pointer"
+          >
+            <i class="bi bi-search"></i> Tìm kiếm nâng cao
+          </div>
         </div>
-
+      </div>
     </header>
-    <!-- ---------------CART---------- -->
+
+    <!-- CSS -->
+
+    <!-- Hiện các  thông báo -->
+
+    <div class="body-signup r-js" style="display: none">
+      <div class="form-wrapper">
+        <div class="close-btn">
+          <i class="ri-close-line"></i>
+        </div>
+        <div class="bbd-signup fwr-js">
+          <div class="sign-up-header">ĐĂNG KÝ</div>
+          <p>
+            Bạn đã có tài khoản?
+            <a href="./../login.html"
+              ><span style="color: blue">Đăng nhập ngay</span></a
+            >
+          </p>
+          <div class="sign-up-form">
+            <form action="" method="POST" class="form" id="form-1">
+              <div class="input-box">
+                <span class="detail">Tên đăng nhập</span>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  class="form-control"
+                  placeholder="Nhập tên đăng nhập của bạn"
+                />
+                <span class="invalid-message"></span>
+              </div>
+              <div class="input-box">
+                <span class="detail">Email</span>
+                <input
+                  id="email"
+                  name="email"
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                />
+                <span class="invalid-message"></span>
+              </div>
+              <!-- <div class="input-box">
+                      <span class="detail">Số điện thoại</span>
+                      <input id="phone-number" name="phone-number" type="text" class="form-control"
+                        placeholder="Số điện thoại">
+                      <span class="invalid-message"></span>
+                    </div> -->
+              <div class="input-box">
+                <span class="detail">Mật khẩu</span>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  placeholder="Nhập mật khẩu của bạn"
+                />
+                <span class="invalid-message"></span>
+              </div>
+              <div class="input-box">
+                <span class="detail">Xác nhận mật khẩu</span>
+                <input
+                  id="confirm-password"
+                  name="confirm-password"
+                  type="password"
+                  class="form-control"
+                  placeholder="Xác nhận lại mật khẩu"
+                />
+                <span class="invalid-message"></span>
+              </div>
+              <button type="submit" class="sign-up-button form-submit">
+                Đăng ký
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body-signup s-js" style="display: none">
+      <div class="form-wrapper fws-js">
+        <div class="close-btn">
+          <i class="ri-close-line"></i>
+        </div>
+        <div class="bbd-signup">
+          <h3 class="sign-up-header">ĐĂNG NHẬP</h3>
+          <p>
+            Trở thành thành viên của 360 Boutique
+            <a href="./../signup.html"
+              ><span style="color: blue">Đăng ký ngay</span></a
+            >
+          </p>
+          <div class="sign-up-form">
+            <form action="" method="post" class="form" id="login">
+              <div class="form-group input-box">
+                <label for="user">
+                  <b>Tên đăng nhập <span style="color: red">&#42;</span></b>
+                </label>
+                <input
+                  class="form-input form-control"
+                  name="user"
+                  id="user"
+                  type="text"
+                  placeholder="Nhập tên đăng nhập của bạn"
+                  required
+                />
+                <span class="invalid-message"></span>
+              </div>
+              <div class="form-group input-box">
+                <label for="pass">
+                  <b>Mật khẩu <span style="color: red">&#42;</span></b>
+                </label>
+                <input
+                  class="form-input form-control"
+                  name="pass"
+                  id="pass"
+                  type="password"
+                  placeholder="Nhập mật khẩu"
+                  style="position: relative"
+                />
+                <span class="show-btn" style="position: absolute"
+                  ><i class="fas fa-eye"></i
+                ></span>
+                <span class="invalid-message"></span>
+              </div>
+
+              <div class="sub-form-group">
+                <div class="sub1">
+                  <input type="checkbox" name="" id="remember" />
+                  <label for="remember"><b>Ghi nhớ mật khẩu</b></label>
+                </div>
+              </div>
+
+              <button type="submit" class="submit-button form-group">
+                ĐĂNG NHẬP
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------PRODUCT DETAIL---------- -->
     <section class="cart p-to-top">
-        <div class="container">
-            <div class="row-flex row-flex-product-detail">
-                <p>Giỏ hàng</p>
+      <div class="container">
+        <h2 class="cart-title">Giỏ hàng của bạn</h2>
+        <div class="cart-content">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="select-all" /></th>
+                <th>Ảnh</th>
+                <th>Sản phẩm</th>
+                <th>Size</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+                <th>Xóa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="product-checkbox" /></td>
+                <td>
+                  <img
+                    src="./../asset/image/product/WEB1/AoThun/9/Legend_Club_1.1.webp"
+                    alt="Sản phẩm"
+                    class="cart-product-img"
+                  />
+                </td>
+                <td>Áo Thun Nam MS001</td>
+                <td>
+                  <select class="size-select">
+                    <option value="S">S</option>
+                    <option value="M" selected>M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                  </select>
+                </td>
+                <td data-value="200000">200.000đ</td>
+                <td>
+                  <div class="quantity-controls">
+                    <button class="quantity-btn decrement">-</button>
+                    <input
+                      type="number"
+                      class="cart-quantity"
+                      value="1"
+                      min="1"
+                    />
+                    <button class="quantity-btn increment">+</button>
+                  </div>
+                </td>
+                <td data-value="200000">200.000đ</td>
+                <td>
+                  <button class="delete-btn">
+                    <i class="ri-delete-bin-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="product-checkbox" /></td>
+                <td>
+                  <img
+                    src="./../asset/image/product/WEB1/AoThun/8/2484.ULSMV.TSZ707_HEHEHEVENOM_0050__20_DEN.webp"
+                    alt="Sản phẩm"
+                    class="cart-product-img"
+                  />
+                </td>
+                <td>Áo Polo Nam MS002</td>
+                <td>
+                  <select class="size-select">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L" selected>L</option>
+                    <option value="XL">XL</option>
+                  </select>
+                </td>
+                <td data-value="300000">300.000đ</td>
+                <td>
+                  <div class="quantity-controls">
+                    <button class="quantity-btn decrement">-</button>
+                    <input
+                      type="number"
+                      class="cart-quantity"
+                      value="1"
+                      min="1"
+                    />
+                    <button class="quantity-btn increment">+</button>
+                  </div>
+                </td>
+                <td data-value="300000">300.000đ</td>
+                <td>
+                  <button class="delete-btn">
+                    <i class="ri-delete-bin-line"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="cart-footer">
+            <div class="select-all-container">
+              <input type="checkbox" id="select-all-footer" />
+              <label for="select-all-footer">Chọn tất cả</label>
             </div>
-            <div class="row-grid">
-                <div class="cart-left">
-                    <h2 class="main-h2">Chi tiết đơn hàng</h2>
-                    <div class="cart-left-detail">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Ảnh</th>
-                                    <th>Sản phẩm</th>
-                                    <th>Thành tiền</th>
-                                    <th>Xóa</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img style="width: 70px"
-                                            src="./../asset/image/product/WEB1/AoThun/2/2791307203580dc3fe8c3338c67dedf8.webp"
-                                            alt="" />
-                                    </td>
-                                    <td>
-                                        <div class="product-detail-right-info">
-                                            <h1>Áo Thun Nam MS001</h1>
-
-                                            <div class="product-price">
-                                                <p>200.000đ <del>300.000đ</del></p>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail-right-quantity-input">
-                                            <i class="ri-subtract-fill"></i>
-                                            <input class="quantity-input" type="number" value="1" />
-                                            <i class="ri-add-line"></i>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p>200.000đ</p>
-                                    </td>
-                                    <td>
-                                        <i class="ri-delete-bin-line"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img style="width: 70px"
-                                            src="./../asset/image/product/WEB1/AoThun/1/1a57f10c3180ae22a0a8d1767ad4f85d.webp"
-                                            alt="" />
-                                    </td>
-                                    <td>
-                                        <div class="product-detail-right-info">
-                                            <h1>Áo Thun Nam MS001</h1>
-
-                                            <div class="product-price">
-                                                <p>200.000đ <del>300.000đ</del></p>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail-right-quantity-input">
-                                            <i class="ri-subtract-fill"></i>
-                                            <input onkeydown="return false" class="quantity-input" type="number"
-                                                value="1" />
-                                            <i class="ri-add-line"></i>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p>200.000đ</p>
-                                    </td>
-                                    <td>
-                                        <i class="ri-delete-bin-line"></i>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody class="cart-left-detail-money">
-                                <td colspan="2">Tổng tiền</td>
-                                <td colspan="2">400.000 đ</td>
-                            </tbody>
-                        </table>
-                        <br />
-                        <button class="main-btn">Cập nhật giỏ hàng</button>
-                        <a href="">Tiếp tục mua hàng >></a>
-                    </div>
-                </div>
+            <div class="total-amount-container">
+              Tổng tiền:
+              <span class="total-amount" data-value="500000">500.000</span>
             </div>
-    </section>
-    <!-- ---------------HOT PRODUCT---------- -->
-    <section class="hot-product">
-        <div class="container">
-            <div class="row-grid">
-                <p class="heading-text">SẢN PHẨM HOT</p>
-                <div class="hot-product-container">
-                    <div class="hot-product-item row-grid">
-                        <a href="">
-                            <div class="hot-product-image">
-                                <img src="./../asset/image/product/WEB1/AoThun/1/1a57f10c3180ae22a0a8d1767ad4f85d.webp"
-                                    alt="" />
-                            </div>
-                            <div class="hot-product-info">
-                                <h3>Áo thun nam</h3>
-                                <span>100% Cotton</span>
-                                <div class="product-price">
-                                    <p>200.000đ <del>300.000đ</del></p>
-                                </div>
-                                <div class="buttom-1">
-                                    <button type="submit">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                        <span>add to cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="hot-product-item row-grid">
-                        <a href="">
-                            <div class="hot-product-image">
-                                <img src="./../asset/image/product/WEB1/AoThun/2/cf636994487d7b3bd008a1fe422f5f70.webp"
-                                    alt="" />
-                            </div>
-                            <div class="hot-product-info">
-                                <h3>Áo thun nam</h3>
-                                <span>100% Cotton</span>
-                                <div class="product-price">
-                                    <p>200.000đ <del>300.000đ</del></p>
-                                </div>
-                                <div class="buttom-1">
-                                    <button type="submit">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                        <span>add to cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="hot-product-item row-grid">
-                        <a href="">
-                            <div class="hot-product-image">
-                                <img src="./../asset/image/product/WEB1/AoThun/3/3df7f31fb3495812fca8bd7bc0883d32.webp"
-                                    alt="" />
-                            </div>
-                            <div class="hot-product-info">
-                                <h3>Áo thun nam</h3>
-                                <span>100% Cotton</span>
-                                <div class="product-price">
-                                    <p>200.000đ <del>300.000đ</del></p>
-                                </div>
-                                <div class="buttom-1">
-                                    <button type="submit">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                        <span>add to cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="hot-product-item row-grid">
-                        <a href="">
-                            <div class="hot-product-image">
-                                <img src="./../asset/image/product/WEB1/AoThun/5/244124735cf9077cebc802d68c7ccc56.webp"
-                                    alt="" />
-                            </div>
-                            <div class="hot-product-info">
-                                <h3>Áo thun nam</h3>
-                                <span>100% Cotton</span>
-                                <div class="product-price">
-                                    <p>200.000đ <del>300.000đ</del></p>
-                                </div>
-                                <div class="buttom-1">
-                                    <button type="submit">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                        <span>add to cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="hot-product-item row-grid">
-                        <a href="">
-                            <div class="hot-product-image">
-                                <img src="./../asset/image/product/WEB1/AoThun/6/567a746530d7fa09c1eb6f027ec2ca65.webp"
-                                    alt="" />
-                            </div>
-                            <div class="hot-product-info">
-                                <h3>Áo thun nam</h3>
-                                <span>100% Cotton</span>
-                                <div class="product-price">
-                                    <p>200.000đ <del>300.000đ</del></p>
-                                </div>
-                                <div class="buttom-1">
-                                    <button type="submit">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                        <span>add to cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <button class="main-btn checkout-btn">Mua hàng</button>
+          </div>
         </div>
+      </div>
     </section>
+
     <!-- ---------------FOOTER---------- -->
-    <footer>
-        <div class="container">
-            <div class="row-grid">
-                <div class="footer-item">
-                    <p>COOLCLUB</p>
-                    <p>Đăng ký thành viên</p>
-                    <p>Ưu đãi & Đặc quyền</p>
-                </div>
-                <div class="footer-item">
-                    <p>CHÍNH SÁCH</p>
-                    <p>Chính sách bảo mật</p>
-                    <p>Chính sách vận chuyển</p>
-                    <p>Chính sách đổi trả</p>
-                </div>
-                <div class="footer-item">
-                    <p>CHĂM SÓC KHÁCH HÀNG</p>
-                    <p>Hotline: 1900 1234</p>
-                    <p>Email: xxx</p>
-                </div>
-                <div class="footer-item">
-                    <p>ĐỊA CHỈ LIÊN HỆ</p>
-                    <p>Chi nhánh HCM: 47 đường 17, Linh Trung, Thủ Đức, TP.HCM</p>
-                    <p>Thời gian làm việc: 8h - 22h</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
+  </body>
+  <script src="./../asset/js/product.js"></script>
+  <script src="./../asset/js/show-product.js"></script>
+  <script src="./../asset/js/script.js"></script>
+  <script src="./../asset/js/validator.js"></script>
+  <script>
+    show_product("hot", "product-hot-js", "./../", 3);
+    showProductDetail();
+    console.log("Đang đăng nhập tài khoản");
+    console.log(JSON.parse(localStorage.getItem("userList")));
+    load();
+    // addToCart();
+  </script>
+  <script>
+    const logoutButton = document.getElementById("logout");
 
+    logoutButton.addEventListener("click", function () {
+      // Xóa thông tin người dùng trong localStorage
+      localStorage.setItem("user", JSON.stringify(null));
+      // // Hiển thị lại form đăng ký
+      // document.querySelector('.show-signup').style.display = '';
+      // // Ẩn thông tin tài khoản
+      location.href = "./../index.html";
+    });
+    //CLick tìm kiếm nâng cao
+
+    function clickSearch() {
+      document
+        .querySelector(".header-search")
+        .addEventListener("click", function () {
+          console.log("click rồi nè");
+          this.style.display = "none"; // Ẩn thẻ bằng cách đặt display thành "none"
+          document.querySelector(".search-css").style.display = "";
+          document.querySelector(".search-delete").style.display = "";
+          // console.log(document.querySelector(".clear-btn"));
+          // document.querySelector(".clear-btn").style.display = "";
+        });
+      document
+        .querySelector(".clear-btn")
+        .addEventListener("click", function () {
+          document.querySelector(".search-css").style.display = "none";
+          document.querySelector(".search-delete").style.display = "none";
+          document.querySelector(".header-search").style.display = "";
+        });
+      // document.querySelector(".sb-input").addEventListener("click", function () {
+      //   console.log(document.querySelector(".sb-input").style);
+      //   // document.querySelector(".sb-input").style;
+      // })
+      document
+        .querySelector(".search-nc")
+        .addEventListener("click", function () {
+          if (
+            document.querySelector(".search-nc").innerHTML == "Tìm kiếm cơ bản"
+          ) {
+            document.querySelector(".category-css").style.display = "none";
+            document.querySelector(".price-css").style.display = "none";
+            document.querySelector(".search-nc").innerHTML =
+              "Tìm kiếm nâng cao";
+          } else {
+            document.querySelector(".category-css").style.display = "";
+            document.querySelector(".price-css").style.display = "";
+            document.querySelector(".search-nc").innerHTML = "Tìm kiếm cơ bản";
+          }
+        });
+    }
+    clickSearch();
+    document.querySelectorAll(".btn-dm").forEach((button) => {
+      button.addEventListener("click", function () {
+        // Xóa active và nền đen cho tất cả các nút
+        document.querySelectorAll(".btn-dm").forEach((btn) => {
+          btn.classList.remove("active");
+          btn.classList.remove("btn-dark"); // Bỏ nền đen
+          btn.classList.add("btn-light"); // Đảm bảo các nút khác có nền sáng
+        });
+        // Thêm active và nền đen cho nút được click
+        this.classList.add("active");
+        this.classList.add("btn-dark"); // Thêm nền đen khi active
+        this.classList.remove("btn-light"); // Bỏ nền sáng khi active
+      });
+    });
+  </script>
+  <script>
+    Validator({
+      form: "#form-1",
+      rules: [
+        Validator.isRequired("#name", "Vui lòng nhập tên đăng nhập"),
+        Validator.isRequired("#email", "Vui lòng nhập email"),
+        Validator.isEmail("#email"),
+        Validator.isRequired("#password", "Vui lòng nhập mật khẩu"),
+        Validator.minLength("#password", 8),
+        Validator.isRequired(
+          "#confirm-password",
+          "Vui lòng xác nhận lại mật khẩu"
+        ),
+        Validator.isConfirmed(
+          "#confirm-password",
+          function () {
+            return document.querySelector("#form-1 #password").value;
+          },
+          "Mật khẩu nhập lại không chính xác"
+        ),
+      ],
+      onSubmit: function (data) {
+        console.log("bấm rồi nè1");
+        let tmp = {
+          data,
+          cart: [],
+        };
+        // let userList = (JSON.parse(localStorage.getItem('userList'))) || [];
+        let userList = [];
+        userList.push(tmp);
+        document.querySelector(".r-js").style.display = "none";
+        console.log("Đăng ký thành công");
+        localStorage.setItem("userList", JSON.stringify(userList));
+        console.log(JSON.parse(localStorage.getItem("userList")));
+        document.querySelector(".s-js").style.display = "flex";
+      },
+    });
+  </script>
+  <script>
+    if (JSON.parse(localStorage.getItem("user"))) {
+      console.log("có");
+      document.querySelector(".show-signup").style.display = "none";
+      document.querySelector(".header-account").style.display = "";
+    } else {
+      console.log("không");
+    }
+    Validator_login({
+      form: "#login",
+      rules: [
+        Validator_login.isRequired("#user", "Vui lòng nhập tên đăng nhập"),
+        Validator_login.isRequired("#pass", "Vui lòng nhập mật khẩu"),
+      ],
+      onSubmit: function (data) {
+        console.log("click đăng nhập rồi");
+        let userList = JSON.parse(localStorage.getItem("userList")) || [];
+
+        console.log("bấm rồi nè");
+        console.log(userList);
+        let check = false;
+        for (let i = 0; i < userList.length; i++) {
+          if (
+            userList[i].data.name === data.user &&
+            userList[i].data.password === data.pass
+          ) {
+            check = true;
+            usercart = userList[i];
+            localStorage.setItem("user", JSON.stringify(userList[i]));
+            // let usercart = JSON.parse(localStorage.getItem('user'));
+            console.log(JSON.parse(localStorage.getItem("user")));
+            console.log("đăng nhập thành công");
+          }
+        }
+        if (check) {
+          // window.location.href = "index.html";
+          document.querySelector(".s-js").style.display = "none";
+          console.log("đăng nhập thành công");
+          document.querySelector(".show-signup").style.display = "none";
+          document.querySelector(".header-account").style.display = "";
+          setcart();
+          // document.querySelector('.login-fail').innerHTML = '';
+        } else {
+          // document.querySelector('.login-fail').innerHTML = 'Sai tên đăng nhập hoặc mật khẩu';
+          console.log("lỗi nèee");
+        }
+        document.querySelector(".form-input").value = "";
+        console.log(JSON.parse(localStorage.getItem("userList")));
+      },
+    });
+  </script>
+  <script>
+    // Lấy các phần tử cần thiết
+    // Lấy các phần tử cần thiết
+    const selectAllCheckbox = document.getElementById("select-all");
+    const productCheckboxes = document.querySelectorAll(".product-checkbox");
+    const totalAmountElement = document.querySelector(".total-amount");
+
+    // Hàm tính tổng tiền
+    function calculateTotal() {
+      let total = 0;
+
+      productCheckboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          const row = checkbox.closest("tr"); // Lấy dòng chứa sản phẩm
+          const price = parseFloat(row.children[4].getAttribute("data-value")); // Giá sản phẩm
+          const quantity = parseInt(
+            row.querySelector(".cart-quantity").value,
+            10
+          ); // Số lượng
+          total += price * quantity;
+        }
+      });
+
+      totalAmountElement.setAttribute("data-value", total); // Cập nhật data-value của tổng tiền
+      totalAmountElement.textContent = total.toLocaleString("vi-VN") + " đ"; // Hiển thị tổng tiền
+    }
+
+    // Hàm cập nhật thành tiền từng sản phẩm
+    function updateRowTotal(row) {
+      const price = parseFloat(row.children[4].getAttribute("data-value")); // Giá sản phẩm
+      const quantity = parseInt(row.querySelector(".cart-quantity").value, 10); // Số lượng
+      const rowTotal = price * quantity;
+      row.children[6].setAttribute("data-value", rowTotal); // Cập nhật data-value thành tiền
+      row.children[6].textContent = rowTotal.toLocaleString("vi-VN") + " đ"; // Hiển thị thành tiền
+    }
+
+    // Sự kiện tick tất cả
+    selectAllCheckbox.addEventListener("change", (e) => {
+      const isChecked = e.target.checked;
+      productCheckboxes.forEach((checkbox) => {
+        checkbox.checked = isChecked;
+      });
+      calculateTotal();
+    });
+
+    // Sự kiện tick từng sản phẩm
+    productCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", calculateTotal);
+    });
+
+    // Xử lý tăng/giảm số lượng
+    document.querySelectorAll(".quantity-controls").forEach((control) => {
+      const decrementBtn = control.querySelector(".decrement");
+      const incrementBtn = control.querySelector(".increment");
+      const quantityInput = control.querySelector(".cart-quantity");
+      const row = control.closest("tr");
+
+      decrementBtn.addEventListener("click", () => {
+        let quantity = parseInt(quantityInput.value, 10);
+        if (quantity > 1) {
+          quantityInput.value = --quantity;
+          updateRowTotal(row); // Cập nhật thành tiền
+          calculateTotal(); // Cập nhật tổng tiền
+        }
+      });
+
+      incrementBtn.addEventListener("click", () => {
+        let quantity = parseInt(quantityInput.value, 10);
+        quantityInput.value = ++quantity;
+        updateRowTotal(row); // Cập nhật thành tiền
+        calculateTotal(); // Cập nhật tổng tiền
+      });
+
+      quantityInput.addEventListener("input", () => {
+        let quantity = parseInt(quantityInput.value, 10) || 1;
+        if (quantity < 1) quantity = 1;
+        quantityInput.value = quantity;
+        updateRowTotal(row); // Cập nhật thành tiền
+        calculateTotal(); // Cập nhật tổng tiền
+      });
+    });
+
+    // Khi trang được load
+    document.addEventListener("DOMContentLoaded", () => {
+      // Bỏ chọn tất cả checkbox sản phẩm
+      productCheckboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+      selectAllCheckbox.checked = false;
+
+      // Đặt tổng tiền mặc định là 0
+      calculateTotal();
+    });
+  </script>
+
+  <script>
+    // Xóa sản phẩm khỏi giỏ hàng
+    // document.querySelectorAll(".delete-btn").forEach((button) => {
+    //   button.addEventListener("click", function () {
+    //     const row = this.closest("tr");
+    //     row.remove();
+    //     calculateTotal();
+    //   });
+    // });
+    // Hiện thông báo xác nhận xóa sản phẩm
+    document.querySelectorAll(".delete-btn").forEach((button) => {
+      button.addEventListener("click", function () {
+        const row = this.closest("tr");
+        const productName = row.children[2].textContent;
+        const confirmDelete = confirm(
+          `Bạn có chắc chắn muốn xóa sản phẩm "${productName}" khỏi giỏ hàng không?`
+        );
+        if (confirmDelete) {
+          row.remove();
+          calculateTotal();
+        }
+      });
+    });
+
+    // Chọn tất cả sản phẩm
+    document
+      .getElementById("select-all-footer")
+      .addEventListener("change", function () {
+        const isChecked = this.checked;
+        productCheckboxes.forEach((checkbox) => {
+          checkbox.checked = isChecked;
+        });
+        calculateTotal();
+      });
+  </script>
+
+  <!-- Check out -->
+  <script>
+    document
+      .querySelector(".checkout-btn")
+      .addEventListener("click", function () {
+        window.location.href = "./oder.html";
+      });
+  </script>
 </html>

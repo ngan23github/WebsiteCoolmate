@@ -1,88 +1,187 @@
-function show_product(type, name, link, sl, page) {
-    let output = document.querySelector(`.${name}`);
+let currentPage = 1; // Trang hiện tại
+const productsPerPage = 9; // Số sản phẩm mỗi trang
 
-    let valueoutput = '';;
+// Hàm để render sản phẩm
+function renderProducts(activeType = 'all') {
+    const pathname = window.location.pathname;
+    const isUserPath = pathname.includes('user'); // Kiểm tra đường dẫn
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = ''; // Xóa nội dung cũ
 
-    console.log(`type: ${type} name ${name}  link ${link} sl ${sl}  page ${page}`);
+    // Lọc sản phẩm theo loại
+    const filteredProducts = activeType === 'all'
+        ? products
+        : products.filter(product => product.type.includes(activeType));
 
-    if (sl > 12 || page >= 1) {
-        //Chỉ số bắt đầu, số lượng trang
-        valueoutput = ShowProduct(12 * (page - 1), 12 * page - 1, type, link);
-    }
-    if (page == null) {
+    // Tính toán giới hạn sản phẩm hiển thị
+    const startIndex = (currentPage - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
 
-        valueoutput = ShowProduct(0, 11, type, link);
-    }
-    console.log("test");
-    console.log(valueoutput);
+    // Hiển thị sản phẩm
+    paginatedProducts.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('col-xl-4', 'col-lg-4', 'col-md-6', 'col-sm-6');
+        const imagePath = isUserPath
+            ? `./../${product.img[0]}`
+            : product.img[0];
 
-    output.innerHTML = valueoutput;
-    // <i class="fa-solid fa-cart-plus"></i>
-    // <span>add to cart</span>
-
-}
-
-function ShowProduct(a, b, type, link) {
-    let valueoutput = ` <div class="hot-product-container">`;
-
-    let i = 0;
-    let c = 0;
-    console.log(`a: ${a}  b: ${b} type: ${type}  link ${link}`);
-    product.forEach((value) => {
-        if (c <= b) {
-            let d = 1;
-            value.type.forEach((value1) => {
-                if ((value1 == type || type == "all") && d) {
-
-                    i++;
-                    if (i >= a) {
-                        c++;
-                        d = 0;
-                        if (1 == c % 4) {
-                            valueoutput += ` </div>
-                            <div class="hot-product-container">`;
-                        }
-                        valueoutput += `  <div class="hot-product-item row-grid product-detail-js" id="${value.id}">
-                     <div>
-                        <div class="hot-product-image" >
-                            <img src="${link + value.img[0]}" alt="" />
-                        </div >
-                        <div class="hot-product-info">
-                            <h3>${value.title}</h3>
-                            <span>100% Cotton</span>
-                            <div class="product-price">
-                                <p>200.000đ <del>${value.price}đ</del></p>
-                            </div>
-                            <div class="button-1" id="${value.id}">
-                               <div id="S" class="size-jss">
-                               <button class="button-1-mini size-js active" id="S">S</button>
-                               <button class="button-1-mini size-js" id="M">M</button>
-                               <button class="button-1-mini size-js" id="L">L</button>
-                               <button class="button-1-mini size-js" id="XL">XL</button>
-                               </div>
-                               
-                                  Số lượng:
-                                <div class="product-detail-right-quantity-input" id="${value.id}">
-                                 
-                                <i class="ri-subtract-fill"></i>
-                               
-                                <input class="quantity-input" type="number"  value="1"/>
-                                <i class="ri-add-line"></i>
-                               
-                                </div>
-                                    <div class="product-detail-right-addcart">
-              <button class="main-btn add-cart-js">Thêm vào giỏ hàng</button>
-            </div>
-                            </div>
+        productElement.innerHTML = `
+            <div class="card img-1 product-item" data-id="${product.id}">
+                <img src="${imagePath}" style="cursor: pointer;" class="card-img-top" alt="${product.title}">
+                <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+                    <div class="mb-3">
+                        <strong style="color: white;">Size:</strong>
+                        <div class="btn-group" role="group" aria-label="Size">
+                            ${Object.keys(product.size).map(size => `
+                                <button 
+                                    type="button" 
+                                    class="btn btn-outline-light btn-sm size-btn" 
+                                    data-size="${size}">
+                                    ${size}
+                                </button>
+                            `).join('')}
                         </div>
-            </div >
-          </div > `
-                    }
-                }
-            });
-        }
+                    </div>
+                    <div class="d-flex align-items-center mb-3" style="color: white;">
+                        <strong>Số lượng:</strong>
+                  <div class="input-group" style="width: 100px; margin-left: 10px">
+    <button class="btn btn-outline-light decrease-btn" style="height: 35px; line-height: 35px; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+        -
+    </button>
+    <input 
+        type="number" 
+        class="form-control form-control-sm quantity-input" 
+        value="1" 
+        min="1" 
+        max="10" 
+        style="height: 35px; text-align: center; padding: 0; border: 1px solid #ced4da; border-left: none; border-right: none;"
+    />
+    <button class="btn btn-outline-light increase-btn" style="height: 35px; line-height: 35px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+        +
+    </button>
+</div>
+
+                    </div>
+                    <button class="btn btn-warning w-100 py-2 add-card-js">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">${product.title}</h5>
+                    <p class="card-text">${product.price.toLocaleString()} VND</p>
+                </div>
+            </div>
+        `;
+
+        productList.appendChild(productElement);
     });
-    valueoutput += `</div > `;
-    console.log(`hàm ${valueoutput}`);
-    return valueoutput;
+
+    attachProductEvents(); // Gắn sự kiện sau khi render
+    renderPagination(filteredProducts.length, activeType); // Render phân trang
 }
+
+// Hàm gắn sự kiện
+function attachProductEvents() {
+    document.querySelectorAll(".card-img-top").forEach((imgElement) => {
+        imgElement.addEventListener('click', () => {
+            const pathname = window.location.pathname;
+            const productId = imgElement.closest(".product-item").dataset.id;
+
+            if (pathname.includes('user')) {
+                window.location.href = `ProductDetail.html?id=${productId}`;
+            } else {
+                window.location.href = `user/ProductDetail.html?id=${productId}`;
+            }
+        });
+    });
+
+    // Xử lý tăng/giảm số lượng
+    document.querySelectorAll(".quantity-input").forEach(input => {
+        const parent = input.closest('.input-group');
+        const decreaseBtn = parent.querySelector('.decrease-btn');
+        const increaseBtn = parent.querySelector('.increase-btn');
+
+        decreaseBtn.addEventListener("click", () => {
+            let currentValue = parseInt(input.value, 10) || 1;
+            if (currentValue > 1) {
+                input.value = currentValue - 1;
+            }
+        });
+
+        increaseBtn.addEventListener("click", () => {
+            let currentValue = parseInt(input.value, 10) || 1;
+            if (currentValue < 10) {
+                input.value = currentValue + 1;
+            }
+        });
+
+        input.addEventListener("input", () => {
+            let currentValue = parseInt(input.value, 10) || 1;
+            if (currentValue < 1) input.value = 1;
+            if (currentValue > 10) input.value = 10;
+        });
+    });
+
+    // Xử lý chọn size
+    document.querySelectorAll(".size-btn").forEach(sizeButton => {
+        sizeButton.addEventListener("click", () => {
+            const allSizes = sizeButton.parentElement.querySelectorAll(".size-btn");
+            allSizes.forEach(btn => btn.classList.remove("active"));
+            sizeButton.classList.add("active");
+        });
+    });
+}
+
+// Hàm render phân trang
+function renderPagination(totalProducts, activeType) {
+    const paginationContainer = document.querySelector(".pagination");
+    paginationContainer.innerHTML = ""; // Xóa các trang cũ
+
+    const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+    // Nút "Trang trước"
+    if (currentPage > 1) {
+        const prevButton = document.createElement("li");
+        prevButton.classList.add("page-item");
+        prevButton.innerHTML = `<a class="page-link" href="#">Trang trước</a>`;
+        prevButton.addEventListener("click", () => {
+            currentPage--;
+            renderProducts(activeType);
+        });
+        paginationContainer.appendChild(prevButton);
+    }
+
+    // Các nút số trang
+    for (let i = 1; i <= totalPages; i++) {
+        const pageItem = document.createElement("li");
+        pageItem.classList.add("page-item");
+        if (i === currentPage) {
+            pageItem.classList.add("active");
+        }
+        pageItem.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+        pageItem.addEventListener("click", () => {
+
+            currentPage = i;
+            renderProducts(activeType);
+        });
+        paginationContainer.appendChild(pageItem);
+    }
+
+    // Nút "Trang sau"
+    if (currentPage < totalPages) {
+        const nextButton = document.createElement("li");
+        nextButton.classList.add("page-item");
+        nextButton.innerHTML = `<a class="page-link" href="#">Trang sau</a>`;
+        nextButton.addEventListener("click", () => {
+            console.log("click rồi");
+            currentPage++;
+            renderProducts(activeType);
+            console.log(`type: ${activeType}`);
+        });
+        paginationContainer.appendChild(nextButton);
+    }
+}
+
+// Gọi hàm render sản phẩm khi trang web tải
+document.addEventListener("DOMContentLoaded", () => {
+    renderProducts();
+});

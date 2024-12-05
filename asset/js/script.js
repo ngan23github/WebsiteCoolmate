@@ -242,7 +242,7 @@ function showProductDetail() {
   id = (id == null) ? 1 : id;
   console.log(id);
   let pd;
-  product.forEach((value) => {
+  products.forEach((value) => {
     if (id == value.id) {
       pd = value;
     }
@@ -340,19 +340,32 @@ function dieu_huong(a, b) {
   //id sanpham
   if (a == "ctsp") {
     let url = new URL(window.location.href);
-    console.log("1");
-    if (url.pathname == '/WEB/Webct/index.html') {
-      location.href = `./user/ProductDetail.html?id=${b}`;
-      load();
-    }
-    else {
-      console.log("sai");
-      location.href = `./ProductDetail.html?id=${b}`;
-      load();
-    }
+    console.log(url);
+
+    //     if (path.includes("index.html")) {
+    //   console.log("Tìm thấy index.html");
+    // } else {
+    //   console.log("Không tìm thấy index.html");
+    // }
+    // console.log("1");
+    // if (url.pathname == 'index.html') {
+    //   console.log("test link web");
+
+
+    //   location.href = `./user/ProductDetail.html?id=${b}`;
+    //   load();
+    // }
+    // else {
+    //   console.log("sai");
+    //   location.href = `./ProductDetail.html?id=${b}`;
+    //   load();
+    // }
     // show_product('hot', 'product-hot-js', '../', 3);
   }
   else if (a == "dk") {
+
+  }
+  else if (a == "cart") {
 
   }
   else {
@@ -378,20 +391,15 @@ function load() {
 
   console.log("đg load");
   clickproduct();
-  chonsize();
-  Themslsp();
-  GiamSLSP();
-  setcart();
-  clickSearch();
-  addcart();
-  PhanTrang();
+  // setcart();
+  // clickSearch();
   clickaccount();
   // let url = new URL(window.location.href);
   // console.log(`url hiện tại: ${url}`)
 
   document.querySelector(".sign-in-js").addEventListener(("click"), function () {
+    console.log("click đăng nhập nè");
     let tmp = document.querySelector('.s-js').style.display;
-    console.log(tmp);
     console.log(document.querySelector('.s-js'));
     if (tmp === "none") {
       document.querySelector('.s-js').style.display = "flex";
@@ -399,12 +407,17 @@ function load() {
   });
   document.querySelector(".register-js").addEventListener(("click"), function () {
     let tmp = document.querySelector('.r-js').style.display;
-    console.log(tmp);
-    console.log(document.querySelector('.r-js'));
     if (tmp === "none") {
-      console.log("hi");
       document.querySelector('.r-js').style.display = "flex";
     }
+  });
+  document.querySelector(".back-to-login").addEventListener(("click"), () => {
+    document.querySelector('.r-js').style.display = 'none';
+    document.querySelector('.s-js').style.display = 'flex';
+  });
+  document.querySelector(".back-to-register").addEventListener(("click"), () => {
+    document.querySelector('.s-js').style.display = 'none';
+    document.querySelector('.r-js').style.display = 'flex';
   });
   // document.querySelector(".s-js").addEventListener("click", function () {
   //   let tmp = document.querySelector('.s-js').style.display;
@@ -491,28 +504,28 @@ function load() {
 
 }
 //Tìm kiếm sản phẩm
-function clickSearch() {
-  document.querySelector(".header-search").addEventListener("click", function () {
+// function clickSearch() {
+//   document.querySelector(".header-search").addEventListener("click", function () {
 
-    this.style.display = "none"; // Ẩn thẻ bằng cách đặt display thành "none"
-    document.querySelector(".search-css").style.display = "";
-    document.querySelector(".search-delete").style.display = "";
-    // console.log(document.querySelector(".clear-btn"));
-    // document.querySelector(".clear-btn").style.display = "";
+//     this.style.display = "none"; // Ẩn thẻ bằng cách đặt display thành "none"
+//     document.querySelector(".search-css").style.display = "";
+//     document.querySelector(".search-delete").style.display = "";
+//     // console.log(document.querySelector(".clear-btn"));
+//     // document.querySelector(".clear-btn").style.display = "";
 
 
-  });
-  document.querySelector(".clear-btn").addEventListener("click", function () {
-    document.querySelector(".search-css").style.display = "none";
-    document.querySelector(".search-delete").style.display = "none";
-    document.querySelector(".header-search").style.display = "";
-  })
-  // document.querySelector(".sb-input").addEventListener("click", function () {
-  //   console.log(document.querySelector(".sb-input").style);
-  //   // document.querySelector(".sb-input").style;
-  // })
+//   });
+//   document.querySelector(".clear-btn").addEventListener("click", function () {
+//     document.querySelector(".search-css").style.display = "none";
+//     document.querySelector(".search-delete").style.display = "none";
+//     document.querySelector(".header-search").style.display = "";
+//   })
+//   // document.querySelector(".sb-input").addEventListener("click", function () {
+//   //   console.log(document.querySelector(".sb-input").style);
+//   //   // document.querySelector(".sb-input").style;
+//   // })
 
-}
+// }
 
 
 //Phân trang:))))
@@ -580,7 +593,6 @@ function clickaccount() {
     const accountIcon = document.getElementById("accounts-icon");
     const accountMenu = document.getElementById("account-menu");
 
-    // Toggle menu visibility when the icon is clicked
     accountIcon.addEventListener("click", function () {
       accountMenu.style.display = accountMenu.style.display === "block" ? "none" : "block";
     });
@@ -595,14 +607,32 @@ function clickaccount() {
 
   document.getElementById("logout").addEventListener("click", function (e) {
     // e.preventDefault();
-    // Xóa thông tin người dùng (nếu sử dụng localStorage/sessionStorage)
     localStorage.removeItem("user");
-    // Chuyển hướng đến trang đăng nhập
-    document.querySelector(".header-account").style.display = "none";
+    document.querySelector(".ac").style.display = "none";
     document.querySelector(".show-signup").style.display = "";
-    setcart();
-
   });
 
 
 }
+
+//tìm kiếm sp
+function Search() {
+  // document.querySelector(".sb-button").addEventListener(("click"), function () {
+  //   console.log("click tìm kiếm nè");
+  //   pathname = window.location.pathname;
+  //   const currentUrl = window.location.href;
+  //   console.log(currentUrl);
+  //   if (pathname.includes('user')) {
+  //     window.location.assign('./Search.html');
+  //   }
+  //   else if (currentUrl.includes('Search.html')) {
+  //     console.log("có nè");
+  //     window.location.reload();
+  //   }
+  //   else {
+  //     window.location.assign('./user/Search.html');
+  //   }
+  // })
+}
+
+

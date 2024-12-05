@@ -1,0 +1,82 @@
+<script>// Chọn tất cả sản phẩm
+    const selectAllCheckbox = document.getElementById('select-all');
+    const productCheckboxes = document.querySelectorAll('.product-checkbox');
+    const totalAmountElement = document.querySelector('.total-amount');
+
+    // Hàm tính tổng tiền
+    function calculateTotal() {
+        console.log("Hàm tính tổng tiền");
+        let total = 0;
+        productCheckboxes.forEach((checkbox, index) => {
+            if (checkbox.checked) {
+                const row = checkbox.closest('tr');
+                console.log(row);
+                const price = row.children[4].value;
+                console.log(price);
+                // total += price;
+            }
+        });
+        console.log(total);
+        totalAmountElement.textContent = total.toLocaleString('vi-VN') + 'đ';
+    }
+
+    // Sự kiện tick tất cả
+    selectAllCheckbox.addEventListener('change', (e) => {
+        const isChecked = e.target.checked;
+        productCheckboxes.forEach((checkbox) => {
+            checkbox.checked = isChecked;
+        });
+        calculateTotal();
+    });
+
+    // Sự kiện tick sản phẩm
+    productCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', calculateTotal);
+    });
+    // Thêm sự kiện khi người dùng chọn size (nếu cần xử lý logic)
+    const sizeSelectors = document.querySelectorAll('.size-select');
+
+    sizeSelectors.forEach((selector) => {
+        selector.addEventListener('change', (event) => {
+            const selectedSize = event.target.value;
+            console.log(`Size đã chọn: ${selectedSize}`);
+            // Có thể thêm xử lý logic ở đây (nếu cần)
+        });
+    });
+
+    document.querySelectorAll('.quantity-controls').forEach((control) => {
+        const decrementBtn = control.querySelectorSll('.decrement');
+        const incrementBtn = control.querySelectorAll('.increment');
+        const quantityInput = control.querySelector('.cart-quantity');
+
+        // Giảm số lượng
+        decrementBtn.forEach((value) => {
+            value.addEventListener('click', () => {
+                let quantity = parseInt(quantityInput.value);
+                if (quantity > 1) {
+                    quantity--;
+                    quantityInput.value = quantity;
+                }
+            });
+        })
+
+        // Tăng số lượng
+
+        incrementBtn.forEach((value) => {
+            value.addEventListener('click', () => {
+                let quantity = parseInt(quantityInput.value);
+                quantity++;
+                quantityInput.value = quantity;
+            });
+        })
+
+        // Ngăn nhập số nhỏ hơn 1
+        quantityInput.addEventListener('input', () => {
+            let quantity = parseInt(quantityInput.value);
+            if (isNaN(quantity) || quantity < 1) {
+                quantityInput.value = 1;
+            }
+        });
+    });
+
+</script>
