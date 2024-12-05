@@ -10,8 +10,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="./../asset/icon/cart-shopping-solid.svg">
-    <link rel="stylesheet" href="./../asset/css/style1.css">
+    <link rel="stylesheet" href="./../asset/css/aboutMe.css">
     <style>
+        header {
+            margin-bottom: 0;
+        }
+
+        section {
+            margin-top: 0;
+            /* Đảm bảo không có khoảng trống phía trên */
+        }
+
+        .container-fluid.bg-dark.fixed-top {
+            padding-bottom: 0;
+            /* Xóa khoảng padding nếu có */
+        }
+
         .nav-link {
             padding: 5px 10px;
         }
@@ -53,6 +67,16 @@
 
         .header-cart .badge {
             font-size: 1rem;
+        }
+
+        .container-fluid.bg-dark.fixed-top {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        section {
+            margin-top: 0;
+            padding-top: 0;
         }
     </style>
     <style>
@@ -169,7 +193,7 @@
 <body>
     <header>
         <div class="container-fluid bg-dark fixed-top">
-            <div class="row align-items-center p-2">
+            <div class="row align-items-center p-3 mg-js">
                 <!-- Logo -->
                 <div class="col-auto">
                     <a href="./../index.html">
@@ -208,6 +232,11 @@
                         <button class="btn btn-sm btn-outline-light ms-2 "><i class="ri-search-2-line"></i></button>
 
                     </div>
+                    <div style="display: none;" class="search-delete">
+                        <button class="clear-btn" id="clear-btn">
+                            <i class="ri-close-line"></i>
+                        </button>
+                    </div>
 
                 </div>
 
@@ -225,10 +254,10 @@
                     <div class="header-account ac">
                         <i class="fa fa-user ac-img" style="color: white;"></i>
                         <ul class="account-menu">
-                            <li><a href="./../user/profile.html">Hồ sơ</a></li>
-                            <li><a href="./../user/orders.html">Đơn hàng</a></li>
+                            <li><a href="./profile.html">Hồ sơ</a></li>
+                            <li><a href="./orders.html">Đơn hàng</a></li>
                             <li>
-                                <div style="color: black;" id="logout" class="logout">Đăng xuất</div>
+                                <div style="color: black;" id="logout">Đăng xuất</div>
                             </li>
                         </ul>
                     </div>
@@ -250,7 +279,7 @@
                         <a class="nav-link text-white" href="./../index.html">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="./../product.html">Sản phẩm</a>
+                        <a class="nav-link text-white" href="./product.html">Sản phẩm</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="./aboutMe.html">Giới thiệu</a>
@@ -263,6 +292,8 @@
 
 
     </header>
+
+
     <!-- CSS -->
     <div class="container mt-5 htsearch-js" style="display: none;">
         <!-- Nút tìm kiếm cơ bản và tìm kiếm nâng cao -->
@@ -315,7 +346,7 @@
 
                     <!-- Nút tắt -->
                     <div class="mt-3">
-                        <button class="btn btn-outline-danger clear-btn-js" id="clear-btn">
+                        <button class="btn btn-outline-danger  clear-btn-js" id="clear-btn">
                             <i class="ri-close-line"></i> Tắt
                         </button>
                     </div>
@@ -324,32 +355,66 @@
         </div>
     </div>
 
-
-    <!-- CSS -->
-    <style>
-
-    </style>
-
-    <section style="margin-top: 120px;">
-        <div class="container mt-5">
-            <!-- Row chứa các nút -->
-            <div class="row g-3 gap-3">
-                <div class="col">
-                    <button class="btn btn-dark active border btn-dm w-100" id="btn-all" data-type="all">Tất cả</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-light border w-100 btn-dm" id="btn-tshirt" data-type="aothun">Áo
-                        thun</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-light border w-100 btn-dm" id="btn-polo" data-type="polo">Áo polo</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-light border w-100 btn-dm" id="btn-shirt" data-type="shirt">Áo sơ mi</button>
+    <!-- About me -->
+    <div class="story-container">
+        <div class="extra-class">
+            <div class="story-header-container">
+                <div class="story-header">
+                    <h1>CÂU CHUYỆN VỀ COOLMATE</h1>
+                    <p>Đây là chuyên mục giúp các bạn biết được Coolmate đã hình thành ra sao và chúng tôi muốn xây dựng một công ty như thế nào!</p>
+                    <hr>
                 </div>
             </div>
         </div>
-    </section>
+        
+        <div class="story-body">
+            <div class="f-story-body">
+                <div class="inside">
+                    <div class="content">
+                        <div class="box-1">
+                            <h1>COOLMATE SINH RA ĐỂ LÀM GÌ?</h1>
+                            <img src="./../asset/image/mceclip0_56.png" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="box-2">
+                            <p>Phải chia sẻ thật là rất nhiều người đặt câu hỏi này cho đội ngũ Coolmate, nhưng gần đây, khi Coolmate bước sang 4 tuổi thì chúng tôi mới có được câu trả lời một cách rõ ràng và tự tin cho câu hỏi này. <br>
+                            “Coolmate sinh ra với mong muốn trở thành điển hình về mô hình DOANH NGHIỆP TRÁCH NHIỆM bằng cách vừa làm kinh doanh bài bản, có lợi nhuận và đồng thời mang lại những giá trị thiết thực và lâu dài cho khách hàng, cho nhân viên, cho đối tác, cho cộng đồng, xã hội và cho cổ đông" <br>
+                            Coolmate thành lập vào tháng 3/2019, Nhu (CEO), Hiệp (CTO) và Lan (CMO) khởi đầu với một nhà kho 20m2, và một Website bán hàng sơ khai, với các sản phẩm rất cơ bản dành cho nam giới như áo thun, bít tất và đồ lót. Sau 3 năm, thì ngày hôm nay Coolmate đã có sự trưởng thành đáng kể. <br>
+                            Coolmate vẫn bán áo thun, đồ lót và bít tất, và cũng có thêm khá nhiều các sản phẩm khác trong tủ đồ nam giới như các đồ mặc đi chơi, mặc đi làm, hay chơi thể thao. Chúng tôi cũng bán cả mũ, cả khẩu trang, khăn mặt và 1 số áo in để dành tiền quyên góp cho một số quỹ từ thiện (danh mục Care & Share). Coolmate còn có thêm dịch vụ làm các sản phẩm in ấn theo yêu cầu (dịch vụ CoolxPrint), và là đơn vị tiên phong với mô hình giao đồ lót định kỳ đầu tiên tại Việt Nam (dịch vụ CoolSub). <br>
+                            Và chắc chắn là chúng tôi sẽ không dừng lại ở những thứ đó. Coolmate sẽ mở rộng hơn các sản phẩm, dịch vụ xoay quanh nhu cầu của nam giới. Nên một ngày đẹp trời, nếu như mà bạn tìm thấy một đôi giày, bộ dao cạo râu, hay một lọ lăn khử mùi hay thậm chí là những chiếc bao cao su chất lượng ở Website thì cũng đừng ngạc nhiên nhé. <br>
+                            Sau 3 năm chúng tôi cũng có gần 2000m2 văn phòng và kho vận hành ở tại Hà Nội và Hồ Chí Minh. Gia đình Coolmate cũng lên tới gần 100 thành viên. Số lượng đơn hàng mà Coolmate đã xử lý tới thời điểm hiện tại đã lên tới con số gần 1 triệu. <br>
+                            Coolmate cũng có sự tăng trưởng nhanh về doanh số và cũng có một chút lợi nhuận, và có nhiều hơn các quỹ đầu tư đã rót vốn vào Coolmate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="s-story-body">
+                <div class="dark-frame">
+                    <p>“ Coolmate sẽ trở thành điển hình về mô hình DOANH NGHIỆP TRÁCH NHIỆM bằng cách kinh doanh tử tế, có lợi nhuận và mang lại những giá trị thiết thực và lâu dài cho khách hàng, cho nhân viên, cho đối tác, cho cộng đồng, cho môi trường và cho cổ đông “</p>
+                    <p>CEO & Founder Coolmate</p>
+                </div>
+            </div>
+            <div class="t-story-body">
+                <div class="inside">
+                    <div class="content">
+                        <div class="box">
+                            <h2>Câu chuyện dịch vụ khách hàng của Coolmate</h2>
+                            <p>Theo một khảo sát gần đây nhất của Coolmate tự thực hiện thì có tới 51% khách hàng quyết định mua sắm ở Coolmate vì ấn tượng với dịch vụ khách hàng. 94% khách hàng sẵn sàng giới thiệu Coolmate với những người khác. <br>
+                            Ở Coolmate, chúng tôi tin rằng việc bán một gói hàng đó là bán cả một trải nghiệm mua sắm. Coolmate có kỳ vọng trở thành một thương hiệu điển hình về việc hướng tới khách hàng một cách sâu sắc tại Việt Nam. Với mong muốn góp một phần nhỏ thay đổi nhận thức của các doanh nghiệp trong việc mang tới những trải nghiêm tốt hơn cho khách hàng, đặc biệt trong lĩnh vực Thương Mại Điện Tử. <br>
+                            Coolmate là thương hiệu đầu tiên và hiện tại vẫn là duy nhất có chính sách đổi trả MIỄN PHÍ và lên tới 60 ngày với bất cứ lý do gì. Chúng tôi đã xây dựng được việc đổi hàng và lấy hàng trả về tận nhà khách hàng, thậm chí chúng tôi thường xuyên gửi sản phẩm mới cho khách hàng trước khi cần thu hồi sản phẩm cũ về. Và điều vui mừng đó là gần đây đã có nhiều hơn các đơn vị vận chuyển chào dịch vụ này và phổ biến hơn ở các bạn bán hàng Online. <br>
+                            Việc đóng gói một hộp đồ với “Double Box” cũng được Coolmate đi tiên phong từ cách đây 2 năm, và trở thành phổ biến nhiều hơn ở các thương hiệu khác. <br>
+                            Nếu bạn thử hỏi CSKH Coolmate một tiệm Pizza ngon quanh khu vực của bạn thì chắc các bạn ấy cũng sẽ cố gắng tìm và gửi cho bạn một địa chỉ phù hợp đó!</p>
+                        </div>
+                    </div>
+                    <div class="content img">
+                        <img src="./../asset/image/1-8_14.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hiện các  thông báo -->
 
     <div class="body-signup r-js" style="display: none;">
@@ -440,7 +505,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal for login warning -->
+
     <!-- Modal -->
     <div class="modal" id="myModal">
         <div class="modal-content">
@@ -454,24 +519,6 @@
         </div>
     </div>
 
-    <div id="notification" class="add-cart-tb"
-        style="display: none; position: fixed; bottom: 20px; right: 20px; background: green; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000;">
-        Thêm sản phẩm vào giỏ hàng thành công!
-    </div>
-
-
-    <!-- Hiện sản phẩm -->
-    <div class="container mt-5">
-        <div class="row" id="product-list">
-            <!-- Các sản phẩm sẽ được render tại đây -->
-        </div>
-
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                <!-- Phân trang sẽ được render tại đây -->
-            </ul>
-        </nav>
-    </div>
     <footer class="bg-dark text-white pt-5 pb-4">
         <div class="container text-center text-md-left">
             <div class="row text-center text-md-left">
@@ -515,25 +562,34 @@
 
     </footer>
 
+    <!-- Bootstrap Icons CDN (lấy icon từ Bootstrap) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-    <script src="./../vendor/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./../asset/js/dssp.js"></script>
-    <script src="./../asset/js/show-product.js"></script>
-    <script src="./../asset/js/script.js"></script>
-    <script src="./../asset/js/script1.js"></script>
-    <script src="./../asset/js/validator.js"></script>
-    <script>  renderProducts();
+    <script src="./vendor/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./asset/js/dssp.js"></script>
+    <script src="./asset/js/show-product.js"></script>
+    <script src="./asset/js/script.js"></script>
+    <script src="./asset/js/script1.js"></script>
+    <script src="./asset/js/validator.js"></script>
+    <script> 
+        user = JSON.parse(localStorage.getItem('user'));
+        if (user != null) {
+            document.querySelector('.show-signup').style.display = 'none';
+            document.querySelector('.ac').style.display = '';
+            setcart();
+        } else {
+            document.querySelector('.ac').style.display = 'none';
+        }
+        renderProducts();
         load();
         Search();
-        clickSearch();
         clickaddpd();
     </script>
 
     <script>
         //CLick tìm kiếm nâng cao
-
-
-
+        // clickSearch();
+        margin_js();
         document.querySelectorAll('.btn-dm').forEach(button => {
             button.addEventListener('click', function () {
                 // Xóa active và nền đen cho tất cả các nút
@@ -557,29 +613,14 @@
     </script>
     <script>
         clickcard();
-
-        let user = JSON.parse(localStorage.getItem('user'));
-        if (user != null) {
-            console.log("null nè");
-            document.querySelector('.show-signup').style.display = 'none';
-            document.querySelector('.ac').style.display = '';
-            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 2);
-        } else {
-            console.log("khong null");
-            document.querySelector('.ac').style.display = 'none';
-            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 0);
-        }
-        const logoutButton = document.querySelector(".logout");
+        clickSearch();
+        const logoutButton = document.getElementById("logout");
+        console.log(logoutButton);
         logoutButton.addEventListener('click', function () {
-            console.log("đăng xuất");
             localStorage.setItem('user', JSON.stringify(null));
-
             document.querySelector('.ac').style.display = 'none';
             document.querySelector('.show-signup').style.display = "";
-            console.log(document.querySelector('.header-account').style);
-            document.querySelector(".ri-shopping-cart-line").setAttribute('number', 0);
         });
-
 
         Validator({
             form: '#form-1',
@@ -595,7 +636,6 @@
                 }, 'Mật khẩu nhập lại không chính xác')
             ],
             onSubmit: function (data) {
-                console.log("bấm rồi nè1");
                 let tmp = {
                     data,
                     cart: []
@@ -608,7 +648,6 @@
                 localStorage.setItem('userList', JSON.stringify(userList));
                 console.log(JSON.parse(localStorage.getItefm('userList')));
                 document.querySelector('.s-js').style.display = 'flex';
-
             }
         });
     </script>
@@ -634,7 +673,6 @@
                         // let usercart = JSON.parse(localStorage.getItem('user'));
                         console.log(JSON.parse(localStorage.getItem('user')));
                         console.log("đăng nhập thành công");
-                        document.querySelector(".ri-shopping-cart-line").setAttribute('number', 2);
 
                     }
                 }

@@ -201,7 +201,7 @@
                             <a class="nav-link text-white" href="./user/product.html">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Giới thiệu</a>
+                            <a class="nav-link text-white" href="./user/aboutMe.html">Giới thiệu</a>
                         </li>
                     </ul>
                 </div>
@@ -229,7 +229,7 @@
 
                 <div class="col-auto d-flex align-items-center gap-3">
                     <div class="header-account d-none d-md-block">
-                        <div class="show-signup" style="">
+                        <div class="show-signup">
                             <div class="text-white">
                                 <div class="sign-in-js" style="display: inline-block;">Đăng Nhập</div>/<div
                                     class="register-js" style="display: inline-block;">Đăng Ký</div>
@@ -267,7 +267,7 @@
                         <a class="nav-link text-white" href="./user/product.html">Sản phẩm</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Giới thiệu</a>
+                        <a class="nav-link text-white" href="./user/aboutMe.html">Giới thiệu</a>
                     </li>
                 </ul>
             </div>
@@ -512,10 +512,6 @@
         </div>
     </div>
 
-
-
-
-
     <!-- Hiện sản phẩm -->
     <div class="container mt-5">
         <div class="row" id="product-list">
@@ -581,9 +577,8 @@
     <script src="./asset/js/script.js"></script>
     <script src="./asset/js/script1.js"></script>
     <script src="./asset/js/validator.js"></script>
-    <script> user = JSON.parse(localStorage.getItem('user'));
-
-        console.log(user);
+    <script> 
+        user = JSON.parse(localStorage.getItem('user'));
         if (user != null) {
             document.querySelector('.show-signup').style.display = 'none';
             document.querySelector('.ac').style.display = '';
@@ -601,8 +596,7 @@
     <script>
         //CLick tìm kiếm nâng cao
         // clickSearch();
-
-
+        margin_js();
         document.querySelectorAll('.btn-dm').forEach(button => {
             button.addEventListener('click', function () {
                 // Xóa active và nền đen cho tất cả các nút
@@ -627,8 +621,6 @@
     <script>
         clickcard();
         clickSearch();
-
-
         const logoutButton = document.getElementById("logout");
         console.log(logoutButton);
         logoutButton.addEventListener('click', function () {
@@ -655,7 +647,6 @@
                 }, 'Mật khẩu nhập lại không chính xác')
             ],
             onSubmit: function (data) {
-                console.log("bấm rồi nè1");
                 let tmp = {
                     data,
                     cart: []
@@ -668,7 +659,6 @@
                 localStorage.setItem('userList', JSON.stringify(userList));
                 console.log(JSON.parse(localStorage.getItefm('userList')));
                 document.querySelector('.s-js').style.display = 'flex';
-
             }
         });
     </script>
@@ -682,9 +672,6 @@
             ],
             onSubmit: function (data) {
                 let userList = (JSON.parse(localStorage.getItem('userList'))) || [];
-
-                console.log("bấm rồi nè")
-                console.log(userList);
                 let check = false;
                 for (let i = 0; i < userList.length; i++) {
                     if (userList[i].data.name === data.user && userList[i].data.password === data.pass) {
@@ -717,7 +704,7 @@
         // Xử lý sự kiện khi nhấn vào các nút size
         document.querySelectorAll('.size-btn').forEach(button => {
             button.addEventListener('click', function () {
-                console.log(this);
+                
                 // Xóa trạng thái active của tất cả các nút size
                 document.querySelectorAll('.size-btn').forEach(btn => {
                     btn.classList.remove('active');
