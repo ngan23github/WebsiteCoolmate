@@ -527,6 +527,26 @@
         Search();
         clickSearch();
         clickaddpd();
+        function addspm() {
+            console.log("test");
+            // Lấy các phần tử của modal và các nút
+            const modal = document.getElementById('myModal');  // Lấy modal theo ID
+            const closeModal = modal.querySelector('.close'); // Lấy nút đóng modal
+            const loginButton = modal.querySelector('.btn-login'); // Lấy nút đăng nhập
+            let user = JSON.parse(localStorage.getItem('user'));
+            if (user == null) {
+                document.querySelector('.modal-text').innerHTML = "Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng";
+                modal.style.display = 'flex';
+            } else {
+                // Hiển thị thông báo thêm sản phẩm vào giỏ hàng ngay lập tức
+                const cartMessage = document.querySelector('.add-cart-tb');
+                cartMessage.style.display = 'block';  // Hiện thông báo
+                setTimeout(() => {
+                    cartMessage.style.display = 'none';  // Ẩn thông báo sau 3 giây
+                }, 3000);
+            }
+        }
+
     </script>
 
     <script>
