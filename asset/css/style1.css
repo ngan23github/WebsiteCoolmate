@@ -1366,11 +1366,10 @@ td {
   background: #fff;
   max-width: 700px;
   width: 100%;
-  top: 50%;
   left: 50%;
   padding: 15px;
   border-radius: 8px;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -70%);
   animation: modalShow 0.5s linear;
 }
 .order-details .close-btn{
@@ -1500,7 +1499,7 @@ td {
   }
 
   to {
-      transform: translate(-50%, -40%);
+      transform: translate(-50%, -70%);
       opacity: 1;
   }
 }
