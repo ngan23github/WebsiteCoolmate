@@ -3,6 +3,13 @@ function clickSearch() {
         document.querySelector('.htsearch-js').style.display = "none";
     })
     document.querySelector('.search-click-js').addEventListener('click', function () {
+        if (window.location.href.includes("index")) {
+            const header = document.querySelector('.mg-js');
+
+            // Kiểm tra chiều cao của header
+            const headerHeight = header.offsetHeight;
+            document.querySelector('.mg-bg-js').style.marginTop = "-50px";
+        }
         document.querySelector('.htsearch-js').style.display = "";
     });
     document.querySelector('.basic-search-btn1').addEventListener(("click"), function () {
@@ -122,4 +129,15 @@ function clickaddpd() {
             }
         });
     });
+}
+
+
+// Kiểm tra chiều cao header
+function margin_js() {
+    const header = document.querySelector('.mg-js');
+
+    // Kiểm tra chiều cao của header
+    const headerHeight = header.offsetHeight;
+    console.log(`chiều cao: ${headerHeight}`);
+    document.querySelector('.mg-bg-js').style.marginTop = `${headerHeight}px`;
 }
