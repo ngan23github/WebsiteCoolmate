@@ -101,14 +101,20 @@ function clickaddpd() {
     const modal = document.getElementById('myModal');  // Lấy modal theo ID
     const closeModal = modal.querySelector('.close'); // Lấy nút đóng modal
     const loginButton = modal.querySelector('.btn-login'); // Lấy nút đăng nhập
-
+    let user = JSON.parse(localStorage.getItem('user'));
     // Đảm bảo modal được hiển thị khi trang được tải
     document.addEventListener('DOMContentLoaded', function () {
         // Lắng nghe sự kiện click vào các nút có class 'add-card-js'
         document.querySelectorAll('.add-card-js').forEach((value) => {
             value.addEventListener("click", function () {
-                console.log("click thêm nè");
-                modal.style.display = 'flex'; // Hiển thị modal
+                let user = JSON.parse(localStorage.getItem('user'));
+                if (user == null) {
+                    console.log("đg chạy cái này");
+                    console.log(document.querySelector('.modal-text'));
+                    document.querySelector('.modal-text').innerHTML = "Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng";
+                    modal.style.display = 'flex';
+                }
+
             });
         });
 
@@ -118,15 +124,15 @@ function clickaddpd() {
         });
 
         // Chuyển hướng đến trang đăng nhập khi click vào nút "Đăng Nhập"
-        loginButton.addEventListener('click', () => {
-            let tmp = document.querySelector('.s-js').style.display;
-            console.log(document.querySelector('.s-js'));
-            if (tmp === "none") {
-                document.querySelector('.modal-text').innerHTML = "Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng"; // Thay đổi nội dung
-                document.querySelector('.s-js').style.display = "flex"; // Hiển thị phần đăng nhập
-                modal.style.display = 'none'; // Đóng modal sau khi click
-            }
-        });
+        // loginButton.addEventListener('click', () => {
+        //     let tmp = document.querySelector('.s-js').style.display;
+        //     console.log(document.querySelector('.s-js'));
+        //     if (tmp === "none") {
+        //         document.querySelector('.modal-text').innerHTML = "Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng"; // Thay đổi nội dung
+        //         document.querySelector('.s-js').style.display = "flex"; // Hiển thị phần đăng nhập
+        //         modal.style.display = 'none'; // Đóng modal sau khi click
+        //     }
+        // });
 
         // Đóng modal khi click bên ngoài modal
         window.addEventListener('click', (event) => {
