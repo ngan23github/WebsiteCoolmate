@@ -1379,6 +1379,7 @@ td {
   padding: 15px;
   border-radius: 8px;
   overflow-y: auto;
+  overscroll-behavior: contain;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
