@@ -159,11 +159,13 @@ function renderTable(){
     document.querySelector('.js-user-table').innerHTML = tableHTML;
 
     // Delete PopUp
-    document.querySelectorAll('.delete-btn').forEach((deleteButton) => {
+    document.querySelectorAll('.delete-btn').forEach((deleteButton, i) => {
         deleteButton.addEventListener('click', ()=>{
             delete_popup.classList.add('active');
             const popup_confirm_btn = document.querySelector('.popup-confirm-btn');
             popup_confirm_btn.addEventListener('click', ()=>{
+                // userListMenu.splice(i, 1);
+                // renderTable();
                 delete_popup.classList.remove('active');
             });
         });
@@ -194,7 +196,6 @@ function renderTable(){
     });
     document.querySelectorAll('.edit-btn').forEach((editButton, i)=>{
         editButton.addEventListener('click', ()=>{
-            console.log(userListMenu[i]);
             edit_user.value = userListMenu[i].username;
             edit_email.value = userListMenu[i].email;
             edit_phone.value = userListMenu[i].phone;
