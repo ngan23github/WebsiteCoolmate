@@ -31,76 +31,59 @@
 <body>
     <!-- ---------------HEADER---------- -->
     <header style="width: auto;">
-        <div class="container-fluid bgtop2 fixed-top">
-            <div class="row p-3 align-items-center">
+        <div class="container-fluid bg-dark fixed-top">
+            <div class="row align-items-center p-2">
                 <!-- Logo -->
-                <div class="col-1  ms-1">
-                    <img src="./../vendor/image/logo-coolmate-new.svg" alt="">
+                <div class="col-auto">
+                    <a href="./../index.html">
+                        <img src="./../vendor/image/logo-coolmate-new.svg" alt="Logo" style="height: 40px;">
+                    </a>
                 </div>
 
-                <!-- Sản phẩm -->
-                <div class="col xl-6 lg-6 md-5">
-                    <!-- Desktop menu (dàn ngang) -->
-                    <div class="d-none d-md-flex justify-content-center">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="./../index.html">Trang chủ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./product.html">Sản phẩm</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./aboutMe.html">Giới thiệu</a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                    <!-- Mobile menu (dọc) -->
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-md-none">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./../index.html">Trang chủ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./product.html">Sản phẩm</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./aboutMe.html">Giới thiệu</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+                <!-- Menu -->
+                <div class="col d-none d-md-block">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./../index.html">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./product.html">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./aboutMe.html">Giới thiệu</a>
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Tìm kiếm -->
-                <div class="col-md-1 col-xl-3 col-lg-1">
-                    <div class="header-search">
-                        <input type="text" placeholder="Tìm kiếm" class="header-search-rp" />
-                        <button class="header-search-css" style="color: black;"><i
-                                class="ri-search-2-line"></i></button>
-                    </div>
-                    <div style="display: none;" class="search-delete">
-                        <button class="clear-btn" id="clear-btn">
-                            <i class="ri-close-line"></i>
-                        </button>
-                    </div>
+                <!-- Mobile Menu Toggle -->
+                <div class="col-auto d-md-none">
+                    <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
 
-                <!-- Tài khoản và Giỏ hàng -->
-                <div class="col-xl-2 col-lg-4 md-5 text-end d-flex justify-content-end align-items-center gap-3 me-3">
-                    <div class="header-account">
+                <!-- Search -->
+                <div class="col-auto ms-auto">
+                    <div class="d-flex align-items-center search-js">
+                        <input type="text" class="form-control form-control-sm d-none d-md-block search-click-js"
+                            placeholder="Tìm kiếm">
+                        <button class="btn btn-sm btn-outline-light ms-2 "><i class="ri-search-2-line"></i></button>
+
+                    </div>
+
+                </div>
+
+                <!-- Account & Cart -->
+
+                <div class="col-auto d-flex align-items-center gap-3">
+                    <div class="header-account d-none d-md-block">
                         <div class="show-signup">
-                            <div class="sign-in-js" style="display: inline-block;">Đăng Nhập</div>/<div
-                                class="register-js" style="display: inline-block;">Đăng Ký</div>
+                            <div class="text-white">
+                                <div class="sign-in-js" style="display: inline-block;">Đăng Nhập</div>/<div
+                                    class="register-js" style="display: inline-block;">Đăng Ký</div>
+                            </div>
                         </div>
-
                     </div>
                     <div class="header-account ac">
                         <i class="fa fa-user ac-img" style="color: white;"></i>
@@ -108,59 +91,40 @@
                             <li><a href="./profile.html">Hồ sơ</a></li>
                             <li><a href="./orders.html">Đơn hàng</a></li>
                             <li>
-                                <a href="#" id="logout">Đăng xuất</a>
+                                <div style="color: black;" id="logout" class="logout">Đăng xuất</div>
                             </li>
                         </ul>
                     </div>
-                    <div class="header-cart">
-                        <i class="ri-shopping-cart-line" number="2"></i>
+                    <div class="header-cart position-relative">
+                        <button class="btn btn-sm btn-outline-light" style="border: none; background: transparent;">
+                            <i class="ri-shopping-cart-line" style="color: white;" number="0"></i>
+                            <!-- Số lượng giỏ hàng -->
+
+                        </button>
                     </div>
                 </div>
+
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="collapse bg-dark" id="mobileMenu">
+                <ul class="nav flex-column text-white p-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./../index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./product.html">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./aboutMe.html">Giới thiệu</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- Tìmm kiếm cơ bản -->
-        <!-- <div class="search-css search-cb" style="display: none;">
-            <div class="search-box">
-                <div class="search-container">
-                    <input class="sb-input" type="text" placeholder="Tìm kiếm" />
-                    <button class="sb-button"><i class="ri-search-2-line"></i></button>
-                </div>
 
-            </div>
-            <div class="btn btn-light">Tìm kiếm nâng cao</div>
-        </div> -->
-        <!-- Tìm kiếm nâng cao -->
-        <div class="search-css" style="display: none;">
-            <div class="search-box">
-                <div class="search-container">
-                    <input class="sb-input" type="text" placeholder="Tìm kiếm" />
 
-                    <div class="dropdown category-css" style="display: none;">
-                        <select name="category" id="category" style="padding-right: 10px;">
-                            <option value="">Tất cả</option>
-                            <option value="electronics">Áo thun</option>
-                            <option value="fashion">Áo sơ mi</option>
-                            <option value="books">Áo Polo</option>
-                        </select>
-                    </div>
-                    <div class="dropdown price-css" style="display: none;">
-                        <select id="price-filter">
-                            <option value="all">Tất cả</option>
-                            <option value="0-200000">Dưới 200.000 VND</option>
-                            <option value="200000-5000000">200.000 VND - 299.000 VND</option>
-                            <option value="5000000-10000000">300.000 VND - 499.000 VND</option>
-                            <option value="10000000">Trên 500.000 VND</option>
-                        </select>
-                    </div>
-                    <button class="sb-button"><i class="ri-search-2-line"></i></button>
-                </div>
-                <div class="search-nc bg-primary text-white text-center rounded-pill px-4 py-1 d-flex align-items-center ms-2 bg-dark text-light"
-                    style="cursor: pointer;">
-                    <i class="bi bi-search"></i> Tìm kiếm nâng cao
-                </div>
-            </div>
 
-        </div>
+
     </header>
 
     <!-- Hiện các  thông báo -->

@@ -277,7 +277,7 @@ function clickproduct() {
   })
 
 }
-load();
+// load();
 function load() {
 
   console.log("đg load");

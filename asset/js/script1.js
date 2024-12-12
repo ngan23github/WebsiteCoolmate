@@ -117,6 +117,8 @@ function clickaddpd() {
                     modal.style.display = 'flex';
                 } else {
                     // Hiển thị thông báo thêm sản phẩm vào giỏ hàng ngay lập tức
+                    console.log("hihihihi");
+                    console.log(value.parentElement);
                     const cartMessage = document.querySelector('.add-cart-tb');
                     cartMessage.style.display = 'block';  // Hiện thông báo
                     setTimeout(() => {

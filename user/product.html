@@ -529,7 +529,7 @@
         clickSearch();
         clickaddpd();
         function addspm() {
-            console.log("test");
+
             // Lấy các phần tử của modal và các nút
             const modal = document.getElementById('myModal');  // Lấy modal theo ID
             const closeModal = modal.querySelector('.close'); // Lấy nút đóng modal
@@ -541,6 +541,7 @@
             } else {
                 // Hiển thị thông báo thêm sản phẩm vào giỏ hàng ngay lập tức
                 const cartMessage = document.querySelector('.add-cart-tb');
+
                 cartMessage.style.display = 'block';  // Hiện thông báo
                 setTimeout(() => {
                     cartMessage.style.display = 'none';  // Ẩn thông báo sau 3 giây

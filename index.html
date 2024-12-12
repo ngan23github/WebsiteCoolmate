@@ -594,7 +594,13 @@
         Search();
         clickaddpd();
         function addspm() {
+            const event = window.event;
 
+            // Lấy phần tử được click
+            const clickedElement = event.target;
+
+            // Lấy thẻ cha của phần tử được click
+            console.log(clickedElement.parentElement);
             // Lấy các phần tử của modal và các nút
             const modal = document.getElementById('myModal');  // Lấy modal theo ID
             const closeModal = modal.querySelector('.close'); // Lấy nút đóng modal
@@ -704,6 +710,7 @@
                         console.log(JSON.parse(localStorage.getItem('user')));
                         console.log("đăng nhập thành công");
                         document.querySelector(".ri-shopping-cart-line").setAttribute('number', 2);
+                        location.reload();
 
                     }
                 }
